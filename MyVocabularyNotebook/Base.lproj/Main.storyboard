@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Translation Table View Controller-->
         <scene sceneID="BVP-er-vES">
             <objects>
-                <tableViewController id="ed8-k6-jDo" sceneMemberID="viewController">
+                <tableViewController id="ed8-k6-jDo" customClass="TranslationTableViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="3E9-VD-KCV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,18 +23,59 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mID-Bc-D5k" id="xv4-aQ-ZOi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD5-DY-teW">
-                                            <rect key="frame" x="8" y="8" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53s-wY-E92">
+                                            <rect key="frame" x="8" y="8" width="337" height="95.5"/>
+                                            <color key="backgroundColor" red="0.9599003822658505" green="0.96940434644670048" blue="0.96940434644670048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VNL-tQ-Zg3">
+                                            <rect key="frame" x="16" y="16" width="351" height="95.5"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTX-v2-gus">
+                                                    <rect key="frame" x="0.0" y="0.0" width="175.5" height="95.5"/>
+                                                    <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="16" right="8"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5h-IX-PXI">
+                                                    <rect key="frame" x="175.5" y="0.0" width="175.5" height="95.5"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ker-A3-vw1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="175.5" height="95.5"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.66120717005076135" green="0.66120717005076135" blue="0.66120717005076135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ker-A3-vw1" firstAttribute="top" secondItem="d5h-IX-PXI" secondAttribute="top" id="1VY-SX-tsi"/>
+                                                        <constraint firstItem="ker-A3-vw1" firstAttribute="leading" secondItem="d5h-IX-PXI" secondAttribute="leading" id="M56-By-uTr"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ker-A3-vw1" secondAttribute="bottom" id="fyl-2o-0vG"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ker-A3-vw1" secondAttribute="trailing" id="ha8-fJ-5nK"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="VNL-tQ-Zg3" firstAttribute="leading" secondItem="xv4-aQ-ZOi" secondAttribute="leading" constant="16" id="2DR-DI-b1C"/>
+                                        <constraint firstItem="53s-wY-E92" firstAttribute="leading" secondItem="xv4-aQ-ZOi" secondAttribute="leading" constant="8" id="4SO-JH-g97"/>
+                                        <constraint firstAttribute="trailing" secondItem="53s-wY-E92" secondAttribute="trailing" constant="30" id="7nj-jn-L26"/>
+                                        <constraint firstAttribute="bottom" secondItem="53s-wY-E92" secondAttribute="bottom" constant="16" id="dNQ-XX-Dsq"/>
+                                        <constraint firstItem="53s-wY-E92" firstAttribute="top" secondItem="xv4-aQ-ZOi" secondAttribute="top" constant="8" id="dOT-8F-tqi"/>
+                                        <constraint firstItem="VNL-tQ-Zg3" firstAttribute="top" secondItem="xv4-aQ-ZOi" secondAttribute="top" constant="16" id="jmI-pk-X2P"/>
+                                        <constraint firstAttribute="bottom" secondItem="VNL-tQ-Zg3" secondAttribute="bottom" constant="8" id="lA5-bK-Z0i"/>
+                                        <constraint firstAttribute="trailing" secondItem="VNL-tQ-Zg3" secondAttribute="trailing" constant="8" id="n4Q-dD-g1i"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="translationTextView1" destination="OTX-v2-gus" id="Xtf-om-cUr"/>
+                                    <outlet property="translationTextView2" destination="ker-A3-vw1" id="I5n-Y8-4sZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,7 +86,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYC-tY-LKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-698" y="39"/>
+            <point key="canvasLocation" x="-698.39999999999998" y="38.23088455772114"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

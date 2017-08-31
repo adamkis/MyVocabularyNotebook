@@ -10,6 +10,10 @@ import UIKit
 
 class TranslationTableViewCell: UITableViewCell {
 
+    // MARK: Properties
+    @IBOutlet weak var translationTextView1: UITextView!
+    @IBOutlet weak var translationTextView2: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

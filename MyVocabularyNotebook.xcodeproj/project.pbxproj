@@ -14,6 +14,7 @@
 		6671D4621F555E6100BE86BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6671D4601F555E6100BE86BE /* LaunchScreen.storyboard */; };
 		6671D46D1F555E6200BE86BE /* MyVocabularyNotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D46C1F555E6200BE86BE /* MyVocabularyNotebookTests.swift */; };
 		6671D47A1F56AB4400BE86BE /* TranslationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */; };
+		6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D47D1F580B3000BE86BE /* TranslationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		6671D4771F55771E00BE86BE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Main.strings; sourceTree = "<group>"; };
 		6671D4781F55771E00BE86BE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewCell.swift; sourceTree = "<group>"; };
+		6671D47D1F580B3000BE86BE /* TranslationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				6671D4591F555E6100BE86BE /* ViewController.swift */,
 				6671D45B1F555E6100BE86BE /* Main.storyboard */,
 				6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */,
+				6671D47D1F580B3000BE86BE /* TranslationTableViewController.swift */,
 				6671D45E1F555E6100BE86BE /* Assets.xcassets */,
 				6671D4601F555E6100BE86BE /* LaunchScreen.storyboard */,
 				6671D4631F555E6100BE86BE /* Info.plist */,
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6671D45A1F555E6100BE86BE /* ViewController.swift in Sources */,
+				6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */,
 				6671D47A1F56AB4400BE86BE /* TranslationTableViewCell.swift in Sources */,
 				6671D4581F555E6100BE86BE /* AppDelegate.swift in Sources */,
 			);
