@@ -49,8 +49,15 @@ class TranslationTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        cell.translationTextView1.text = "das Haus"
-        cell.translationTextView2.text = "the house"
+        cell.translationTextView1.text = "das Haus das Haus das Haus das Haus das Haus das Haus das Haus"
+        cell.translationTextView2.text = "the house the house the house the house the house the house"
+        
+        cell.translationTextView1.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        cell.translationTextView2.textContainerInset = UIEdgeInsetsMake(8, 8, 8, 8);
+        
+        cell.translation1Background.layer.cornerRadius = 5;
+        cell.translation2Background.layer.cornerRadius = 5;
+        
         
         return cell
         

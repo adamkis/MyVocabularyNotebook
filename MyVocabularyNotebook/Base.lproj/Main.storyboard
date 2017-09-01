@@ -73,6 +73,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="translation1Background" destination="53s-wY-E92" id="ENk-iN-6Wd"/>
+                                    <outlet property="translation2Background" destination="d5h-IX-PXI" id="fpz-E2-cew"/>
                                     <outlet property="translationTextView1" destination="OTX-v2-gus" id="Xtf-om-cUr"/>
                                     <outlet property="translationTextView2" destination="ker-A3-vw1" id="I5n-Y8-4sZ"/>
                                 </connections>
