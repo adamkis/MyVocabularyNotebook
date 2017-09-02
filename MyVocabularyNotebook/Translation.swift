@@ -14,6 +14,8 @@ class Translation: NSObject {
     var sourceTranslation: String
     var targetTranslation: String
     var session: String!
+    var priority: Int!
+    var color: UIColor!
     
     init(sourceTranslation: String, targetTranslation: String, session: String?){
         self.sourceTranslation = sourceTranslation
