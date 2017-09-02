@@ -88,7 +88,7 @@
                     <navigationItem key="navigationItem" title="My Phrases" id="UdL-IW-5KJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QI3-F8-lbN">
                             <connections>
-                                <segue destination="xKU-Ix-58T" kind="presentation" identifier="AddItem" id="UtS-q3-f4d"/>
+                                <segue destination="8Xt-xf-1RC" kind="presentation" identifier="AddItem" id="RNW-qz-IbG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -97,80 +97,81 @@
             </objects>
             <point key="canvasLocation" x="240.80000000000001" y="38.23088455772114"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Translation-->
+        <scene sceneID="s5S-TZ-UpJ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IKm-wj-TiD" customClass="TranslationViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="jrp-dt-vMB"/>
+                        <viewControllerLayoutGuide type="bottom" id="890-re-7Lp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="6xS-Ji-SAz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vNY-Fe-ZxO">
-                                <rect key="frame" x="16" y="28" width="343" height="503"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JKO-DE-u4Q">
+                                <rect key="frame" x="16" y="72" width="343" height="243"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pd1-D0-Uih">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cx-zB-4mE">
+                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter English phrase..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yik-K8-wWs">
-                                        <rect key="frame" x="0.0" y="28.5" width="343" height="200"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIb-Mc-Q3L">
+                                        <rect key="frame" x="0.0" y="28.5" width="343" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Jyl-Kv-DtP" userLabel="height = 170"/>
+                                            <constraint firstAttribute="height" constant="70" id="Pep-p7-5Ul"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="German" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2L-wc-ZVI">
-                                        <rect key="frame" x="0.0" y="236.5" width="343" height="20.5"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="German" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohr-bP-Izd">
+                                        <rect key="frame" x="0.0" y="106.5" width="61" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter German phrase..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-RE-Hd3">
-                                        <rect key="frame" x="0.0" y="265" width="343" height="200"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V2i-nb-9dh">
+                                        <rect key="frame" x="0.0" y="135" width="343" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="EW8-Nb-4Vc" userLabel="height = 170"/>
+                                            <constraint firstAttribute="height" constant="70" id="SGc-0f-Puj"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDI-f2-rOg">
-                                        <rect key="frame" x="0.0" y="473" width="343" height="30"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOn-rD-BdF">
+                                        <rect key="frame" x="0.0" y="213" width="343" height="30"/>
                                         <state key="normal" title="Save"/>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="7Ax-RE-Hd3" firstAttribute="leading" secondItem="vNY-Fe-ZxO" secondAttribute="leading" id="0wI-pI-YD4"/>
-                                    <constraint firstAttribute="trailing" secondItem="7Ax-RE-Hd3" secondAttribute="trailing" id="6pr-dS-rgj"/>
-                                    <constraint firstAttribute="trailing" secondItem="Pd1-D0-Uih" secondAttribute="trailing" id="NXM-Lq-nJS"/>
-                                    <constraint firstAttribute="trailing" secondItem="H2L-wc-ZVI" secondAttribute="trailing" id="NyQ-u0-b4K"/>
-                                    <constraint firstItem="Yik-K8-wWs" firstAttribute="leading" secondItem="vNY-Fe-ZxO" secondAttribute="leadingMargin" id="by3-Wj-kIQ"/>
-                                    <constraint firstItem="H2L-wc-ZVI" firstAttribute="leading" secondItem="vNY-Fe-ZxO" secondAttribute="leading" id="cSt-Xj-4nC"/>
-                                    <constraint firstItem="TDI-f2-rOg" firstAttribute="centerX" secondItem="vNY-Fe-ZxO" secondAttribute="centerX" id="d9K-wg-JJV"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Yik-K8-wWs" secondAttribute="trailing" id="hA9-u4-to9"/>
-                                    <constraint firstItem="Pd1-D0-Uih" firstAttribute="leading" secondItem="vNY-Fe-ZxO" secondAttribute="leading" id="s4K-bO-mqN"/>
+                                    <constraint firstAttribute="trailing" secondItem="CIb-Mc-Q3L" secondAttribute="trailing" id="Ibr-kp-ZJd"/>
+                                    <constraint firstAttribute="trailing" secondItem="V2i-nb-9dh" secondAttribute="trailing" id="PaE-bO-vkP"/>
+                                    <constraint firstItem="WOn-rD-BdF" firstAttribute="centerX" secondItem="JKO-DE-u4Q" secondAttribute="centerX" id="WEL-4A-aEc"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vNY-Fe-ZxO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mTz-w0-b6x"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vNY-Fe-ZxO" secondAttribute="trailing" id="x9z-ET-F9d"/>
+                            <constraint firstItem="JKO-DE-u4Q" firstAttribute="top" secondItem="jrp-dt-vMB" secondAttribute="bottom" constant="8" id="2Ni-oP-vQL"/>
+                            <constraint firstItem="JKO-DE-u4Q" firstAttribute="leading" secondItem="6xS-Ji-SAz" secondAttribute="leadingMargin" id="Ufy-5o-HD8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JKO-DE-u4Q" secondAttribute="trailing" id="dee-dk-Mqa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="suE-mz-pIL"/>
+                    <navigationItem key="navigationItem" title="Translation" id="v83-Vh-W43">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K4J-Pp-IUO"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sourceTranslation" destination="CIb-Mc-Q3L" id="e3N-RW-irv"/>
+                        <outlet property="targetTranslation" destination="V2i-nb-9dh" id="Fo9-BQ-9bf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0x3-z5-WJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1903.2" y="36.431784107946029"/>
+            <point key="canvasLocation" x="2292" y="37.331334332833585"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cQU-3M-HSM">
@@ -191,22 +192,22 @@
             <point key="canvasLocation" x="-698.39999999999998" y="38.23088455772114"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="EeF-pM-xx0">
+        <scene sceneID="NcF-jb-nbx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xKU-Ix-58T" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Xt-xf-1RC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="afR-D6-ZT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4gO-st-gzx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="m9n-OJ-FW6"/>
+                        <segue destination="IKm-wj-TiD" kind="relationship" relationship="rootViewController" id="2df-40-9mR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bqz-ql-fG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2c-zO-zKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1352.8" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>
