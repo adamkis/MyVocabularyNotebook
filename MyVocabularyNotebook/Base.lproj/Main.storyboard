@@ -145,6 +145,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOn-rD-BdF">
                                         <rect key="frame" x="0.0" y="213" width="343" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <segue destination="mz2-mJ-bao" kind="unwind" unwindAction="unwindToTranslationListWithSender:" id="bJJ-9t-KHP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -163,7 +166,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Translation" id="v83-Vh-W43">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K4J-Pp-IUO"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OLE-dj-IcS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OLE-dj-IcS">
+                            <connections>
+                                <segue destination="mz2-mJ-bao" kind="unwind" unwindAction="unwindToTranslationListWithSender:" id="b1C-xT-0uZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="saveButton" destination="WOn-rD-BdF" id="WKa-Oe-mJp"/>
@@ -173,6 +180,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x3-z5-WJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mz2-mJ-bao" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2292" y="37.331334332833585"/>
         </scene>

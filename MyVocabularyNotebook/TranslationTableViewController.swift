@@ -72,6 +72,15 @@ class TranslationTableViewController: UITableViewController {
     
     //MARK: Actions
     
+    @IBAction func unwindToTranslationList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? TranslationViewController, let translation = sourceViewController.translation {
+            // Add new translation
+            let newIndexPath = IndexPath(row: translations.count, section: 0)
+            translations.append(translation)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     
 
     /*

@@ -47,16 +47,20 @@ class TranslationViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButtonNav,
-            let button2 = sender as? UIButton, button2 === saveButton
-            else {
-                os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-                return
-            }
+        // Configure the destination view controller only when any save button is pressed.
+        let buttonNav = sender as? UIBarButtonItem;
+        let button = sender as? UIButton;
+        if( buttonNav == nil && button == nil ){
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
         let sourceTranslation = sourceTranslationView.text
         let targetTranslation = targetTranslationView.text
+        
         translation = Translation(sourceTranslation: sourceTranslation, targetTranslation: targetTranslation)
+        
     }
+    
 
 }
