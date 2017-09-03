@@ -69,17 +69,18 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         // Disable the Save button while editing.
         saveButton.isEnabled = false
+        saveButtonNav.isEnabled = false
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         updateSaveButtonState()
-//        navigationItem.title = sourceTranslationView.text
     }
     
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
         let text = sourceTranslationView.text ?? ""
         saveButton.isEnabled = !text.isEmpty
+        saveButtonNav.isEnabled = !text.isEmpty
     }
     
 
