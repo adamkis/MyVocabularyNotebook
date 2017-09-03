@@ -9,12 +9,8 @@
 import UIKit
 import os.log
 
-class TranslationViewController: UIViewController {
+class TranslationViewController: UIViewController, UITextViewDelegate {
 
-//    @IBOutlet weak var sourceTranslationUITextView: UITextView!
-//    @IBOutlet weak var targetTranslationUITextView: UITextView!
-//    @IBOutlet weak var saveButtonNavBar: UIBarButtonItem!
-//    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var sourceTranslationView: UITextView!
     @IBOutlet weak var targetTranslationView: UITextView!
     @IBOutlet weak var saveButtonNav: UIBarButtonItem!
@@ -24,6 +20,12 @@ class TranslationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Handle the text field’s user input through delegate callbacks.
+        sourceTranslationView.delegate = self
+        // Enable the Save button only if the text field has a valid Meal name.
+        updateSaveButtonState()
+
 
         let borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         let borderWidth = CGFloat(1.0)
@@ -60,6 +62,24 @@ class TranslationViewController: UIViewController {
         
         translation = Translation(sourceTranslation: sourceTranslation, targetTranslation: targetTranslation)
         
+    }
+    
+    //MARK: UITextFieldDelegate
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        updateSaveButtonState()
+//        navigationItem.title = sourceTranslationView.text
+    }
+    
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = sourceTranslationView.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
     }
     
 
