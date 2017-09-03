@@ -165,7 +165,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Translation" id="v83-Vh-W43">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K4J-Pp-IUO"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K4J-Pp-IUO">
+                            <connections>
+                                <action selector="cancel:" destination="IKm-wj-TiD" id="ABU-zC-bKg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="OLE-dj-IcS">
                             <connections>
                                 <segue destination="mz2-mJ-bao" kind="unwind" unwindAction="unwindToTranslationListWithSender:" id="b1C-xT-0uZ"/>
