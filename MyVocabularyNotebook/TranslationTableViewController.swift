@@ -11,18 +11,24 @@ import UIKit
 class TranslationTableViewController: UITableViewController {
 
     // MARK: Properties
-//    var translation1 = "yooo"
-//    var translation2 = "yooo546"
-    
+    var translations = [Translation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dummy1source = "das Haus das Haus das Haus das Haus das Haus das Haus das Haus"
+        let dummy2source = "the house the house the house the house the house the house"
+        
+        guard let dummy1 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
+            fatalError("Unable to instantiate translation")
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        guard let dummy2 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
+            fatalError("Unable to instantiate translation")
+        }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        translations += [dummy1, dummy2]
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +43,7 @@ class TranslationTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return translations.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,12 +55,13 @@ class TranslationTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        cell.translationTextView1.text = "das Haus das Haus das Haus das Haus das Haus das Haus das Haus"
-        cell.translationTextView2.text = "the house the house the house the house the house the house"
+        let translation = translations[indexPath.row]
+        
+        cell.translationTextView1.text = translation.sourceTranslation
+        cell.translationTextView2.text = translation.targetTranslation
         
         cell.translationTextView1.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
         cell.translationTextView2.textContainerInset = UIEdgeInsetsMake(8, 8, 8, 8);
-        
         cell.translation1Background.layer.cornerRadius = 5;
         cell.translation2Background.layer.cornerRadius = 5;
         
@@ -62,6 +69,10 @@ class TranslationTableViewController: UITableViewController {
         return cell
         
     }
+    
+    //MARK: Actions
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

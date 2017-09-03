@@ -163,11 +163,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Translation" id="v83-Vh-W43">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K4J-Pp-IUO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OLE-dj-IcS"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="sourceTranslation" destination="CIb-Mc-Q3L" id="e3N-RW-irv"/>
-                        <outlet property="targetTranslation" destination="V2i-nb-9dh" id="Fo9-BQ-9bf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x3-z5-WJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
