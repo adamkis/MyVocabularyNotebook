@@ -165,6 +165,12 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K4J-Pp-IUO"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="OLE-dj-IcS"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="WOn-rD-BdF" id="WKa-Oe-mJp"/>
+                        <outlet property="saveButtonNav" destination="OLE-dj-IcS" id="tmO-vl-nZ6"/>
+                        <outlet property="sourceTranslationView" destination="CIb-Mc-Q3L" id="QZy-wQ-as8"/>
+                        <outlet property="targetTranslationView" destination="V2i-nb-9dh" id="p5l-8r-0c1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x3-z5-WJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
