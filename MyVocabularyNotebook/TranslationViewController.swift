@@ -23,6 +23,14 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         
         // Handle the text field’s user input through delegate callbacks.
         sourceTranslationView.delegate = self
+        
+        // Set up views if editing an existing translation.
+        if let translation = translation {
+//            navigationItem.title = translation.name
+            sourceTranslationView.text   = translation.sourceTranslation
+            targetTranslationView.text = translation.targetTranslation
+        }
+        
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
 

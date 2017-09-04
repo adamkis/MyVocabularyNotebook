@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class TranslationTableViewController: UITableViewController {
 
@@ -118,9 +119,36 @@ class TranslationTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+            case "AddItem":
+                os_log("Adding a new translation.", log: OSLog.default, type: .debug)
+            case "ShowDetail":
+                guard let translationDetailViewController = segue.destination as? TranslationViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+            
+                guard let selectedTranslationCell = sender as? TranslationTableViewCell else {
+                    fatalError("Unexpected sender: \(String(describing: sender))")
+                }
+            
+                guard let indexPath = tableView.indexPath(for: selectedTranslationCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+                let selectedMeal = translations[indexPath.row]
+                translationDetailViewController.translation = selectedMeal
+            default:
+                fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
+    }
+    
+    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
