@@ -20,18 +20,22 @@ class TranslationTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        let dummy1source = "das Haus das Haus das Haus das Haus das Haus das Haus das Haus"
-        let dummy2source = "the house the house the house the house the house the house"
-        
-        guard let dummy1 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
-            fatalError("Unable to instantiate translation")
+        // Load any saved meals, otherwise load sample data.
+        if let savedTranslations = loadTranslations() {
+            translations += savedTranslations
         }
-
-        guard let dummy2 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
-            fatalError("Unable to instantiate translation")
+        else {
+            // Load the sample data.
+            let dummy1source = "das Haus das Haus das Haus das Haus das Haus das Haus das Haus"
+            let dummy2source = "the house the house the house the house the house the house"
+            guard let dummy1 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
+                fatalError("Unable to instantiate translation")
+            }
+            guard let dummy2 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
+                fatalError("Unable to instantiate translation")
+            }
+            translations += [dummy1, dummy2]
         }
-
-        translations += [dummy1, dummy2]
 
     }
 
@@ -74,6 +78,21 @@ class TranslationTableViewController: UITableViewController {
         
     }
     
+    //MARK: Private methods
+    private func saveTranslations() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(translations, toFile: Translation.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save translations...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadTranslations() -> [Translation]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Translation.ArchiveURL.path) as? [Translation]
+    }
+    
+    
     //MARK: Actions
     
     @IBAction func unwindToTranslationList(sender: UIStoryboardSegue) {
@@ -89,6 +108,8 @@ class TranslationTableViewController: UITableViewController {
                 translations.append(translation)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            // Save the meals.
+            saveTranslations()
         }
     }
     
@@ -105,6 +126,7 @@ class TranslationTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             translations.remove(at: indexPath.row)
+            saveTranslations()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
