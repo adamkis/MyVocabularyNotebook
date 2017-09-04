@@ -77,6 +77,7 @@
                                     <outlet property="translation2Background" destination="d5h-IX-PXI" id="fpz-E2-cew"/>
                                     <outlet property="translationTextView1" destination="OTX-v2-gus" id="Xtf-om-cUr"/>
                                     <outlet property="translationTextView2" destination="ker-A3-vw1" id="I5n-Y8-4sZ"/>
+                                    <segue destination="IKm-wj-TiD" kind="show" identifier="ShowDetail" id="ZsB-Xf-kdx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -222,7 +223,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2c-zO-zKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352.8" y="37.331334332833585"/>
+            <point key="canvasLocation" x="1335" y="543"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZsB-Xf-kdx"/>
+    </inferredMetricsTieBreakers>
 </document>
