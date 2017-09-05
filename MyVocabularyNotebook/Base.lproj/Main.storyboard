@@ -60,14 +60,21 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eac-nZ-WvS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="VNL-tQ-Zg3" firstAttribute="leading" secondItem="xv4-aQ-ZOi" secondAttribute="leading" constant="16" id="2DR-DI-b1C"/>
+                                        <constraint firstItem="Eac-nZ-WvS" firstAttribute="leading" secondItem="xv4-aQ-ZOi" secondAttribute="leading" id="3UB-Zx-I2J"/>
                                         <constraint firstItem="53s-wY-E92" firstAttribute="leading" secondItem="xv4-aQ-ZOi" secondAttribute="leading" constant="8" id="4SO-JH-g97"/>
                                         <constraint firstAttribute="trailing" secondItem="53s-wY-E92" secondAttribute="trailing" constant="30" id="7nj-jn-L26"/>
+                                        <constraint firstAttribute="trailing" secondItem="Eac-nZ-WvS" secondAttribute="trailing" id="BLs-uP-pnt"/>
                                         <constraint firstAttribute="bottom" secondItem="53s-wY-E92" secondAttribute="bottom" constant="16" id="dNQ-XX-Dsq"/>
                                         <constraint firstItem="53s-wY-E92" firstAttribute="top" secondItem="xv4-aQ-ZOi" secondAttribute="top" constant="8" id="dOT-8F-tqi"/>
+                                        <constraint firstAttribute="bottom" secondItem="Eac-nZ-WvS" secondAttribute="bottom" id="icV-gG-IV1"/>
                                         <constraint firstItem="VNL-tQ-Zg3" firstAttribute="top" secondItem="xv4-aQ-ZOi" secondAttribute="top" constant="16" id="jmI-pk-X2P"/>
+                                        <constraint firstItem="Eac-nZ-WvS" firstAttribute="top" secondItem="xv4-aQ-ZOi" secondAttribute="top" id="kOY-Xg-lI5"/>
                                         <constraint firstAttribute="bottom" secondItem="VNL-tQ-Zg3" secondAttribute="bottom" constant="8" id="lA5-bK-Z0i"/>
                                         <constraint firstAttribute="trailing" secondItem="VNL-tQ-Zg3" secondAttribute="trailing" constant="8" id="n4Q-dD-g1i"/>
                                     </constraints>
@@ -77,7 +84,7 @@
                                     <outlet property="translation2Background" destination="d5h-IX-PXI" id="fpz-E2-cew"/>
                                     <outlet property="translationTextView1" destination="OTX-v2-gus" id="Xtf-om-cUr"/>
                                     <outlet property="translationTextView2" destination="ker-A3-vw1" id="I5n-Y8-4sZ"/>
-                                    <segue destination="IKm-wj-TiD" kind="show" identifier="ShowDetail" id="ZsB-Xf-kdx"/>
+                                    <segue destination="IKm-wj-TiD" kind="show" identifier="ShowDetail" id="2Cg-Gh-zcq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -227,6 +234,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZsB-Xf-kdx"/>
+        <segue reference="2Cg-Gh-zcq"/>
     </inferredMetricsTieBreakers>
 </document>
