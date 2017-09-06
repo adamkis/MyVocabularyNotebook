@@ -26,15 +26,10 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         
         // Set up views if editing an existing translation.
         if let translation = translation {
-//            navigationItem.title = translation.name
             sourceTranslationView.text   = translation.sourceTranslation
             targetTranslationView.text = translation.targetTranslation
         }
         
-        // Enable the Save button only if the text field has a valid Meal name.
-        updateSaveButtonState()
-
-
         let borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         let borderWidth = CGFloat(1.0)
         let cornerRadius = CGFloat(5.0)
@@ -48,11 +43,6 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -70,42 +60,30 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        // Configure the destination view controller only when any save button is pressed.
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
         let buttonNav = sender as? UIBarButtonItem;
         let button = sender as? UIButton;
         if( buttonNav == nil && button == nil ){
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
+            return false
         }
-        
-        let sourceTranslation = sourceTranslationView.text
-        let targetTranslation = targetTranslationView.text
-        
+        let sourceTranslation: String = sourceTranslationView.text
+        let targetTranslation: String = targetTranslationView.text
+        if( sourceTranslation.characters.count < 1 || targetTranslation.characters.count < 1 ){
+            showEmptyAlert()
+            return false
+        }
         translation = Translation(sourceTranslation: sourceTranslation, targetTranslation: targetTranslation)
-        
+        return true
     }
     
-    //MARK: UITextFieldDelegate
+    //MARK: Helper methods
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        // Disable the Save button while editing.
-        saveButton.isEnabled = false
-        saveButtonNav.isEnabled = false
+    func showEmptyAlert(){
+        let refreshAlert = UIAlertController(title: "Empty field", message: "Please fill up both translation fields", preferredStyle: UIAlertControllerStyle.alert)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in }))
+        present(refreshAlert, animated: true, completion: nil)
     }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        updateSaveButtonState()
-    }
-    
-    private func updateSaveButtonState() {
-        // Disable the Save button if the text field is empty.
-        let text = sourceTranslationView.text ?? ""
-        saveButton.isEnabled = !text.isEmpty
-        saveButtonNav.isEnabled = !text.isEmpty
-    }
-    
 
 }
