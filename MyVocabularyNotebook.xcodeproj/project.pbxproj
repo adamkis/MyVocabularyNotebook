@@ -160,6 +160,7 @@
 				TargetAttributes = {
 					6671D4531F555E6100BE86BE = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = GE78767PWY;
 						ProvisioningStyle = Automatic;
 					};
 					6671D4671F555E6200BE86BE = {
@@ -363,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GE78767PWY;
 				INFOPLIST_FILE = MyVocabularyNotebook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyVocabularyNotebook;
@@ -375,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GE78767PWY;
 				INFOPLIST_FILE = MyVocabularyNotebook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyVocabularyNotebook;
