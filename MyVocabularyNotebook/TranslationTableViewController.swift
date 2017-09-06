@@ -13,6 +13,7 @@ class TranslationTableViewController: UITableViewController {
 
     // MARK: Properties
     var translations = [Translation]()
+    var emptyLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +25,10 @@ class TranslationTableViewController: UITableViewController {
         if let savedTranslations = loadTranslations() {
             translations += savedTranslations
         }
-        else {
-            // Load the sample data.
-            let dummy1source = "das Haus das Haus das Haus das Haus das Haus das Haus das Haus"
-            let dummy2source = "the house the house the house the house the house the house"
-            guard let dummy1 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
-                fatalError("Unable to instantiate translation")
-            }
-            guard let dummy2 = Translation(sourceTranslation: dummy1source, targetTranslation: dummy2source) else {
-                fatalError("Unable to instantiate translation")
-            }
-            translations += [dummy1, dummy2]
+        if (translations.count < 1){
+            emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
         }
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,6 +88,13 @@ class TranslationTableViewController: UITableViewController {
     //MARK: Actions
     
     @IBAction func unwindToTranslationList(sender: UIStoryboardSegue) {
+        
+        if(emptyLabel != nil){
+            self.tableView.backgroundView = nil
+            emptyLabel?.removeFromSuperview()
+            emptyLabel = nil
+        }
+        
         if let sourceViewController = sender.source as? TranslationViewController, let translation = sourceViewController.translation {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
@@ -111,10 +110,9 @@ class TranslationTableViewController: UITableViewController {
             // Save the meals.
             saveTranslations()
         }
+        
     }
     
-    
-
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
