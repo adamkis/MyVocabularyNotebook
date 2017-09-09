@@ -66,6 +66,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		666EE0211F641B2700F8CE8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6671D47F1F5983D800BE86BE /* Translation.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		666EE0221F641B3000F8CE8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6671D4811F5AB10600BE86BE /* TranslationViewController.swift */,
+				6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */,
+				6671D47D1F580B3000BE86BE /* TranslationTableViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		666EE0231F641B4400F8CE8D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		6671D44B1F555E6100BE86BE = {
 			isa = PBXGroup;
 			children = (
@@ -87,16 +113,14 @@
 		6671D4561F555E6100BE86BE /* MyVocabularyNotebook */ = {
 			isa = PBXGroup;
 			children = (
+				666EE0231F641B4400F8CE8D /* Misc */,
+				666EE0221F641B3000F8CE8D /* View */,
+				666EE0211F641B2700F8CE8D /* Model */,
 				6671D4571F555E6100BE86BE /* AppDelegate.swift */,
 				6671D45B1F555E6100BE86BE /* Main.storyboard */,
-				6671D4811F5AB10600BE86BE /* TranslationViewController.swift */,
-				6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */,
-				6671D47D1F580B3000BE86BE /* TranslationTableViewController.swift */,
-				6671D47F1F5983D800BE86BE /* Translation.swift */,
 				6671D45E1F555E6100BE86BE /* Assets.xcassets */,
 				6671D4601F555E6100BE86BE /* LaunchScreen.storyboard */,
 				6671D4631F555E6100BE86BE /* Info.plist */,
-				6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */,
 			);
 			path = MyVocabularyNotebook;
 			sourceTree = "<group>";
@@ -433,6 +457,7 @@
 				6671D4731F555E6200BE86BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6671D4741F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyVocabularyNotebookTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +466,7 @@
 				6671D4761F555E6200BE86BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
