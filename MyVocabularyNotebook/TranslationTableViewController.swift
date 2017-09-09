@@ -12,20 +12,23 @@ import os.log
 class TranslationTableViewController: UITableViewController {
 
     // MARK: Properties
-    var translations = [Translation]()
+    var myDictinaryGerEng: MyDictionary = MyDictionary(sourceLanguageCode: "de", targetLanguageCode: "en", sourceLanguageName: "German", targetLanguageName: "English")
+//    var translations = [Translation]()
     var emptyLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved meals, otherwise load sample data.
         if let savedTranslations = loadTranslations() {
-            translations += savedTranslations
+            myDictinaryGerEng.translations = savedTranslations
         }
-        if (translations.count < 1){
+        if (myDictinaryGerEng.translations.count < 1){
             emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
         }
         
@@ -43,7 +46,7 @@ class TranslationTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return translations.count
+        return myDictinaryGerEng.translations.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +58,7 @@ class TranslationTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        let translation = translations[indexPath.row]
+        let translation = myDictinaryGerEng.translations[indexPath.row]
         
         cell.translationTextView1.text = translation.sourceTranslation
         cell.translationTextView2.text = translation.targetTranslation
@@ -72,7 +75,7 @@ class TranslationTableViewController: UITableViewController {
     
     //MARK: Private methods
     private func saveTranslations() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(translations, toFile: Translation.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myDictinaryGerEng.translations, toFile: Translation.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -98,13 +101,13 @@ class TranslationTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? TranslationViewController, let translation = sourceViewController.translation {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
-                translations[selectedIndexPath.row] = translation
+                myDictinaryGerEng.translations[selectedIndexPath.row] = translation
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else{
                 // Add new translation
-                let newIndexPath = IndexPath(row: translations.count, section: 0)
-                translations.append(translation)
+                let newIndexPath = IndexPath(row: myDictinaryGerEng.translations.count, section: 0)
+                myDictinaryGerEng.translations.append(translation)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             // Save the meals.
@@ -123,7 +126,7 @@ class TranslationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            translations.remove(at: indexPath.row)
+            myDictinaryGerEng.translations.remove(at: indexPath.row)
             saveTranslations()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -133,9 +136,9 @@ class TranslationTableViewController: UITableViewController {
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let itemToMove:Translation = translations[fromIndexPath.row]
-        translations.remove(at: fromIndexPath.row)
-        translations.insert(itemToMove, at: to.row)
+        let itemToMove:Translation = myDictinaryGerEng.translations[fromIndexPath.row]
+        myDictinaryGerEng.translations.remove(at: fromIndexPath.row)
+        myDictinaryGerEng.translations.insert(itemToMove, at: to.row)
         saveTranslations()
     }
 
@@ -166,7 +169,7 @@ class TranslationTableViewController: UITableViewController {
                 guard let indexPath = tableView.indexPath(for: selectedTranslationCell) else {
                     fatalError("The selected cell is not being displayed by the table")
                 }
-                let selectedMeal = translations[indexPath.row]
+                let selectedMeal = myDictinaryGerEng.translations[indexPath.row]
                 translationDetailViewController.translation = selectedMeal
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

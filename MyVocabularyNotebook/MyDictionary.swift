@@ -17,7 +17,7 @@ class MyDictionary: NSObject {
     var targetLanguageName: String
     var translations: [Translation]
     
-    init?(sourceLanguageCode: String?, targetLanguageCode: String?, sourceLanguageName: String?, targetLanguageName: String?){
+    init(sourceLanguageCode: String?, targetLanguageCode: String?, sourceLanguageName: String?, targetLanguageName: String?){
         self.sourceLanguageCode = sourceLanguageCode!
         self.targetLanguageCode = targetLanguageCode!
         self.sourceLanguageName = sourceLanguageName!
