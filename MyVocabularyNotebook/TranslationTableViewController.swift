@@ -22,8 +22,8 @@ class TranslationTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved meals, otherwise load sample data.
-        if let savedTranslations = loadTranslations() {
-            myDictinaryGerEng.translations = savedTranslations.translations
+        if let savedTranslations = loadDictionary() {
+            myDictinaryGerEng = savedTranslations
         }
         if (myDictinaryGerEng.translations.count < 1){
             emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
@@ -71,7 +71,7 @@ class TranslationTableViewController: UITableViewController {
     }
     
     //MARK: Private methods
-    private func saveTranslations() {
+    private func saveDictionary() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myDictinaryGerEng, toFile: myDictinaryGerEng.getArchiveUrl().path)
         if isSuccessfulSave {
             os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
@@ -80,7 +80,7 @@ class TranslationTableViewController: UITableViewController {
         }
     }
     
-    private func loadTranslations() -> MyDictionary?  {
+    private func loadDictionary() -> MyDictionary?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: myDictinaryGerEng.getArchiveUrl().path) as? MyDictionary
     }
     
@@ -108,7 +108,7 @@ class TranslationTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             // Save the meals.
-            saveTranslations()
+            saveDictionary()
         }
         
     }
@@ -124,7 +124,7 @@ class TranslationTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             myDictinaryGerEng.translations.remove(at: indexPath.row)
-            saveTranslations()
+            saveDictionary()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -136,7 +136,7 @@ class TranslationTableViewController: UITableViewController {
         let itemToMove:Translation = myDictinaryGerEng.translations[fromIndexPath.row]
         myDictinaryGerEng.translations.remove(at: fromIndexPath.row)
         myDictinaryGerEng.translations.insert(itemToMove, at: to.row)
-        saveTranslations()
+        saveDictionary()
     }
 
     // Override to support conditional rearranging of the table view.
