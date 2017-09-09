@@ -17,6 +17,9 @@ class MyDictionary: NSObject {
     var targetLanguageName: String
     var translations: [Translation]
     
+    //MARK: Archiving Paths
+    var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    
     init(sourceLanguageCode: String?, targetLanguageCode: String?, sourceLanguageName: String?, targetLanguageName: String?){
         self.sourceLanguageCode = sourceLanguageCode!
         self.targetLanguageCode = targetLanguageCode!
@@ -24,5 +27,14 @@ class MyDictionary: NSObject {
         self.targetLanguageName = targetLanguageName!
         translations = [Translation]()
     }
+    
+    public func getDictionaryID() -> String{
+        return self.sourceLanguageCode + "///" + self.targetLanguageCode
+    }
+    
+    public func getArchiveUrl() -> URL{
+        return DocumentsDirectory.appendingPathComponent(getDictionaryID())
+    }
+    
     
 }

@@ -75,7 +75,7 @@ class TranslationTableViewController: UITableViewController {
     
     //MARK: Private methods
     private func saveTranslations() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myDictinaryGerEng.translations, toFile: Translation.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myDictinaryGerEng.translations, toFile: myDictinaryGerEng.getArchiveUrl().path)
         if isSuccessfulSave {
             os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -84,7 +84,7 @@ class TranslationTableViewController: UITableViewController {
     }
     
     private func loadTranslations() -> [Translation]?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Translation.ArchiveURL.path) as? [Translation]
+        return NSKeyedUnarchiver.unarchiveObject(withFile: myDictinaryGerEng.getArchiveUrl().path) as? [Translation]
     }
     
     
