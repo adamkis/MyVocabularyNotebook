@@ -29,7 +29,8 @@ class MyDictionary: NSObject {
     }
     
     public func getDictionaryID() -> String{
-        return self.sourceLanguageCode + "///" + self.targetLanguageCode
+        return self.sourceLanguageCode + "::" + self.targetLanguageCode
+//        return "translations"
     }
     
     public func getArchiveUrl() -> URL{
