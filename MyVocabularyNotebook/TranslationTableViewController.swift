@@ -12,21 +12,18 @@ import os.log
 class TranslationTableViewController: UITableViewController {
 
     // MARK: Properties
-    var myDictinaryGerEng: MyDictionary = MyDictionary(sourceLanguageCode: "de", targetLanguageCode: "en", sourceLanguageName: "German", targetLanguageName: "English")
-//    var translations = [Translation]()
+    var myDictinaryGerEng: MyDictionary = MyDictionary(sourceLanguageCode: "de", targetLanguageCode: "en", sourceLanguageName: "German", targetLanguageName: "English", translations: nil)
     var emptyLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved meals, otherwise load sample data.
         if let savedTranslations = loadTranslations() {
-            myDictinaryGerEng.translations = savedTranslations
+            myDictinaryGerEng.translations = savedTranslations.translations
         }
         if (myDictinaryGerEng.translations.count < 1){
             emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
@@ -75,7 +72,7 @@ class TranslationTableViewController: UITableViewController {
     
     //MARK: Private methods
     private func saveTranslations() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myDictinaryGerEng.translations, toFile: myDictinaryGerEng.getArchiveUrl().path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myDictinaryGerEng, toFile: myDictinaryGerEng.getArchiveUrl().path)
         if isSuccessfulSave {
             os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
         } else {
@@ -83,8 +80,8 @@ class TranslationTableViewController: UITableViewController {
         }
     }
     
-    private func loadTranslations() -> [Translation]?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: myDictinaryGerEng.getArchiveUrl().path) as? [Translation]
+    private func loadTranslations() -> MyDictionary?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: myDictinaryGerEng.getArchiveUrl().path) as? MyDictionary
     }
     
     
