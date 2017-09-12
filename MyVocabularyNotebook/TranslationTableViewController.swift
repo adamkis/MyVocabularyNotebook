@@ -20,6 +20,9 @@ class TranslationTableViewController: UITableViewController {
         
 //        myDictinaryGerEng = MyDictionary(sourceLanguageCode: "de", targetLanguageCode: "en", sourceLanguageName: "German", targetLanguageName: "English", translations: nil)
         
+        // TEST
+        self.performSegue(withIdentifier: "CreateDictionary", sender:self)
+        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
@@ -183,6 +186,8 @@ class TranslationTableViewController: UITableViewController {
                 }
                 let selectedMeal = myDictinaryGerEng.translations[indexPath.row]
                 translationDetailViewController.translation = selectedMeal
+            case "CreateDictionary":
+                os_log("Creating new dictionary.", log: OSLog.default, type: .debug)
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
