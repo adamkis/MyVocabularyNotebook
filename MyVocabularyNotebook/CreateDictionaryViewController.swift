@@ -10,6 +10,9 @@ import UIKit
 
 class CreateDictionaryViewController: UIViewController {
 
+    @IBOutlet weak var sourceLanguage: UIPickerView!
+    @IBOutlet weak var targetLanguage: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
