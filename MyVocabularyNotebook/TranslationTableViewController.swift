@@ -12,22 +12,25 @@ import os.log
 class TranslationTableViewController: UITableViewController {
 
     // MARK: Properties
-    var myDictinaryGerEng: MyDictionary = MyDictionary(sourceLanguageCode: "de", targetLanguageCode: "en", sourceLanguageName: "German", targetLanguageName: "English", translations: nil)
+    var myDictinaryGerEng: MyDictionary!
     var emptyLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        myDictinaryGerEng = MyDictionary(sourceLanguageCode: "de", targetLanguageCode: "en", sourceLanguageName: "German", targetLanguageName: "English", translations: nil)
+        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved meals, otherwise load sample data.
-        if let savedTranslations = loadDictionary() {
-            myDictinaryGerEng = savedTranslations
+        guard let savedDictionary = loadDictionary() else {
+            if (myDictinaryGerEng.translations.count < 1){
+                emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
+            }
+            return
         }
-        if (myDictinaryGerEng.translations.count < 1){
-            emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
-        }
+        myDictinaryGerEng = savedDictionary
         
     }
 
@@ -80,8 +83,20 @@ class TranslationTableViewController: UITableViewController {
         }
     }
     
+    private func getSelectedDictionaryId() -> String {
+        // TODO change
+        // TEMPORARY FOR TESTING
+        return "de::en"
+    }
+    
+    private func getArchiveUrl(dictionaryId: String!) -> URL {
+        //MARK: Archiving Paths
+        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        return DocumentsDirectory.appendingPathComponent(dictionaryId)
+    }
+    
     private func loadDictionary() -> MyDictionary?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: myDictinaryGerEng.getArchiveUrl().path) as? MyDictionary
+        return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: getSelectedDictionaryId()).path) as? MyDictionary
     }
     
     
