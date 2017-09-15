@@ -20,23 +20,16 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        var languages: [String] = []
-        
         for code in NSLocale.isoLanguageCodes as [String] {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.languageCode.rawValue: code])
             let name = NSLocale(localeIdentifier: "en_US").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Language not found for code: \(code)"
-//            languages.append(id + "->" + name)
             languageCodesAndNames.append((id, name))
         }
         
         languageCodesAndNames = languageCodesAndNames.sorted(){ $0.name < $1.name }
+        selectedSourceLanguage = languageCodesAndNames[0]
+        selectedTargetLanguage = languageCodesAndNames[0]
         
-        //        print(languages)
-        print(languageCodesAndNames)
-        
-        
-        // TODO ATTACH DATA SOURCE PROPERLY
         self.sourceLanguage.dataSource = self;
         self.targetLanguage.dataSource = self;
         self.sourceLanguage.delegate = self;
@@ -46,13 +39,10 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
     
     @available(iOS 2.0, *)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return languageCodesAndNames.count
         return 1
     }
 
-    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-//        return languageCodesAndNames.count
         return 1
     }
     
@@ -76,21 +66,5 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-     */
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
