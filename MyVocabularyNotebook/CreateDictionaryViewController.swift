@@ -8,18 +8,20 @@
 
 import UIKit
 
-class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource,      UIPickerViewDelegate {
+class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var sourceLanguage: UIPickerView!
     @IBOutlet weak var targetLanguage: UIPickerView!
+    
+    var languageCodesAndNames = [(id: String, name: String)]()
+    var selectedSourceLanguage: (id: String, name: String)!
+    var selectedTargetLanguage: (id: String, name: String)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
 //        var languages: [String] = []
-        var languageCodesAndNames = [(id: String, name: String)]()
-        
         
         for code in NSLocale.isoLanguageCodes as [String] {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.languageCode.rawValue: code])
@@ -34,56 +36,44 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         print(languageCodesAndNames)
         
         
+        // TODO ATTACH DATA SOURCE PROPERLY
         self.sourceLanguage.dataSource = self;
+        self.targetLanguage.dataSource = self;
+        self.sourceLanguage.delegate = self;
         self.targetLanguage.delegate = self;
 
     }
     
     @available(iOS 2.0, *)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return languageCodesAndNames.count
         return 1
     }
 
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+//        return languageCodesAndNames.count
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        if pickerView == countryPicker {
-//            return countryClasses.count
-//        } else if pickerView == itemPicker {
-//            return selectedItemsArray.count
-//        }
-        return 0
+        return languageCodesAndNames.count
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        if pickerView == countryPicker {
-//            switch row {
-//            case 0:
-//                selectedItemsArray = usItems
-//            case 1:
-//                selectedItemsArray = euItems
-//            case 2:
-//                selectedItemsArray = jpItems
-//            default:
-//                selectedItemsArray = []
-//            }
-//            // IMPORTANT reload the data on the item picker
-//            itemPicker.reloadAllComponents()
-//        } else if pickerView == itemPicker {
-//            // Get the current item
-//            var item = selectedItemsArray[row]
-//            // Assign value to a label based on which array we are using
-//            if selectedItemsArray == usItems {
-//                usLabel.text = item
-//            } else if selectedItemsArray == euItems {
-//                euLabel.text = item
-//            } else if selectedItemsArray == jpItems {
-//                jpLabel.text = item
-//            }
-//        }
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return languageCodesAndNames[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == sourceLanguage {
+            selectedSourceLanguage = languageCodesAndNames[row]
+            print("Selected source language \(selectedSourceLanguage)")
+        } 
+        else if pickerView == targetLanguage {
+            selectedTargetLanguage = languageCodesAndNames[row]
+            print("Selected target language \(selectedTargetLanguage)")
+        }
     }
     
     
