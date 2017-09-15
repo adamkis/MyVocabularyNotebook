@@ -18,18 +18,21 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         
         
 //        var languages: [String] = []
-        var languageCodesAndNames: Dictionary = [String: String]()
+        var languageCodesAndNames = [(id: String, name: String)]()
         
         
         for code in NSLocale.isoLanguageCodes as [String] {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.languageCode.rawValue: code])
             let name = NSLocale(localeIdentifier: "en_US").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Language not found for code: \(code)"
 //            languages.append(id + "->" + name)
-            languageCodesAndNames[id] = name
+            languageCodesAndNames.append((id, name))
         }
         
-//        print(languages)
+        languageCodesAndNames = languageCodesAndNames.sorted(){ $0.name < $1.name }
+        
+        //        print(languages)
         print(languageCodesAndNames)
+        
         
         self.sourceLanguage.dataSource = self;
         self.targetLanguage.delegate = self;
@@ -98,5 +101,6 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
 }
