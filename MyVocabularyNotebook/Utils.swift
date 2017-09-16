@@ -16,6 +16,6 @@ class Utils: NSObject {
     }
     
     open class func print(_ items: Any...){
-        print(items)
+        Swift.print(items)
     }
 }
