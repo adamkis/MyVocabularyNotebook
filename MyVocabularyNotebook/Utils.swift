@@ -15,7 +15,7 @@ class Utils: NSObject {
         os_log(input, log: OSLog.default, type: .default)
     }
     
-    open class func print(_ input: String){
-        print(input)
+    open class func print(_ items: Any...){
+        print(items)
     }
 }
