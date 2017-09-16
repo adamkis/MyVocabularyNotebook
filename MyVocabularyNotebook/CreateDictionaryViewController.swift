@@ -87,11 +87,11 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == sourceLanguage {
             selectedSourceLanguage = languageCodesAndNames[row]
-            print("Selected source language \(selectedSourceLanguage)")
+            Utils.print("Selected source language \(selectedSourceLanguage)")
         } 
         else if pickerView == targetLanguage {
             selectedTargetLanguage = languageCodesAndNames[row]
-            print("Selected target language \(selectedTargetLanguage)")
+            Utils.print("Selected target language \(selectedTargetLanguage)")
         }
     }
     

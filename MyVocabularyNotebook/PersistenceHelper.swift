@@ -18,7 +18,7 @@ class PersistenceHelper: NSObject {
         let userDefaults = UserDefaults.standard
         userDefaults.setValue(myDictionary.getDictionaryID(), forKey: SELECTED_DICTIONARY_KEY)
         userDefaults.synchronize()
-        print("Saved dictionary: Source lang: \(myDictionary.sourceLanguageName), Target Lang: \(myDictionary.targetLanguageName), Dict object: \(myDictionary)")
+        Utils.print("Saved dictionary: Source lang: \(myDictionary.sourceLanguageName), Target Lang: \(myDictionary.targetLanguageName), Dict object: \(myDictionary)")
     }
     
     
@@ -28,11 +28,11 @@ class PersistenceHelper: NSObject {
     }
     
     open class func printAllUserDefaults(){
-        print("Printing User Defaults")
+        Utils.log("Printing User Defaults")
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            print("\(key) = \(value) \n")
+            Utils.print("\(key) = \(value) \n")
         }
-        print("Printing User Defaults - end")
+        Utils.log("Printing User Defaults - end")
     }
     
     // MARK: Storing in files - NSKeyedArchiver
@@ -62,12 +62,12 @@ class PersistenceHelper: NSObject {
         do {
             // Get the directory contents urls (including subfolders urls)
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            print("Printing all files in Document Directory")
-            print(directoryContents)
-            print("Printing all files in Document Directory - end")
+            Utils.print("Printing all files in Document Directory")
+            Utils.print(directoryContents)
+            Utils.print("Printing all files in Document Directory - end")
             
         } catch let error as NSError {
-            print(error.localizedDescription)
+            Utils.print(error.localizedDescription)
         }
     }
     

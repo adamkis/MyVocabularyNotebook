@@ -14,4 +14,8 @@ class Utils: NSObject {
     open class func log(_ input: StaticString){
         os_log(input, log: OSLog.default, type: .default)
     }
+    
+    open class func print(_ input: String){
+        print(input)
+    }
 }
