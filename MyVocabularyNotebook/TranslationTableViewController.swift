@@ -12,29 +12,28 @@ import os.log
 class TranslationTableViewController: UITableViewController {
 
     // MARK: Properties
-    var myDictinaryGerEng: MyDictionary!
+    var selectedDictionary: MyDictionary!
     var emptyLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        myDictinaryGerEng = MyDictionary(sourceLanguageCode: "de", targetLanguageCode: "en", sourceLanguageName: "German", targetLanguageName: "English", translations: nil)
-        
-        // TEST
-        self.performSegue(withIdentifier: "CreateDictionary", sender:self)
-        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Load any saved meals, otherwise load sample data.
-        guard let savedDictionary = loadDictionary() else {
-            if (myDictinaryGerEng.translations.count < 1){
-                emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
-            }
+        guard let savedDictionaryId = UserDefaultsHelper.loadSelectedDictionaryId() else{
+            self.performSegue(withIdentifier: "CreateDictionary", sender:self)
             return
         }
-        myDictinaryGerEng = savedDictionary
+        selectedDictionary = loadDictionary(dictionaryId: savedDictionaryId)
+        if (selectedDictionary.translations.count < 1){
+            showEmptyMessage()
+        }
         
+    }
+    
+    private func showEmptyMessage(){
+        emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +48,12 @@ class TranslationTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myDictinaryGerEng.translations.count
+        if( selectedDictionary != nil ){
+            return selectedDictionary.translations.count
+        }
+        else{
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,7 +65,7 @@ class TranslationTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        let translation = myDictinaryGerEng.translations[indexPath.row]
+        let translation = selectedDictionary.translations[indexPath.row]
         
         cell.translationTextView1.text = translation.sourceTranslation
         cell.translationTextView2.text = translation.targetTranslation
@@ -78,18 +82,12 @@ class TranslationTableViewController: UITableViewController {
     
     //MARK: Private methods
     private func saveDictionary() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myDictinaryGerEng, toFile: myDictinaryGerEng.getArchiveUrl().path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(selectedDictionary, toFile: selectedDictionary.getArchiveUrl().path)
         if isSuccessfulSave {
             os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
         } else {
             os_log("Failed to save translations...", log: OSLog.default, type: .error)
         }
-    }
-    
-    private func getSelectedDictionaryId() -> String {
-        // TODO change
-        // TEMPORARY FOR TESTING
-        return "de::en"
     }
     
     private func getArchiveUrl(dictionaryId: String!) -> URL {
@@ -98,8 +96,8 @@ class TranslationTableViewController: UITableViewController {
         return DocumentsDirectory.appendingPathComponent(dictionaryId)
     }
     
-    private func loadDictionary() -> MyDictionary?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: getSelectedDictionaryId()).path) as? MyDictionary
+    private func loadDictionary(dictionaryId: String) -> MyDictionary?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: dictionaryId).path) as? MyDictionary
     }
     
     
@@ -116,21 +114,24 @@ class TranslationTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? TranslationViewController, let translation = sourceViewController.translation {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
-                myDictinaryGerEng.translations[selectedIndexPath.row] = translation
+                selectedDictionary.translations[selectedIndexPath.row] = translation
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else{
                 // Add new translation
-                let newIndexPath = IndexPath(row: myDictinaryGerEng.translations.count, section: 0)
-                myDictinaryGerEng.translations.append(translation)
+                let newIndexPath = IndexPath(row: selectedDictionary.translations.count, section: 0)
+                selectedDictionary.translations.append(translation)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
-            // Save the meals.
+            // Save the dictionary.
             saveDictionary()
         }
         
         if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
-            print("Created dictionary: Source lang: \(createdDictionary.sourceLanguageName), Target Lang: \(createdDictionary.targetLanguageName), Dict object: \(createdDictionary)")
+            UserDefaultsHelper.saveSelectedDictionaryId(myDictionary: createdDictionary)
+            selectedDictionary = createdDictionary
+            saveDictionary()
+            showEmptyMessage()
         }
         
     }
@@ -145,7 +146,7 @@ class TranslationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            myDictinaryGerEng.translations.remove(at: indexPath.row)
+            selectedDictionary.translations.remove(at: indexPath.row)
             saveDictionary()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -155,9 +156,9 @@ class TranslationTableViewController: UITableViewController {
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let itemToMove:Translation = myDictinaryGerEng.translations[fromIndexPath.row]
-        myDictinaryGerEng.translations.remove(at: fromIndexPath.row)
-        myDictinaryGerEng.translations.insert(itemToMove, at: to.row)
+        let itemToMove:Translation = selectedDictionary.translations[fromIndexPath.row]
+        selectedDictionary.translations.remove(at: fromIndexPath.row)
+        selectedDictionary.translations.insert(itemToMove, at: to.row)
         saveDictionary()
     }
 
@@ -188,7 +189,7 @@ class TranslationTableViewController: UITableViewController {
                 guard let indexPath = tableView.indexPath(for: selectedTranslationCell) else {
                     fatalError("The selected cell is not being displayed by the table")
                 }
-                let selectedMeal = myDictinaryGerEng.translations[indexPath.row]
+                let selectedMeal = selectedDictionary.translations[indexPath.row]
                 translationDetailViewController.translation = selectedMeal
             case "CreateDictionary":
                 os_log("Creating new dictionary.", log: OSLog.default, type: .debug)
