@@ -101,7 +101,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="fD7-VV-7Z2" kind="presentation" identifier="CreateDictionary" id="2sD-j8-2Ha"/>
+                        <segue destination="aBR-ki-zYQ" kind="presentation" identifier="CreateDictionary" id="2sD-j8-2Ha"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYC-tY-LKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,45 +121,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I would like to save phrases..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1L-eh-aPS">
-                                <rect key="frame" x="0.0" y="28" width="375" height="21"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77A-MF-tGY">
-                                <rect key="frame" x="0.0" y="86" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="between this language:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-Rn-qCC">
-                                <rect key="frame" x="16" y="57" width="273" height="21"/>
+                                <rect key="frame" x="16" y="101" width="273" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="and this language:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKi-Mj-niR">
-                                <rect key="frame" x="16" y="310" width="273" height="21"/>
+                                <rect key="frame" x="16" y="354" width="273" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cVm-Bf-48y">
-                                <rect key="frame" x="0.0" y="339" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="383" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cVw-V1-YPj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Ip-Ex-iVU">
+                            <connections>
+                                <segue destination="FNC-Gr-hfc" kind="unwind" unwindAction="unwindToTranslationListWithSender:" id="NpQ-1r-RsI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="saveButtonNavBar" destination="0Ip-Ex-iVU" id="2jv-Ly-MEf"/>
                         <outlet property="sourceLanguage" destination="77A-MF-tGY" id="UUt-ym-VLu"/>
                         <outlet property="targetLanguage" destination="cVm-Bf-48y" id="GD5-gn-Dhl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izi-Pt-ox6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FNC-Gr-hfc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1312.8" y="-654.42278860569718"/>
+            <point key="canvasLocation" x="2252" y="-654.42278860569718"/>
         </scene>
         <!--Translation-->
         <scene sceneID="s5S-TZ-UpJ">
@@ -288,8 +297,26 @@
             </objects>
             <point key="canvasLocation" x="1335" y="543"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Hq-s8-tTw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aBR-ki-zYQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D9Q-JK-6DZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fD7-VV-7Z2" kind="relationship" relationship="rootViewController" id="aF6-AW-Q3k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aW3-Xd-7yS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312.8" y="-654.42278860569718"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Cg-Gh-zcq"/>
+        <segue reference="2df-40-9mR"/>
     </inferredMetricsTieBreakers>
 </document>

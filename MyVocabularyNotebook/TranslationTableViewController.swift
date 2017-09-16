@@ -129,6 +129,10 @@ class TranslationTableViewController: UITableViewController {
             saveDictionary()
         }
         
+        if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
+            print("Created dictionary: Source lang: \(createdDictionary.sourceLanguageName), Target Lang: \(createdDictionary.targetLanguageName), Dict object: \(createdDictionary)")
+        }
+        
     }
     
     // Override to support conditional editing of the table view.

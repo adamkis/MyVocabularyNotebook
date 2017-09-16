@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import os.log
 
 class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var sourceLanguage: UIPickerView!
     @IBOutlet weak var targetLanguage: UIPickerView!
+    @IBOutlet weak var saveButtonNavBar: UIBarButtonItem!
     
     var languageCodesAndNames = [(id: String, name: String)]()
     var selectedSourceLanguage: (id: String, name: String)!
     var selectedTargetLanguage: (id: String, name: String)!
+    
+    var createdDictionary: MyDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +51,21 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         self.targetLanguage.delegate = self;
         
         sourceLanguage.selectRow(deviceLanguageRow, inComponent: 0, animated: false)
+        selectedSourceLanguage = languageCodesAndNames[deviceLanguageRow]
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButtonNavBar else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        createdDictionary = MyDictionary(sourceLanguageCode: selectedSourceLanguage.id, targetLanguageCode: selectedTargetLanguage.id, sourceLanguageName: selectedSourceLanguage.name, targetLanguageName: selectedTargetLanguage.name, translations: nil)
     }
     
     @available(iOS 2.0, *)
