@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		664848BD1F682ABB00F5BD7D /* CreateDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664848BC1F682ABB00F5BD7D /* CreateDictionaryViewController.swift */; };
-		665ED69F1F6D2FC6001DAE94 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ED69E1F6D2FC6001DAE94 /* UserDefaultsHelper.swift */; };
+		665ED69F1F6D2FC6001DAE94 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */; };
 		666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666EE0241F641ED400F8CE8D /* MyDictionary.swift */; };
 		6671D4581F555E6100BE86BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4571F555E6100BE86BE /* AppDelegate.swift */; };
 		6671D45D1F555E6100BE86BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6671D45B1F555E6100BE86BE /* Main.storyboard */; };
@@ -34,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		664848BC1F682ABB00F5BD7D /* CreateDictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDictionaryViewController.swift; sourceTree = "<group>"; };
-		665ED69E1F6D2FC6001DAE94 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		666EE0241F641ED400F8CE8D /* MyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDictionary.swift; sourceTree = "<group>"; };
 		6671D4541F555E6100BE86BE /* MyVocabularyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVocabularyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6671D4571F555E6100BE86BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */,
-				665ED69E1F6D2FC6001DAE94 /* UserDefaultsHelper.swift */,
+				665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				665ED69F1F6D2FC6001DAE94 /* UserDefaultsHelper.swift in Sources */,
+				665ED69F1F6D2FC6001DAE94 /* PersistenceHelper.swift in Sources */,
 				664848BD1F682ABB00F5BD7D /* CreateDictionaryViewController.swift in Sources */,
 				6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */,
 				666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */,

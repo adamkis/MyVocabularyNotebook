@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserDefaultsHelper: NSObject {
+class PersistenceHelper: NSObject {
 
     static let DICTIONARY_KEY = "DICTIONARY_KEY"
     
@@ -23,6 +23,12 @@ class UserDefaultsHelper: NSObject {
     open class func loadSelectedDictionaryId() -> String?{
         let userDefaults = UserDefaults.standard
         return userDefaults.value(forKey: DICTIONARY_KEY) as? String
+    }
+    
+    open class func printAllUserDefaults(){
+        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+            print("\(key) = \(value) \n")
+        }
     }
     
     

@@ -21,7 +21,7 @@ class TranslationTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        guard let savedDictionaryId = UserDefaultsHelper.loadSelectedDictionaryId() else{
+        guard let savedDictionaryId = PersistenceHelper.loadSelectedDictionaryId() else{
             self.performSegue(withIdentifier: "CreateDictionary", sender:self)
             return
         }
@@ -128,7 +128,7 @@ class TranslationTableViewController: UITableViewController {
         }
         
         if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
-            UserDefaultsHelper.saveSelectedDictionaryId(myDictionary: createdDictionary)
+            PersistenceHelper.saveSelectedDictionaryId(myDictionary: createdDictionary)
             selectedDictionary = createdDictionary
             saveDictionary()
             showEmptyMessage()
