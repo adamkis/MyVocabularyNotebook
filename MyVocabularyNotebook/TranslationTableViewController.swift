@@ -25,7 +25,7 @@ class TranslationTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "CreateDictionary", sender:self)
             return
         }
-        selectedDictionary = loadDictionary(dictionaryId: savedDictionaryId)
+        selectedDictionary = PersistenceHelper.loadDictionary(dictionaryId: savedDictionaryId)
         if (selectedDictionary.translations.count < 1){
             showEmptyMessage()
         }
@@ -81,25 +81,7 @@ class TranslationTableViewController: UITableViewController {
     }
     
     //MARK: Private methods
-    private func saveDictionary() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(selectedDictionary, toFile: selectedDictionary.getArchiveUrl().path)
-        if isSuccessfulSave {
-            os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed to save translations...", log: OSLog.default, type: .error)
-        }
-    }
-    
-    private func getArchiveUrl(dictionaryId: String!) -> URL {
-        //MARK: Archiving Paths
-        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-        return DocumentsDirectory.appendingPathComponent(dictionaryId)
-    }
-    
-    private func loadDictionary(dictionaryId: String) -> MyDictionary?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: dictionaryId).path) as? MyDictionary
-    }
-    
+
     
     //MARK: Actions
     
@@ -124,13 +106,13 @@ class TranslationTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             // Save the dictionary.
-            saveDictionary()
+            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
         }
         
         if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
             PersistenceHelper.saveSelectedDictionaryId(myDictionary: createdDictionary)
             selectedDictionary = createdDictionary
-            saveDictionary()
+            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
             showEmptyMessage()
         }
         
@@ -147,7 +129,7 @@ class TranslationTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             selectedDictionary.translations.remove(at: indexPath.row)
-            saveDictionary()
+            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -159,7 +141,7 @@ class TranslationTableViewController: UITableViewController {
         let itemToMove:Translation = selectedDictionary.translations[fromIndexPath.row]
         selectedDictionary.translations.remove(at: fromIndexPath.row)
         selectedDictionary.translations.insert(itemToMove, at: to.row)
-        saveDictionary()
+        PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
     }
 
     // Override to support conditional rearranging of the table view.

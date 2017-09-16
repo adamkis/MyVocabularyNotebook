@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import os.log
 
 class PersistenceHelper: NSObject {
 
     static let DICTIONARY_KEY = "DICTIONARY_KEY"
+    
+    // MARK: User Defaults
     
     open class func saveSelectedDictionaryId(myDictionary: MyDictionary){
         let userDefaults = UserDefaults.standard
@@ -30,6 +33,27 @@ class PersistenceHelper: NSObject {
             print("\(key) = \(value) \n")
         }
     }
+    
+    // MARK: Storing in files - NSKeyedArchiver
+    
+    open class func saveDictionary(selectedDictionary: MyDictionary) {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(selectedDictionary, toFile: selectedDictionary.getArchiveUrl().path)
+        if isSuccessfulSave {
+            os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save translations...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    open class func getArchiveUrl(dictionaryId: String!) -> URL {
+        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        return DocumentsDirectory.appendingPathComponent(dictionaryId)
+    }
+    
+    open class func loadDictionary(dictionaryId: String) -> MyDictionary?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: dictionaryId).path) as? MyDictionary
+    }
+    
     
     
 }
