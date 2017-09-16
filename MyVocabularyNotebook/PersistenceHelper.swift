@@ -11,13 +11,13 @@ import os.log
 
 class PersistenceHelper: NSObject {
 
-    static let DICTIONARY_KEY = "DICTIONARY_KEY"
+    static let SELECTED_DICTIONARY_KEY = "SELECTED_DICTIONARY_KEY"
     
     // MARK: User Defaults
     
     open class func saveSelectedDictionaryId(myDictionary: MyDictionary){
         let userDefaults = UserDefaults.standard
-        userDefaults.setValue(myDictionary.getDictionaryID(), forKey: DICTIONARY_KEY)
+        userDefaults.setValue(myDictionary.getDictionaryID(), forKey: SELECTED_DICTIONARY_KEY)
         userDefaults.synchronize()
         print("Saved dictionary: Source lang: \(myDictionary.sourceLanguageName), Target Lang: \(myDictionary.targetLanguageName), Dict object: \(myDictionary)")
     }
@@ -25,13 +25,15 @@ class PersistenceHelper: NSObject {
     
     open class func loadSelectedDictionaryId() -> String?{
         let userDefaults = UserDefaults.standard
-        return userDefaults.value(forKey: DICTIONARY_KEY) as? String
+        return userDefaults.value(forKey: SELECTED_DICTIONARY_KEY) as? String
     }
     
     open class func printAllUserDefaults(){
+        print("Printing User Defaults")
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             print("\(key) = \(value) \n")
         }
+        print("Printing User Defaults - end")
     }
     
     // MARK: Storing in files - NSKeyedArchiver
@@ -52,6 +54,22 @@ class PersistenceHelper: NSObject {
     
     open class func loadDictionary(dictionaryId: String) -> MyDictionary?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: dictionaryId).path) as? MyDictionary
+    }
+    
+    open class func printAllFilesInDirectory(){
+        // Get the document directory url
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        do {
+            // Get the directory contents urls (including subfolders urls)
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
+            print("Printing all files in Document Directory")
+            print(directoryContents)
+            print("Printing all files in Document Directory - end")
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     

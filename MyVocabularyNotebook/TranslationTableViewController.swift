@@ -18,6 +18,11 @@ class TranslationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Testing printing things
+        UserDefaults.standard.removeObject(forKey: "DICTIONARY_KEY")
+        PersistenceHelper.printAllUserDefaults()
+        PersistenceHelper.printAllFilesInDirectory()
+        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
