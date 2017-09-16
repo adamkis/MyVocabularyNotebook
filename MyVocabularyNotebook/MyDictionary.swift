@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import os.log
 
 class MyDictionary: NSObject, NSCoding{
 
@@ -65,24 +64,24 @@ class MyDictionary: NSObject, NSCoding{
     required convenience init?(coder aDecoder: NSCoder) {
         
         guard let sourceLanguageCode = aDecoder.decodeObject(forKey: PropertyKey.sourceLanguageCode) as? String else {
-            os_log("Unable to decode the name for a sourceLanguageCode object.", log: OSLog.default, type: .debug)
+            Utils.log("Unable to decode the name for a sourceLanguageCode object.")
             return nil
         }
         guard let targetLanguageCode = aDecoder.decodeObject(forKey: PropertyKey.targetLanguageCode) as? String else {
-            os_log("Unable to decode the name for a targetLanguageCode object.", log: OSLog.default, type: .debug)
+            Utils.log("Unable to decode the name for a targetLanguageCode object.")
             return nil
         }
         guard let sourceLanguageName = aDecoder.decodeObject(forKey: PropertyKey.sourceLanguageName) as? String else {
-            os_log("Unable to decode the name for a sourceLanguageName object.", log: OSLog.default, type: .debug)
+            Utils.log("Unable to decode the name for a sourceLanguageName object.")
             return nil
         }
         guard let targetLanguageName = aDecoder.decodeObject(forKey: PropertyKey.targetLanguageName) as? String else {
-            os_log("Unable to decode the name for a targetLanguageName object.", log: OSLog.default, type: .debug)
+            Utils.log("Unable to decode the name for a targetLanguageName object.")
             return nil
         }
         
         guard let translations = aDecoder.decodeObject(forKey: PropertyKey.translations) as? [Translation] else {
-            os_log("Unable to decode the name for a translations object.", log: OSLog.default, type: .debug)
+            Utils.log("Unable to decode the name for a translations object.")
             return nil
         }
         

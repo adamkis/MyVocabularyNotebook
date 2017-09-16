@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import os.log
 
 class TranslationViewController: UIViewController, UITextViewDelegate {
 
@@ -65,7 +64,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         let buttonNav = sender as? UIBarButtonItem;
         let button = sender as? UIButton;
         if( buttonNav == nil && button == nil ){
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            Utils.log("The save button was not pressed, cancelling")
             return false
         }
         let sourceTranslation: String = sourceTranslationView.text

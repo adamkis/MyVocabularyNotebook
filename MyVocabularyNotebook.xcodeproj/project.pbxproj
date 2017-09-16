@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661C07341F6D7BF500D04CBD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C07331F6D7BF500D04CBD /* Utils.swift */; };
 		664848BD1F682ABB00F5BD7D /* CreateDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664848BC1F682ABB00F5BD7D /* CreateDictionaryViewController.swift */; };
 		665ED69F1F6D2FC6001DAE94 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */; };
 		666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666EE0241F641ED400F8CE8D /* MyDictionary.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		661C07331F6D7BF500D04CBD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		664848BC1F682ABB00F5BD7D /* CreateDictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDictionaryViewController.swift; sourceTree = "<group>"; };
 		665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		666EE0241F641ED400F8CE8D /* MyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDictionary.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */,
 				665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */,
+				661C07331F6D7BF500D04CBD /* Utils.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */,
 				666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */,
 				6671D4841F5FD91B00BE86BE /* TableViewHelper.swift in Sources */,
+				661C07341F6D7BF500D04CBD /* Utils.swift in Sources */,
 				6671D47A1F56AB4400BE86BE /* TranslationTableViewCell.swift in Sources */,
 				6671D4581F555E6100BE86BE /* AppDelegate.swift in Sources */,
 				6671D4801F5983D800BE86BE /* Translation.swift in Sources */,

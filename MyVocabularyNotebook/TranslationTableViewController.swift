@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import os.log
 
 class TranslationTableViewController: UITableViewController {
 
@@ -163,7 +162,7 @@ class TranslationTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
             case "AddItem":
-                os_log("Adding a new translation.", log: OSLog.default, type: .debug)
+                Utils.log("Adding a new translation.")
             case "ShowDetail":
                 guard let translationDetailViewController = segue.destination as? TranslationViewController else {
                     fatalError("Unexpected destination: \(segue.destination)")
@@ -179,7 +178,7 @@ class TranslationTableViewController: UITableViewController {
                 let selectedMeal = selectedDictionary.translations[indexPath.row]
                 translationDetailViewController.translation = selectedMeal
             case "CreateDictionary":
-                os_log("Creating new dictionary.", log: OSLog.default, type: .debug)
+                Utils.log("Creating new dictionary.")
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }

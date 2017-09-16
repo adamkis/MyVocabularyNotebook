@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import os.log
 
 class PersistenceHelper: NSObject {
 
@@ -41,9 +40,9 @@ class PersistenceHelper: NSObject {
     open class func saveDictionary(selectedDictionary: MyDictionary) {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(selectedDictionary, toFile: selectedDictionary.getArchiveUrl().path)
         if isSuccessfulSave {
-            os_log("Translations successfully saved.", log: OSLog.default, type: .debug)
+            Utils.log("Translations successfully saved.")
         } else {
-            os_log("Failed to save translations...", log: OSLog.default, type: .error)
+            Utils.log("Failed to save translations...")
         }
     }
     

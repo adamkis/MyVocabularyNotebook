@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import os.log
 
 class Translation: NSObject, NSCoding {
 
@@ -57,7 +56,7 @@ class Translation: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         
         guard let sourceTranslation = aDecoder.decodeObject(forKey: PropertyKey.sourceTranslation) as? String else {
-            os_log("Unable to decode the name for a translation object.", log: OSLog.default, type: .debug)
+            Utils.log("Unable to decode the name for a translation object.")
             return nil
         }
         

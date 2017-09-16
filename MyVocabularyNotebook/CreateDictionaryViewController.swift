@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import os.log
 
 class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
@@ -60,7 +59,7 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         
         // Configure the destination view controller only when the save button is pressed.
         guard let button = sender as? UIBarButtonItem, button === saveButtonNavBar else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            Utils.log("The save button was not pressed, cancelling")
             return
         }
         
