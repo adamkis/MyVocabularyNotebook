@@ -14,8 +14,11 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var targetTranslationView: UITextView!
     @IBOutlet weak var saveButtonNav: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var sourceLanguageName: UILabel!
+    @IBOutlet weak var targetLanguageName: UILabel!
     
     var translation: Translation?
+    var myDictionary: MyDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,9 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
             sourceTranslationView.text   = translation.sourceTranslation
             targetTranslationView.text = translation.targetTranslation
         }
+        else{
+            self.title = "New Phrase"
+        }
         
         let borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         let borderWidth = CGFloat(1.0)
@@ -39,6 +45,9 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         targetTranslationView.layer.borderColor = borderColor
         targetTranslationView.layer.borderWidth = borderWidth
         targetTranslationView.layer.cornerRadius = cornerRadius
+        
+        sourceLanguageName.text = myDictionary?.sourceLanguageName
+        targetLanguageName.text = myDictionary?.targetLanguageName
         
     }
 

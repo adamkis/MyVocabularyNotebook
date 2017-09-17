@@ -163,6 +163,9 @@ class TranslationTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
             case "AddItem":
+                let navVC = segue.destination as! UINavigationController
+                let addTranslationViewController = navVC.viewControllers.first as! TranslationViewController
+                addTranslationViewController.myDictionary = selectedDictionary
                 Utils.log("Adding a new translation.")
             case "ShowDetail":
                 guard let translationDetailViewController = segue.destination as? TranslationViewController else {
@@ -178,6 +181,7 @@ class TranslationTableViewController: UITableViewController {
                 }
                 let selectedTranslation = selectedDictionary.translations[indexPath.row]
                 translationDetailViewController.translation = selectedTranslation
+                translationDetailViewController.myDictionary = selectedDictionary
             case "CreateDictionary":
                 Utils.log("Creating new dictionary.")
             case "MyDictionaries":

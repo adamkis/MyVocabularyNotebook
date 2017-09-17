@@ -182,7 +182,7 @@
             </objects>
             <point key="canvasLocation" x="2591.1999999999998" y="-654.42278860569718"/>
         </scene>
-        <!--Translation-->
+        <!--Phrase-->
         <scene sceneID="s5S-TZ-UpJ">
             <objects>
                 <viewController id="IKm-wj-TiD" customClass="TranslationViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController">
@@ -197,8 +197,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JKO-DE-u4Q">
                                 <rect key="frame" x="16" y="72" width="343" height="243"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cx-zB-4mE">
-                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cx-zB-4mE">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -212,8 +212,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="German" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohr-bP-Izd">
-                                        <rect key="frame" x="0.0" y="106.5" width="61" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohr-bP-Izd">
+                                        <rect key="frame" x="0.0" y="106.5" width="123.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="JKO-DE-u4Q" secondAttribute="trailing" id="dee-dk-Mqa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Translation" id="v83-Vh-W43">
+                    <navigationItem key="navigationItem" title="Phrase" id="v83-Vh-W43">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K4J-Pp-IUO">
                             <connections>
                                 <action selector="cancel:" destination="IKm-wj-TiD" id="ABU-zC-bKg"/>
@@ -264,7 +264,9 @@
                     <connections>
                         <outlet property="saveButton" destination="WOn-rD-BdF" id="WKa-Oe-mJp"/>
                         <outlet property="saveButtonNav" destination="OLE-dj-IcS" id="tmO-vl-nZ6"/>
+                        <outlet property="sourceLanguageName" destination="5Cx-zB-4mE" id="GgO-cv-rQP"/>
                         <outlet property="sourceTranslationView" destination="CIb-Mc-Q3L" id="QZy-wQ-as8"/>
+                        <outlet property="targetLanguageName" destination="Ohr-bP-Izd" id="abo-MX-Q4s"/>
                         <outlet property="targetTranslationView" destination="V2i-nb-9dh" id="p5l-8r-0c1"/>
                     </connections>
                 </viewController>
