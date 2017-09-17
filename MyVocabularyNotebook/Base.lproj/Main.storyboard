@@ -368,6 +368,11 @@
                                 <action selector="cancel:" destination="Ycb-cz-eHH" id="tng-2h-Wra"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="THa-D0-0fF">
+                            <connections>
+                                <segue destination="aBR-ki-zYQ" kind="presentation" identifier="CreateDictionary" id="yUh-Gx-M1w"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myDictionariesTableView" destination="OOG-Nl-Mil" id="eef-2w-ERk"/>
@@ -415,6 +420,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="yUh-Gx-M1w"/>
         <segue reference="2Cg-Gh-zcq"/>
     </inferredMetricsTieBreakers>
 </document>

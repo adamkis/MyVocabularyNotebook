@@ -115,10 +115,15 @@ class TranslationTableViewController: UITableViewController {
         }
         
         if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
+            // Dictionary created
             PersistenceHelper.saveSelectedDictionaryId(myDictionary: createdDictionary)
             selectedDictionary = createdDictionary
             PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
-            showEmptyMessage()
+            self.title = selectedDictionary.getDisplayName()
+            self.tableView.reloadData()
+            if (selectedDictionary.translations.count < 1){
+                showEmptyMessage()
+            }
         }
         
     }
