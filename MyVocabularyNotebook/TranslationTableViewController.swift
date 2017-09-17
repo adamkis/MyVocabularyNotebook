@@ -66,7 +66,7 @@ class TranslationTableViewController: UITableViewController {
         let cellIdentifier = "TranslationTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TranslationTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            fatalError("The dequeued cell is not an instance of TranslationTableViewCell.")
         }
         
         let translation = selectedDictionary.translations[indexPath.row]
