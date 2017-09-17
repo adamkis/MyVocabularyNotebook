@@ -51,6 +51,12 @@ class PersistenceHelper: NSObject {
         return DocumentsDirectory.appendingPathComponent(dictionaryId)
     }
     
+    
+    open class func loadDictionary(url: URL) -> MyDictionary?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: url.path) as? MyDictionary
+    }
+    
+    
     open class func loadDictionary(dictionaryId: String) -> MyDictionary?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: dictionaryId).path) as? MyDictionary
     }

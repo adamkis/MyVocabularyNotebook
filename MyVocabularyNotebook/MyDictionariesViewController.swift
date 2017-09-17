@@ -12,16 +12,27 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var myDictionariesTableView: UITableView!
     
-    var tempArray: [String] = ["en:de","en:fr"]
+    let documentsUrl: URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    var myDictionaries: [MyDictionary] = [MyDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
+            for url in directoryContents{
+                myDictionaries.append(PersistenceHelper.loadDictionary(url: url)!)
+            }
+        } catch let error as NSError {
+            Utils.print(error.localizedDescription)
+        }
+        
         myDictionariesTableView.delegate = self
         myDictionariesTableView.dataSource = self
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempArray.count
+        return myDictionaries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,9 +43,9 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
             fatalError("The dequeued cell is not an instance of MyDictionaryTableViewCell.")
         }
         
-        let name = tempArray[indexPath.row]
+        let myDictionary = myDictionaries[indexPath.row]
         
-        cell.myDictionaryName.text = name
+        cell.myDictionaryName.text = myDictionary.sourceLanguageName + " :: " + myDictionary.targetLanguageName
         
         return cell
         
@@ -44,19 +55,4 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0 // your number of cell here
-//    }
-//
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        // your cell coding
-//        return UITableViewCell()
-//    }
-//
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        // cell selected code here
-//    }
-
 }
