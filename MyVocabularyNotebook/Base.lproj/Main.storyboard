@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="101-WZ-CxI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="101-WZ-CxI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,6 +93,13 @@
                             <outlet property="delegate" destination="ed8-k6-jDo" id="YZW-b6-3Tg"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="4gc-Zo-QzI"/>
+                        <barButtonItem title="My Dictionaries" id="zdM-Pv-jDo"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="PDv-Hv-MP1"/>
+                        <barButtonItem title="Share" id="R2f-AW-OEC"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JpT-zZ-Nmu"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="My Phrases" id="UdL-IW-5KJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QI3-F8-lbN">
                             <connections>
@@ -100,6 +107,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="aBR-ki-zYQ" kind="presentation" identifier="CreateDictionary" id="2sD-j8-2Ha"/>
                     </connections>
@@ -264,13 +272,17 @@
         <!--Navigation Controller-->
         <scene sceneID="cQU-3M-HSM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="101-WZ-CxI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="101-WZ-CxI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qME-Q4-7h3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="75c-qg-dYY">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ed8-k6-jDo" kind="relationship" relationship="rootViewController" id="S2q-8M-1yx"/>
                     </connections>
@@ -285,7 +297,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Xt-xf-1RC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4gO-st-gzx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -303,7 +315,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aBR-ki-zYQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D9Q-JK-6DZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -317,6 +329,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2df-40-9mR"/>
+        <segue reference="2Cg-Gh-zcq"/>
     </inferredMetricsTieBreakers>
 </document>
