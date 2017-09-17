@@ -100,7 +100,7 @@ class TranslationTableViewController: UITableViewController {
         
         if let sourceViewController = sender.source as? TranslationViewController, let translation = sourceViewController.translation {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
+                // Update an existing translation.
                 selectedDictionary.translations[selectedIndexPath.row] = translation
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
@@ -176,8 +176,8 @@ class TranslationTableViewController: UITableViewController {
                 guard let indexPath = tableView.indexPath(for: selectedTranslationCell) else {
                     fatalError("The selected cell is not being displayed by the table")
                 }
-                let selectedMeal = selectedDictionary.translations[indexPath.row]
-                translationDetailViewController.translation = selectedMeal
+                let selectedTranslation = selectedDictionary.translations[indexPath.row]
+                translationDetailViewController.translation = selectedTranslation
             case "CreateDictionary":
                 Utils.log("Creating new dictionary.")
             case "MyDictionaries":

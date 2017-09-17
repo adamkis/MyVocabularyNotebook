@@ -26,25 +26,7 @@ class Translation: NSObject, NSCoding {
     init?(sourceTranslation: String?, targetTranslation: String?){
         self.sourceTranslation = sourceTranslation!
         self.targetTranslation = targetTranslation!
-//        self.session = session!
-//        self.priority = priority!
-//        self.color = color!
     }
-    
-//    init?(name: String, photo: UIImage?, rating: Int) {
-//        
-//        // Initialization should fail if there is no name or if the rating is negative.
-//        if name.isEmpty || rating < 0  {
-//            return nil
-//        }
-//        
-//        // Initialize stored properties.
-//        self.name = name
-//        self.photo = photo
-//        self.rating = rating
-//        
-//    }
-    
     
     //MARK: NSCoding
     
@@ -54,19 +36,13 @@ class Translation: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        
         guard let sourceTranslation = aDecoder.decodeObject(forKey: PropertyKey.sourceTranslation) as? String else {
             Utils.log("Unable to decode the name for a translation object.")
             return nil
         }
-        
-        // Because photo is an optional property of Meal, just use conditional cast.
-//        let sourceTranslation = aDecoder.decodeObject(forKey: PropertyKey.sourceTranslation) as? String
         let targetTranslation = aDecoder.decodeObject(forKey: PropertyKey.targetTranslation) as? String
-        
         // Must call designated initializer.
         self.init(sourceTranslation: sourceTranslation, targetTranslation: targetTranslation)
-        
     }
     
 }
