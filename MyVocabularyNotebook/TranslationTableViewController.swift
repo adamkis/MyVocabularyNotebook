@@ -179,6 +179,8 @@ class TranslationTableViewController: UITableViewController {
                 translationDetailViewController.translation = selectedMeal
             case "CreateDictionary":
                 Utils.log("Creating new dictionary.")
+            case "MyDictionaries":
+                Utils.log("Showing my dictionaries in a list.")
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
