@@ -40,7 +40,10 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

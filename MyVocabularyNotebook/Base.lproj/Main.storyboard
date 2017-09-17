@@ -360,7 +360,13 @@
                             <constraint firstItem="OOG-Nl-Mil" firstAttribute="leading" secondItem="2FC-wo-u2d" secondAttribute="leading" id="dJA-yf-eCW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rGn-mM-Yr6"/>
+                    <navigationItem key="navigationItem" id="rGn-mM-Yr6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7a2-dH-Ins">
+                            <connections>
+                                <action selector="cancel:" destination="Ycb-cz-eHH" id="tng-2h-Wra"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myDictionariesTableView" destination="OOG-Nl-Mil" id="eef-2w-ERk"/>
                     </connections>
