@@ -50,6 +50,10 @@ class MyDictionary: NSObject, NSCoding{
         return DocumentsDirectory.appendingPathComponent(getDictionaryID())
     }
     
+    public func getDisplayName() -> String{
+        return sourceLanguageName + " - " + targetLanguageName
+    }
+    
     
     //MARK: NSCoding
     

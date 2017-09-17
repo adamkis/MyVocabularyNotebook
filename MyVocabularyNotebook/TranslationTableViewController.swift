@@ -34,6 +34,7 @@ class TranslationTableViewController: UITableViewController {
             showEmptyMessage()
         }
         
+        self.title = selectedDictionary.getDisplayName()
     }
     
     private func showEmptyMessage(){
