@@ -125,6 +125,23 @@ class TranslationTableViewController: UITableViewController {
                 showEmptyMessage()
             }
         }
+//        Utils.print("Unwind in TranslationTableViewController")
+//        Utils.print(type(of: sender.source))
+//        let sourceViewController = sender.source as? MyDictionariesViewController
+//        let unwindedSelectedDictionary: MyDictionary = sourceViewController!.selectedDictionary
+//        Utils.print(unwindedSelectedDictionary.targetLanguageName)
+        if let sourceViewController = sender.source as? MyDictionariesViewController, let unwindedSelectedDictionary = sourceViewController.selectedDictionary {
+            // Dictionary created
+            PersistenceHelper.saveSelectedDictionaryId(myDictionary: unwindedSelectedDictionary)
+            selectedDictionary = unwindedSelectedDictionary
+            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+            self.title = selectedDictionary.getDisplayName()
+            self.tableView.reloadData()
+            if (selectedDictionary.translations.count < 1){
+                showEmptyMessage()
+            }
+        }
+        
         
     }
     

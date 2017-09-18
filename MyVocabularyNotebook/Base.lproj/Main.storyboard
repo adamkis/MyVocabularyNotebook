@@ -349,6 +349,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="myDictionaryName" destination="0wc-9G-eqa" id="qUY-l4-lbr"/>
+                                            <segue destination="8er-ox-c9D" kind="unwind" identifier="dictionarySelected" unwindAction="unwindToTranslationListWithSender:" id="deh-5L-tmu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -379,6 +380,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xI-WI-s5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8er-ox-c9D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="488.80000000000001" y="-654.42278860569718"/>
         </scene>
