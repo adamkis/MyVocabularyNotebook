@@ -10,8 +10,8 @@ import UIKit
 
 class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: Properties
     @IBOutlet weak var myDictionariesTableView: UITableView!
-    
     let documentsUrl: URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     var myDictionaries: [MyDictionary] = [MyDictionary]()
     var selectedDictionary: MyDictionary!
@@ -31,6 +31,8 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         myDictionariesTableView.delegate = self
         myDictionariesTableView.dataSource = self
     }
+
+    // MARK: - Table view Delegate Methods
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myDictionaries.count
@@ -52,37 +54,25 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        selectedDictionary = myDictionaries[indexPath.row]
-//    }
+    // MARK: Navigation
     
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "CreateDictionary":
             print("Creating dictionary from Dictionaries list")
         case "dictionarySelected":
-//            guard let translationTableViewController = segue.destination as? TranslationTableViewController else {
-//                fatalError("Unexpected destination: \(segue.destination)")
-//            }
             guard let selectedDictionaryCell = sender as? MyDictionaryTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
-            
             guard let indexPath = myDictionariesTableView.indexPath(for: selectedDictionaryCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
-//            let selectedTranslation = selectedDictionary.translations[indexPath.row]
             selectedDictionary = myDictionaries[indexPath.row]
-//            translationDetailViewController.translation = selectedTranslation
-//            translationDetailViewController.myDictionary = selectedDictionary
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
-    
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)

@@ -46,7 +46,7 @@ class TranslationTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view Delegate Methods
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -85,10 +85,54 @@ class TranslationTableViewController: UITableViewController {
         
     }
     
-    //MARK: Private methods
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            selectedDictionary.translations.remove(at: indexPath.row)
+            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let itemToMove:Translation = selectedDictionary.translations[fromIndexPath.row]
+        selectedDictionary.translations.remove(at: fromIndexPath.row)
+        selectedDictionary.translations.insert(itemToMove, at: to.row)
+        PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+    }
+    
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
 
     
-    //MARK: Actions
+    //MARK: Private methods
+
+    func showSelectedDictionary(myDictionary: MyDictionary){
+        PersistenceHelper.saveSelectedDictionaryId(myDictionary: myDictionary)
+        selectedDictionary = myDictionary
+        PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+        self.title = selectedDictionary.getDisplayName()
+        self.tableView.reloadData()
+        if (selectedDictionary.translations.count < 1){
+            showEmptyMessage()
+        }
+    }
+    
+    
+    //MARK: Navigation
     
     @IBAction func unwindToTranslationList(sender: UIStoryboardSegue) {
         
@@ -116,71 +160,15 @@ class TranslationTableViewController: UITableViewController {
         
         if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
             // Dictionary created
-            PersistenceHelper.saveSelectedDictionaryId(myDictionary: createdDictionary)
-            selectedDictionary = createdDictionary
-            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
-            self.title = selectedDictionary.getDisplayName()
-            self.tableView.reloadData()
-            if (selectedDictionary.translations.count < 1){
-                showEmptyMessage()
-            }
+            showSelectedDictionary(myDictionary: createdDictionary)
         }
-//        Utils.print("Unwind in TranslationTableViewController")
-//        Utils.print(type(of: sender.source))
-//        let sourceViewController = sender.source as? MyDictionariesViewController
-//        let unwindedSelectedDictionary: MyDictionary = sourceViewController!.selectedDictionary
-//        Utils.print(unwindedSelectedDictionary.targetLanguageName)
         if let sourceViewController = sender.source as? MyDictionariesViewController, let unwindedSelectedDictionary = sourceViewController.selectedDictionary {
             // Dictionary created
-            PersistenceHelper.saveSelectedDictionaryId(myDictionary: unwindedSelectedDictionary)
-            selectedDictionary = unwindedSelectedDictionary
-            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
-            self.title = selectedDictionary.getDisplayName()
-            self.tableView.reloadData()
-            if (selectedDictionary.translations.count < 1){
-                showEmptyMessage()
-            }
+            showSelectedDictionary(myDictionary: unwindedSelectedDictionary)
         }
         
-        
     }
     
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            selectedDictionary.translations.remove(at: indexPath.row)
-            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let itemToMove:Translation = selectedDictionary.translations[fromIndexPath.row]
-        selectedDictionary.translations.remove(at: fromIndexPath.row)
-        selectedDictionary.translations.insert(itemToMove, at: to.row)
-        PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
-    }
-
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-
-    // MARK: - Navigation
-
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
@@ -213,13 +201,4 @@ class TranslationTableViewController: UITableViewController {
         }
     }
     
-    
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
