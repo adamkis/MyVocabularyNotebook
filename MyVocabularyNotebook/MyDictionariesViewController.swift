@@ -61,6 +61,8 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
+        case "CreateDictionary":
+            print("Creating dictionary from Dictionaries list")
         case "dictionarySelected":
 //            guard let translationTableViewController = segue.destination as? TranslationTableViewController else {
 //                fatalError("Unexpected destination: \(segue.destination)")
