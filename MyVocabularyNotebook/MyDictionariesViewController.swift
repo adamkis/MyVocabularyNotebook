@@ -22,7 +22,10 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         do {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
             for url in directoryContents{
-                myDictionaries.append(PersistenceHelper.loadDictionary(url: url)!)
+                let myDictionary: MyDictionary? = PersistenceHelper.loadDictionary(url: url)
+                if( myDictionary != nil ){
+                    myDictionaries.append(myDictionary!)
+                }
             }
         } catch let error as NSError {
             Utils.print(error.localizedDescription)

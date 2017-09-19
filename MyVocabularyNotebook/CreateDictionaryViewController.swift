@@ -34,9 +34,14 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         selectedTargetLanguage = languageCodesAndNames[0]
         
         // Select the source language what the device language is
-        let deviceLanguage = Locale.preferredLanguages[0]
+        var deviceLanguage: String = Locale.preferredLanguages[0]
+        if( deviceLanguage.lowercased().range(of:"-") != nil  ){
+            let separated = deviceLanguage.components(separatedBy: "-")
+            deviceLanguage = separated.first!
+        }
         var deviceLanguageRow = 0;
         for language in languageCodesAndNames {
+            Utils.print(deviceLanguage + " " + language.id)
             if language.id == deviceLanguage {
                 break
             }
