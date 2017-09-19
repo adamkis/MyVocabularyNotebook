@@ -48,7 +48,7 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         
         let myDictionary = myDictionaries[indexPath.row]
         
-        cell.myDictionaryName.text = myDictionary.sourceLanguageName + " :: " + myDictionary.targetLanguageName
+        cell.myDictionaryName.text = myDictionary.getDisplayName()
         
         return cell
         
