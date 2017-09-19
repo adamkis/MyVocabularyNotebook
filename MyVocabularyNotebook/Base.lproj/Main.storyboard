@@ -318,7 +318,7 @@
         <!--My Dictionaries View Controller-->
         <scene sceneID="72o-7e-APb">
             <objects>
-                <viewController id="Ycb-cz-eHH" customClass="MyDictionariesViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Ycb-cz-eHH" customClass="MyDictionariesViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1dC-JM-JFy"/>
                         <viewControllerLayoutGuide type="bottom" id="wjG-Wh-RZg"/>
