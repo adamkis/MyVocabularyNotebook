@@ -54,6 +54,18 @@ class MyDictionary: NSObject, NSCoding{
         return sourceLanguageName + " - " + targetLanguageName
     }
     
+    public func getShareString() -> String {
+        var output: String = ""
+        output = output + "[[[ " + getDisplayName() + " ]]]" + "\n[[[ " + getDictionaryID() + " ]]]" + "\n" + "------------------------" + "\n"
+        var lineNumber = 1
+        for translation in translations{
+            output = output + String(lineNumber) + ".> " + translation.sourceTranslation + " ~~~ " + translation.targetTranslation + "\n"
+            lineNumber = lineNumber + 1
+        }
+        output = output + "------------------------"
+        return output
+    }
+    
     
     //MARK: NSCoding
     

@@ -18,4 +18,5 @@ class Utils: NSObject {
     open class func print(_ input: Any){
         Swift.print(input)
     }
+    
 }

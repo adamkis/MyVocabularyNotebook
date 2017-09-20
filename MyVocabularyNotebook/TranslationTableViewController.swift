@@ -131,8 +131,23 @@ class TranslationTableViewController: UITableViewController {
         }
     }
     
+    func shareDictionary(myDictionary: MyDictionary){
+        // get the extraction of the dictionary
+        let dictionaryExtractString = myDictionary.getShareString()
+        // set up activity view controller
+        let textToShare = [ dictionaryExtractString ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        // so that iPads won't crash
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     
     //MARK: Navigation
+    @IBAction func sharePressed(_ sender: Any) {
+        Utils.print(selectedDictionary.getShareString())
+        shareDictionary(myDictionary: selectedDictionary)
+    }
     
     @IBAction func unwindToTranslationList(sender: UIStoryboardSegue) {
         
