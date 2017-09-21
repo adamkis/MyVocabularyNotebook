@@ -56,13 +56,13 @@ class MyDictionary: NSObject, NSCoding{
     
     public func getShareString() -> String {
         var output: String = ""
-        output = output + "[[[ " + getDisplayName() + " ]]]" + "\n[[[ " + getDictionaryID() + " ]]]" + "\n" + "------------------------" + "\n"
+        output = output + "[[[ " + getDisplayName() + " ]]]" + "\n[[[ " + getDictionaryID() + " ]]]" + "\n" + "--------------------------------------" + "\n"
         var lineNumber = 1
         for translation in translations{
-            output = output + String(lineNumber) + ".> " + translation.sourceTranslation + " ~~~ " + translation.targetTranslation + "\n"
+            output = output + String(lineNumber) + ": " + translation.sourceTranslation + " ~~~ " + translation.targetTranslation + "\n"
             lineNumber = lineNumber + 1
         }
-        output = output + "------------------------"
+        output = output + "--------------------------------------"
         return output
     }
     
