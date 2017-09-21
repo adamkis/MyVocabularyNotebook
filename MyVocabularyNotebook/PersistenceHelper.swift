@@ -12,6 +12,12 @@ class PersistenceHelper: NSObject {
 
     static let SELECTED_DICTIONARY_KEY = "SELECTED_DICTIONARY_KEY"
     
+    // Root document directory - currently unused
+    static let PhraseBooksDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    // PhraseBooks sirectory
+//    static let PhraseBooksDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("PhraseBooks")
+    
+    
     // MARK: User Defaults
     
     open class func saveSelectedDictionaryId(myDictionary: MyDictionary){
@@ -47,8 +53,7 @@ class PersistenceHelper: NSObject {
     }
     
     open class func getArchiveUrl(dictionaryId: String!) -> URL {
-        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-        return DocumentsDirectory.appendingPathComponent(dictionaryId)
+        return PhraseBooksDirectory.appendingPathComponent(dictionaryId)
     }
     
     

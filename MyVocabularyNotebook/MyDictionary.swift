@@ -26,9 +26,6 @@ class MyDictionary: NSObject, NSCoding{
         static let translations = "translations"
     }
     
-    //MARK: Archiving Paths
-    var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    
     init(sourceLanguageCode: String?, targetLanguageCode: String?, sourceLanguageName: String?, targetLanguageName: String?, translations: [Translation]?){
         self.sourceLanguageCode = sourceLanguageCode!
         self.targetLanguageCode = targetLanguageCode!
@@ -47,7 +44,7 @@ class MyDictionary: NSObject, NSCoding{
     }
     
     public func getArchiveUrl() -> URL{
-        return DocumentsDirectory.appendingPathComponent(getDictionaryID())
+        return PersistenceHelper.PhraseBooksDirectory.appendingPathComponent(getDictionaryID())
     }
     
     public func getDisplayName() -> String{
