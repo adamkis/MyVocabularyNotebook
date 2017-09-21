@@ -13,6 +13,7 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: Properties
     @IBOutlet weak var myDictionariesTableView: UITableView!
     let documentsUrl: URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//    let documentsUrl: URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("PhraseBooks")
     var myDictionaries: [MyDictionary] = [MyDictionary]()
     var selectedDictionary: MyDictionary!
     
