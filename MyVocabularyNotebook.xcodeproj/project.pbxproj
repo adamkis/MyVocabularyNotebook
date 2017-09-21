@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661A96141F73B5020044DE9B /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A96131F73B5020044DE9B /* CloudManager.swift */; };
 		661C07341F6D7BF500D04CBD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C07331F6D7BF500D04CBD /* Utils.swift */; };
 		661C07361F6E786000D04CBD /* MyDictionariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C07351F6E786000D04CBD /* MyDictionariesViewController.swift */; };
 		661C07381F6E7D7400D04CBD /* MyDictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C07371F6E7D7400D04CBD /* MyDictionaryTableViewCell.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		661A96131F73B5020044DE9B /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
 		661C07331F6D7BF500D04CBD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		661C07351F6E786000D04CBD /* MyDictionariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDictionariesViewController.swift; sourceTree = "<group>"; };
 		661C07371F6E7D7400D04CBD /* MyDictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDictionaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */,
 				665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */,
 				661C07331F6D7BF500D04CBD /* Utils.swift */,
+				661A96131F73B5020044DE9B /* CloudManager.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */,
 				666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */,
 				6671D4841F5FD91B00BE86BE /* TableViewHelper.swift in Sources */,
+				661A96141F73B5020044DE9B /* CloudManager.swift in Sources */,
 				661C07341F6D7BF500D04CBD /* Utils.swift in Sources */,
 				6671D47A1F56AB4400BE86BE /* TranslationTableViewCell.swift in Sources */,
 				661C07361F6E786000D04CBD /* MyDictionariesViewController.swift in Sources */,
