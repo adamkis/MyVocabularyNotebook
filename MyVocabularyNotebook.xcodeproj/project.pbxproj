@@ -25,6 +25,7 @@
 		6671D4821F5AB10600BE86BE /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4811F5AB10600BE86BE /* TranslationViewController.swift */; };
 		6671D4841F5FD91B00BE86BE /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */; };
 		66F2AB1E1F8B895F0064AE29 /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */; };
+		66F2AB211F8BA0940064AE29 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66F2AB231F8BA0940064AE29 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		6671D4811F5AB10600BE86BE /* TranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
+		66F2AB221F8BA0940064AE29 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		66F2AB241F8BA0FB0064AE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,7 @@
 				6671D45E1F555E6100BE86BE /* Assets.xcassets */,
 				6671D4601F555E6100BE86BE /* LaunchScreen.storyboard */,
 				6671D4631F555E6100BE86BE /* Info.plist */,
+				66F2AB231F8BA0940064AE29 /* Localizable.strings */,
 			);
 			path = MyVocabularyNotebook;
 			sourceTree = "<group>";
@@ -253,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6671D4621F555E6100BE86BE /* LaunchScreen.storyboard in Resources */,
+				66F2AB211F8BA0940064AE29 /* Localizable.strings in Resources */,
 				6671D45F1F555E6100BE86BE /* Assets.xcassets in Resources */,
 				6671D45D1F555E6100BE86BE /* Main.storyboard in Resources */,
 			);
@@ -324,6 +329,15 @@
 				6671D4781F55771E00BE86BE /* hu */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		66F2AB231F8BA0940064AE29 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66F2AB221F8BA0940064AE29 /* hu */,
+				66F2AB241F8BA0FB0064AE29 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
