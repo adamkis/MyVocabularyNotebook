@@ -10,3 +10,6 @@
 
 // This one is the initial value at setting up localization
 "Welcome" = "Üdvözlet";
+
+// For empty screen
+"You don't have any translations yet.\nTap the plus icon to make your first one" = "Nincs még fordításod.\nNyomj a plusz ikonra, hogy létrehozz egyet";

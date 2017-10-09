@@ -38,7 +38,8 @@ class TranslationTableViewController: UITableViewController {
     }
     
     private func showEmptyMessage(){
-        emptyLabel = TableViewHelper.EmptyMessage(message: "You don't have any translations yet.\nTap the plus icon to make your first one", viewController: self)
+        let emptyText = NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when dictionary is empty")
+        emptyLabel = TableViewHelper.EmptyMessage(message: emptyText, viewController: self)
     }
 
     override func didReceiveMemoryWarning() {
