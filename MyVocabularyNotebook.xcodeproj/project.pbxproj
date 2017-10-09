@@ -24,6 +24,7 @@
 		6671D4801F5983D800BE86BE /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D47F1F5983D800BE86BE /* Translation.swift */; };
 		6671D4821F5AB10600BE86BE /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4811F5AB10600BE86BE /* TranslationViewController.swift */; };
 		6671D4841F5FD91B00BE86BE /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */; };
+		66F2AB1E1F8B895F0064AE29 /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		6671D47F1F5983D800BE86BE /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		6671D4811F5AB10600BE86BE /* TranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
+		66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		666EE0231F641B4400F8CE8D /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				66F2AB1C1F8B88B50064AE29 /* Extensions */,
 				6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */,
 				665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */,
 				661C07331F6D7BF500D04CBD /* Utils.swift */,
@@ -153,6 +156,14 @@
 				6671D46E1F555E6200BE86BE /* Info.plist */,
 			);
 			path = MyVocabularyNotebookTests;
+			sourceTree = "<group>";
+		};
+		66F2AB1C1F8B88B50064AE29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			files = (
 				665ED69F1F6D2FC6001DAE94 /* PersistenceHelper.swift in Sources */,
 				664848BD1F682ABB00F5BD7D /* CreateDictionaryViewController.swift in Sources */,
+				66F2AB1E1F8B895F0064AE29 /* UIColor+CustomColor.swift in Sources */,
 				6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */,
 				666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */,
 				6671D4841F5FD91B00BE86BE /* TableViewHelper.swift in Sources */,

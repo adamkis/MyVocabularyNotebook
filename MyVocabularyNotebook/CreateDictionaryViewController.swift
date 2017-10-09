@@ -13,6 +13,9 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
     @IBOutlet weak var sourceLanguage: UIPickerView!
     @IBOutlet weak var targetLanguage: UIPickerView!
     @IBOutlet weak var saveButtonNavBar: UIBarButtonItem!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sourceLanguageLabel: UILabel!
+    @IBOutlet weak var targetLanguageLabel: UILabel!
     
     var languageCodesAndNames = [(id: String, name: String)]()
     var selectedSourceLanguage: (id: String, name: String)!
@@ -22,6 +25,11 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.textColor = UIColor.customTurquoise
+        sourceLanguageLabel.textColor = UIColor.customTurquoise
+        targetLanguageLabel.textColor = UIColor.customTurquoise
+        saveButtonNavBar.tintColor = UIColor.customTurquoiseDark
         
         for code in NSLocale.isoLanguageCodes as [String] {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.languageCode.rawValue: code])

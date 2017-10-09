@@ -190,9 +190,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="saveButtonNavBar" destination="0Ip-Ex-iVU" id="2jv-Ly-MEf"/>
+                        <outlet property="saveButtonNavBar" destination="0Ip-Ex-iVU" id="jbA-u1-Dte"/>
                         <outlet property="sourceLanguage" destination="77A-MF-tGY" id="UUt-ym-VLu"/>
+                        <outlet property="sourceLanguageLabel" destination="Ont-Rn-qCC" id="69E-tH-YXd"/>
                         <outlet property="targetLanguage" destination="cVm-Bf-48y" id="GD5-gn-Dhl"/>
+                        <outlet property="targetLanguageLabel" destination="KKi-Mj-niR" id="ngl-Ap-qUS"/>
+                        <outlet property="titleLabel" destination="K1L-eh-aPS" id="Jlt-3H-IoD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izi-Pt-ox6" userLabel="First Responder" sceneMemberID="firstResponder"/>
