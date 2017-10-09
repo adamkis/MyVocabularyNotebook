@@ -1,6 +1,7 @@
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "0wc-9G-eqa"; */
-"0wc-9G-eqa.text" = "Cimke";
+/* Class = "UILabel"; text = "Source language - Target language"; ObjectID = "0wc-9G-eqa"; */
+// NOT USED
+"0wc-9G-eqa.text" = "Forrás nyelv - Cél nyelv";
 
 /* Class = "UILabel"; text = "Source language"; ObjectID = "5Cx-zB-4mE"; */
 "5Cx-zB-4mE.text" = "Forrás nyelv";
