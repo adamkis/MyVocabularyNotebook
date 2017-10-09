@@ -55,7 +55,6 @@
 		6671D4681F555E6200BE86BE /* MyVocabularyNotebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyVocabularyNotebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6671D46C1F555E6200BE86BE /* MyVocabularyNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocabularyNotebookTests.swift; sourceTree = "<group>"; };
 		6671D46E1F555E6200BE86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6671D4771F55771E00BE86BE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Main.strings; sourceTree = "<group>"; };
 		6671D4781F55771E00BE86BE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewCell.swift; sourceTree = "<group>"; };
 		6671D47D1F580B3000BE86BE /* TranslationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		66F2AB221F8BA0940064AE29 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		66F2AB241F8BA0FB0064AE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		66F2AB261F8BAAD90064AE29 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,7 +317,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6671D45C1F555E6100BE86BE /* Base */,
-				6671D4771F55771E00BE86BE /* hu */,
+				66F2AB261F8BAAD90064AE29 /* hu */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
