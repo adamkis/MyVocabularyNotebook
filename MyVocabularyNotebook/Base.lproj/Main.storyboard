@@ -136,37 +136,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I would like to save phrases..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1L-eh-aPS">
-                                <rect key="frame" x="0.0" y="72" width="375" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I would like to save phrases" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1L-eh-aPS">
+                                <rect key="frame" x="0.0" y="84" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77A-MF-tGY">
-                                <rect key="frame" x="0.0" y="130" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77A-MF-tGY">
+                                <rect key="frame" x="0.0" y="155" width="375" height="216"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="between this language:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-Rn-qCC">
-                                <rect key="frame" x="16" y="101" width="273" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="between this language:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-Rn-qCC">
+                                <rect key="frame" x="0.0" y="134" width="375" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="and this language:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKi-Mj-niR">
-                                <rect key="frame" x="16" y="354" width="273" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and this language:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKi-Mj-niR">
+                                <rect key="frame" x="0.0" y="371" width="375" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cVm-Bf-48y">
-                                <rect key="frame" x="0.0" y="383" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVm-Bf-48y">
+                                <rect key="frame" x="0.0" y="392" width="375" height="216"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KKi-Mj-niR" secondAttribute="trailing" id="1C7-x5-1tC"/>
+                            <constraint firstItem="KKi-Mj-niR" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leading" id="30Z-UO-2L8"/>
+                            <constraint firstItem="77A-MF-tGY" firstAttribute="top" secondItem="Ont-Rn-qCC" secondAttribute="bottom" id="3w0-2e-XXo"/>
+                            <constraint firstItem="KKi-Mj-niR" firstAttribute="top" secondItem="77A-MF-tGY" secondAttribute="bottom" id="6qR-Q9-AwA"/>
+                            <constraint firstItem="K1L-eh-aPS" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leading" id="Hdd-Lj-Ydr"/>
+                            <constraint firstAttribute="trailing" secondItem="77A-MF-tGY" secondAttribute="trailing" id="J9f-Wq-8ZR"/>
+                            <constraint firstItem="77A-MF-tGY" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leading" id="Tcl-xl-Ms8"/>
+                            <constraint firstItem="cVm-Bf-48y" firstAttribute="top" secondItem="KKi-Mj-niR" secondAttribute="bottom" id="Z5o-Uv-sQa"/>
+                            <constraint firstItem="cVm-Bf-48y" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leading" id="aAe-9M-X8F"/>
+                            <constraint firstItem="cVm-Bf-48y" firstAttribute="top" secondItem="KKi-Mj-niR" secondAttribute="bottom" id="bTo-4p-joz"/>
+                            <constraint firstItem="K1L-eh-aPS" firstAttribute="top" secondItem="2vI-xe-K6d" secondAttribute="bottom" constant="20" id="hcW-4F-yfO"/>
+                            <constraint firstItem="Ont-Rn-qCC" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leading" id="hwo-X8-xQS"/>
+                            <constraint firstAttribute="trailing" secondItem="K1L-eh-aPS" secondAttribute="trailing" id="mhH-PH-XZw"/>
+                            <constraint firstAttribute="trailing" secondItem="Ont-Rn-qCC" secondAttribute="trailing" id="p6u-fT-VQi"/>
+                            <constraint firstItem="Ont-Rn-qCC" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leadingMargin" id="scu-oo-fJt"/>
+                            <constraint firstAttribute="trailing" secondItem="cVm-Bf-48y" secondAttribute="trailing" id="tp5-gE-zoU"/>
+                            <constraint firstItem="Ont-Rn-qCC" firstAttribute="top" secondItem="K1L-eh-aPS" secondAttribute="bottom" constant="20" id="v14-xv-YwA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cVw-V1-YPj">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Ip-Ex-iVU">
