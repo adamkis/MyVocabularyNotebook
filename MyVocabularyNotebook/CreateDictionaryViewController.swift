@@ -31,10 +31,16 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         targetLanguageLabel.textColor = UIColor.customTurquoise
         saveButtonNavBar.tintColor = UIColor.customTurquoiseDark
         
+        // Getting the device language
+        var deviceLanguage: String = Locale.preferredLanguages[0]
+        Utils.print("Device lang.:" + deviceLanguage)
+        
         for code in NSLocale.isoLanguageCodes as [String] {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.languageCode.rawValue: code])
-            let name = NSLocale(localeIdentifier: "en_US").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Language not found for code: \(code)"
-            languageCodesAndNames.append((id, name))
+            let name = NSLocale(localeIdentifier: deviceLanguage).displayName(forKey: NSLocale.Key.identifier, value: id) ?? nil
+            if( name != nil ){
+                languageCodesAndNames.append((id, name!))
+            }
         }
         
         languageCodesAndNames = languageCodesAndNames.sorted(){ $0.name < $1.name }
@@ -42,7 +48,6 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         selectedTargetLanguage = languageCodesAndNames[0]
         
         // Select the source language what the device language is
-        var deviceLanguage: String = Locale.preferredLanguages[0]
         if( deviceLanguage.lowercased().range(of:"-") != nil  ){
             let separated = deviceLanguage.components(separatedBy: "-")
             deviceLanguage = separated.first!
