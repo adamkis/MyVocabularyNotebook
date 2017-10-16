@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Translation: NSObject, NSCoding {
+class Translation: NSObject, NSCoding, NSCopying {
 
     // MARK: Properties
     var sourceTranslation: String
@@ -45,4 +45,14 @@ class Translation: NSObject, NSCoding {
         self.init(sourceTranslation: sourceTranslation, targetTranslation: targetTranslation)
     }
     
+    // MARK: NSCopying
+    func copy(with zone: NSZone? = nil) -> Any {
+        return type(of:self).init(self)
+    }
+    
+    required init(_ translation: Translation) {
+        sourceTranslation = translation.sourceTranslation
+        targetTranslation = translation.targetTranslation
+    }
+
 }

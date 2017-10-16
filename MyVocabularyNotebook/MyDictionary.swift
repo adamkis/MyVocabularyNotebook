@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyDictionary: NSObject, NSCoding{
+class MyDictionary: NSObject, NSCoding, NSCopying{
 
     // MARK: Properties
     var sourceLanguageCode: String
@@ -103,6 +103,22 @@ class MyDictionary: NSObject, NSCoding{
         
     }
     
+    // MARK: NSCopying
+    func copy(with zone: NSZone? = nil) -> Any {
+        return type(of:self).init(self)
+    }
+    
+    required init(_ dictionary: MyDictionary) {
+        sourceLanguageCode = dictionary.sourceLanguageCode
+        targetLanguageCode = dictionary.targetLanguageCode
+        sourceLanguageName = dictionary.sourceLanguageName
+        targetLanguageName = dictionary.targetLanguageName
+        translations = [Translation]()
+        for translation in dictionary.translations {
+            translations.append(Translation(translation))
+        }
+    }
+
     
     
 }

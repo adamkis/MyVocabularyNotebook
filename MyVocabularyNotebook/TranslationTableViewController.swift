@@ -8,11 +8,13 @@
 
 import UIKit
 
-class TranslationTableViewController: UITableViewController {
+class TranslationTableViewController: UITableViewController, UISearchResultsUpdating {
 
     // MARK: Properties
     var selectedDictionary: MyDictionary!
+    var filteredDictionary: MyDictionary!
     var emptyLabel: UILabel?
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,20 +37,38 @@ class TranslationTableViewController: UITableViewController {
         }
         
         self.title = selectedDictionary.getDisplayName()
+        
+        // Setting up search
+        filteredDictionary = MyDictionary(selectedDictionary)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
     }
     
-    private func showEmptyMessage(){
-        let emptyText = NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when dictionary is empty")
-        emptyLabel = TableViewHelper.EmptyMessage(message: emptyText, viewController: self)
+    // MARK: - Search
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
     }
-
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredDictionary.translations = selectedDictionary.translations.filter({( translation : Translation) -> Bool in
+            return translation.sourceTranslation.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
     // MARK: - Table view Delegate Methods
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -121,6 +141,11 @@ class TranslationTableViewController: UITableViewController {
     
     //MARK: Private methods
 
+    private func showEmptyMessage(){
+        let emptyText = NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when dictionary is empty")
+        emptyLabel = TableViewHelper.EmptyMessage(message: emptyText, viewController: self)
+    }
+
     func showSelectedDictionary(myDictionary: MyDictionary){
         PersistenceHelper.saveSelectedDictionaryId(myDictionary: myDictionary)
         selectedDictionary = myDictionary
@@ -143,6 +168,7 @@ class TranslationTableViewController: UITableViewController {
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
     
     //MARK: Navigation
     @IBAction func sharePressed(_ sender: Any) {
