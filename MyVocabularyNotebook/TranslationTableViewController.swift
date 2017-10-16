@@ -74,6 +74,14 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            if filteredDictionary != nil {
+                return filteredDictionary.translations.count
+            }
+            else{
+                return 0
+            }
+        }
         if( selectedDictionary != nil ){
             return selectedDictionary.translations.count
         }
@@ -91,7 +99,13 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
             fatalError("The dequeued cell is not an instance of TranslationTableViewCell.")
         }
         
-        let translation = selectedDictionary.translations[indexPath.row]
+        let translation: Translation
+        if isFiltering() {
+            translation = filteredDictionary.translations[indexPath.row]
+        } else {
+            translation = selectedDictionary.translations[indexPath.row]
+        }
+//        let translation = selectedDictionary.translations[indexPath.row]
         
         cell.translationTextView1.text = translation.sourceTranslation
         cell.translationTextView2.text = translation.targetTranslation
@@ -231,7 +245,12 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
                 guard let indexPath = tableView.indexPath(for: selectedTranslationCell) else {
                     fatalError("The selected cell is not being displayed by the table")
                 }
-                let selectedTranslation = selectedDictionary.translations[indexPath.row]
+                let selectedTranslation: Translation
+                if isFiltering() {
+                    selectedTranslation = filteredDictionary.translations[indexPath.row]
+                } else {
+                    selectedTranslation = selectedDictionary.translations[indexPath.row]
+                }
                 translationDetailViewController.translation = selectedTranslation
                 translationDetailViewController.myDictionary = selectedDictionary
             case "CreateDictionary":
