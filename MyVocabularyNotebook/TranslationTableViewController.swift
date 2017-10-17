@@ -257,6 +257,8 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
                 Utils.log("Creating new dictionary.")
             case "MyDictionaries":
                 Utils.log("Showing my dictionaries in a list.")
+            case "ShowTestOut":
+                Utils.log("Showing test out function")
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }

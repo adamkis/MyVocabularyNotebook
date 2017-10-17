@@ -6,9 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Italic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--My Phrases-->
         <scene sceneID="BVP-er-vES">
@@ -107,6 +114,12 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JpT-zZ-Nmu"/>
+                        <barButtonItem title="Test Out" id="eLW-JX-Mdn">
+                            <connections>
+                                <segue destination="KYc-9D-agQ" kind="show" identifier="ShowTestOut" id="Jlo-jy-CY2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="uZ5-h3-dms"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="My Phrases" id="UdL-IW-5KJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QI3-F8-lbN">
@@ -445,9 +458,89 @@
             </objects>
             <point key="canvasLocation" x="-407" y="-654"/>
         </scene>
+        <!--Test Out Page View Controller-->
+        <scene sceneID="f2f-rv-Pmz">
+            <objects>
+                <pageViewController storyboardIdentifier="TestOutPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KYc-9D-agQ" customClass="TestOutPageViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVI-lf-m8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="1259"/>
+        </scene>
+        <!--Test Out Card View Controller-->
+        <scene sceneID="nxb-3g-j6v">
+            <objects>
+                <viewController storyboardIdentifier="TestOutCardViewController" id="hsu-MZ-iIW" customClass="TestOutCardViewController" customModule="MyVocabularyNotebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EBn-6y-WQZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="NET-Af-Im2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pUl-96-XUi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEu-44-iv4">
+                                <rect key="frame" x="62.5" y="167" width="250" height="333.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKL-tQ-N3p">
+                                        <rect key="frame" x="102.5" y="154.5" width="45" height="25"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="LKL-tQ-N3p" secondAttribute="centerX" id="8WH-3w-R9M"/>
+                                    <constraint firstItem="LKL-tQ-N3p" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YEu-44-iv4" secondAttribute="leading" constant="20" id="kgZ-aH-ywh"/>
+                                    <constraint firstAttribute="centerY" secondItem="LKL-tQ-N3p" secondAttribute="centerY" id="lnF-3B-9pK"/>
+                                    <constraint firstAttribute="height" secondItem="YEu-44-iv4" secondAttribute="width" multiplier="4:3" id="vXM-nv-3Cg"/>
+                                    <constraint firstAttribute="height" secondItem="YEu-44-iv4" secondAttribute="width" multiplier="3:4" id="xtN-gQ-JB2"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LKL-tQ-N3p" secondAttribute="trailing" constant="20" id="xvi-kl-MiX"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xtN-gQ-JB2"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="vXM-nv-3Cg"/>
+                                        <include reference="xtN-gQ-JB2"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="YEu-44-iv4" secondAttribute="centerY" id="4iZ-Ia-qMH"/>
+                            <constraint firstItem="YEu-44-iv4" firstAttribute="width" secondItem="pUl-96-XUi" secondAttribute="width" multiplier="1/2" id="EbS-s5-dWz"/>
+                            <constraint firstAttribute="centerX" secondItem="YEu-44-iv4" secondAttribute="centerX" id="J5Q-Hx-r8R"/>
+                            <constraint firstItem="YEu-44-iv4" firstAttribute="height" secondItem="pUl-96-XUi" secondAttribute="height" multiplier="1/2" id="qxa-0a-bkW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EbS-s5-dWz"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="EbS-s5-dWz"/>
+                                <exclude reference="qxa-0a-bkW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="YEu-44-iv4" id="uoo-0h-1z5"/>
+                        <outlet property="titleLabel" destination="LKL-tQ-N3p" id="m6t-TN-fKS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghf-Ph-HkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2079" y="1259"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yUh-Gx-M1w"/>
+        <segue reference="2sD-j8-2Ha"/>
         <segue reference="2Cg-Gh-zcq"/>
     </inferredMetricsTieBreakers>
 </document>
