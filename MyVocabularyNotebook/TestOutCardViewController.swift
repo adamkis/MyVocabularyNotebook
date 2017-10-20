@@ -17,6 +17,7 @@ class TestOutCardViewController: UIViewController {
 //    @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    var secondView: UIView!
     
     var pageIndex: Int?
     var dummyString: String?
@@ -27,8 +28,20 @@ class TestOutCardViewController: UIViewController {
         titleLabel.text = dummyString
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-//        cardView.addGestureRecognizer(tapRecognizer)
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        cardView.addGestureRecognizer(tapRecognizer)
+        
+//        firstView = UIView(frame: CGRect(x: 32, y: 32, width: 128, height: 128))
+        secondView = UIView(frame: CGRect(x: 32, y: 32, width: 128, height: 128))
+        
+//        firstView.backgroundColor = UIColor.red
+        secondView.backgroundColor = UIColor.blue
+        
+        secondView.isHidden = true
+        
+//        view.addSubview(firstView)
+        view.addSubview(secondView)
+        
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,8 +50,21 @@ class TestOutCardViewController: UIViewController {
 //        }
 //    }
 //
-//    func handleTap() {
-//        performSegue(withIdentifier: revealSequeId, sender: nil)
-//    }
+    @objc func handleTap() {
+        Utils.print("tapped")
+        perform(#selector(flip), with: nil, afterDelay: 2)
+    }
+    
+    @objc func flip() {
+        let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+        
+        UIView.transition(with: cardView, duration: 1.0, options: transitionOptions, animations: {
+            self.cardView.isHidden = true
+        })
+        
+        UIView.transition(with: secondView, duration: 1.0, options: transitionOptions, animations: {
+            self.secondView.isHidden = false
+        })
+    }
 }
 
