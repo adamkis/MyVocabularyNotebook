@@ -509,12 +509,47 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFc-3j-r0D" userLabel="Back View">
+                                <rect key="frame" x="62.5" y="166" width="250" height="333.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZf-DS-jJn">
+                                        <rect key="frame" x="102" y="154.5" width="45" height="25"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.5447398671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="EZf-DS-jJn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sFc-3j-r0D" secondAttribute="leading" constant="20" id="LCx-Ve-dGc"/>
+                                    <constraint firstAttribute="height" secondItem="sFc-3j-r0D" secondAttribute="width" multiplier="3:4" id="LLA-8d-QAD"/>
+                                    <constraint firstAttribute="centerX" secondItem="EZf-DS-jJn" secondAttribute="centerX" id="PBn-hC-tvJ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EZf-DS-jJn" secondAttribute="trailing" constant="20" id="TCv-DT-7Nh"/>
+                                    <constraint firstAttribute="centerY" secondItem="EZf-DS-jJn" secondAttribute="centerY" id="aDr-DX-S90"/>
+                                    <constraint firstAttribute="height" secondItem="sFc-3j-r0D" secondAttribute="width" multiplier="4:3" id="yiF-Ak-XPd"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LLA-8d-QAD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="yiF-Ak-XPd"/>
+                                        <include reference="LLA-8d-QAD"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="sFc-3j-r0D" firstAttribute="centerY" secondItem="pUl-96-XUi" secondAttribute="centerY" id="3Hx-Tq-ll7"/>
                             <constraint firstAttribute="centerY" secondItem="YEu-44-iv4" secondAttribute="centerY" id="4iZ-Ia-qMH"/>
                             <constraint firstItem="YEu-44-iv4" firstAttribute="width" secondItem="pUl-96-XUi" secondAttribute="width" multiplier="1/2" id="EbS-s5-dWz"/>
+                            <constraint firstItem="sFc-3j-r0D" firstAttribute="height" secondItem="pUl-96-XUi" secondAttribute="height" multiplier="0.5" id="I6V-go-UJf"/>
                             <constraint firstAttribute="centerX" secondItem="YEu-44-iv4" secondAttribute="centerX" id="J5Q-Hx-r8R"/>
+                            <constraint firstItem="sFc-3j-r0D" firstAttribute="centerX" secondItem="pUl-96-XUi" secondAttribute="centerX" id="hAJ-Qq-0Fg"/>
+                            <constraint firstItem="sFc-3j-r0D" firstAttribute="width" secondItem="pUl-96-XUi" secondAttribute="width" multiplier="0.5" id="q95-Aj-hNo"/>
                             <constraint firstItem="YEu-44-iv4" firstAttribute="height" secondItem="pUl-96-XUi" secondAttribute="height" multiplier="1/2" id="qxa-0a-bkW"/>
                         </constraints>
                         <variation key="default">
@@ -530,6 +565,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backLabel" destination="EZf-DS-jJn" id="sej-h0-xqA"/>
+                        <outlet property="backView" destination="sFc-3j-r0D" id="vxc-zE-fMg"/>
                         <outlet property="cardView" destination="YEu-44-iv4" id="uoo-0h-1z5"/>
                         <outlet property="titleLabel" destination="LKL-tQ-N3p" id="m6t-TN-fKS"/>
                     </connections>

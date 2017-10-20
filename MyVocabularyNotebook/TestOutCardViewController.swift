@@ -17,7 +17,8 @@ class TestOutCardViewController: UIViewController {
 //    @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    var secondView: UIView!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var backLabel: UILabel!
     
     var pageIndex: Int?
     var dummyString: String?
@@ -31,25 +32,13 @@ class TestOutCardViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         cardView.addGestureRecognizer(tapRecognizer)
         
-//        firstView = UIView(frame: CGRect(x: 32, y: 32, width: 128, height: 128))
-        secondView = UIView(frame: CGRect(x: 32, y: 32, width: 128, height: 128))
-        
-//        firstView.backgroundColor = UIColor.red
-        secondView.backgroundColor = UIColor.blue
-        
-        secondView.isHidden = true
-        
-//        view.addSubview(firstView)
-        view.addSubview(secondView)
+        backView.isHidden = true
+        backView.layer.cornerRadius = 25
+        backView.layer.masksToBounds = true
+        backLabel.text = dummyString! + " Back"
         
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == revealSequeId, let destinationViewController = segue.destination as? RevealViewController {
-//            destinationViewController.petCard = petCard
-//        }
-//    }
-//
+
     @objc func handleTap() {
         Utils.print("tapped")
         perform(#selector(flip), with: nil, afterDelay: 2)
@@ -62,8 +51,8 @@ class TestOutCardViewController: UIViewController {
             self.cardView.isHidden = true
         })
         
-        UIView.transition(with: secondView, duration: 1.0, options: transitionOptions, animations: {
-            self.secondView.isHidden = false
+        UIView.transition(with: backView, duration: 1.0, options: transitionOptions, animations: {
+            self.backView.isHidden = false
         })
     }
 }
