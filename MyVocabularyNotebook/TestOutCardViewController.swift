@@ -19,6 +19,7 @@ class TestOutCardViewController: UIViewController {
     @IBOutlet weak var translationText: UITextView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var backLabel: UILabel!
+    @IBOutlet weak var showButton: UIButton!
     
     var pageIndex: Int?
     var dummyString: String?
@@ -30,7 +31,7 @@ class TestOutCardViewController: UIViewController {
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        cardView.addGestureRecognizer(tapRecognizer)
+        showButton.addGestureRecognizer(tapRecognizer)
         
         backView.isHidden = true
         backView.layer.cornerRadius = 25
