@@ -477,31 +477,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEu-44-iv4">
-                                <rect key="frame" x="83" y="147.33333333333337" width="248.33333333333331" height="441.33333333333326"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKL-tQ-N3p">
-                                        <rect key="frame" x="102.5" y="154" width="45" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="18"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFc-3j-r0D" userLabel="Back View">
-                                <rect key="frame" x="82.666666666666686" y="147.33333333333337" width="248.66666666666663" height="441.33333333333326"/>
+                                <rect key="frame" x="82" y="147" width="249" height="441"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZf-DS-jJn">
-                                        <rect key="frame" x="90" y="156" width="45" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZf-DS-jJn">
+                                        <rect key="frame" x="90" y="156" width="45" height="24.666666666666686"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.5447398671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="EZf-DS-jJn" firstAttribute="top" secondItem="sFc-3j-r0D" secondAttribute="top" constant="156" id="Ind-rY-jlz"/>
+                                    <constraint firstAttribute="trailing" secondItem="EZf-DS-jJn" secondAttribute="trailing" constant="114" id="MPi-gr-WSk"/>
+                                    <constraint firstItem="EZf-DS-jJn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sFc-3j-r0D" secondAttribute="leading" id="gVP-NF-mup"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEu-44-iv4">
+                                <rect key="frame" x="83" y="147" width="248" height="441"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d7Z-TR-1EZ">
+                                        <rect key="frame" x="8" y="24" width="232" height="393"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fCq-mY-ZSi">
+                                                <rect key="frame" x="0.0" y="0.0" width="232" height="275"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yha-Jb-ox0">
+                                                <rect key="frame" x="0.0" y="283" width="232" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="KTN-0m-1Hv"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMX-t0-wnl">
+                                                <rect key="frame" x="0.0" y="361" width="232" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="SZy-KZ-rAw"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="yha-Jb-ox0" secondAttribute="trailing" id="OgD-Qu-KF2"/>
+                                            <constraint firstItem="fCq-mY-ZSi" firstAttribute="leading" secondItem="d7Z-TR-1EZ" secondAttribute="leading" id="eLu-nn-cZd"/>
+                                            <constraint firstAttribute="trailing" secondItem="sMX-t0-wnl" secondAttribute="trailing" id="iuS-J8-kHa"/>
+                                            <constraint firstItem="yha-Jb-ox0" firstAttribute="leading" secondItem="d7Z-TR-1EZ" secondAttribute="leading" id="k5i-jW-RQ0"/>
+                                            <constraint firstItem="sMX-t0-wnl" firstAttribute="leading" secondItem="d7Z-TR-1EZ" secondAttribute="leading" id="lbh-Cv-Tje"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="d7Z-TR-1EZ" firstAttribute="trailing" secondItem="YEu-44-iv4" secondAttribute="trailingMargin" id="1Va-sp-vRs"/>
+                                    <constraint firstItem="d7Z-TR-1EZ" firstAttribute="top" secondItem="YEu-44-iv4" secondAttribute="top" constant="24" id="Xs9-Bx-IFU"/>
+                                    <constraint firstItem="d7Z-TR-1EZ" firstAttribute="leading" secondItem="YEu-44-iv4" secondAttribute="leadingMargin" id="bB0-eZ-mTP"/>
+                                    <constraint firstItem="d7Z-TR-1EZ" firstAttribute="centerY" secondItem="YEu-44-iv4" secondAttribute="centerY" id="cgT-ev-0NK"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -520,12 +558,12 @@
                         <outlet property="backLabel" destination="EZf-DS-jJn" id="sej-h0-xqA"/>
                         <outlet property="backView" destination="sFc-3j-r0D" id="vxc-zE-fMg"/>
                         <outlet property="cardView" destination="YEu-44-iv4" id="uoo-0h-1z5"/>
-                        <outlet property="titleLabel" destination="LKL-tQ-N3p" id="m6t-TN-fKS"/>
+                        <outlet property="translationText" destination="fCq-mY-ZSi" id="uGk-ZZ-ktJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghf-Ph-HkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077.5999999999999" y="1258.920539730135"/>
+            <point key="canvasLocation" x="2075.36231884058" y="1258.6956521739132"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

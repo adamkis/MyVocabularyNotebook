@@ -16,7 +16,7 @@ class TestOutCardViewController: UIViewController {
 //    @IBOutlet fileprivate weak var cardView: UIView!
 //    @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var translationText: UITextView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var backLabel: UILabel!
     
@@ -26,7 +26,7 @@ class TestOutCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = dummyString
+        translationText.text = dummyString
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
