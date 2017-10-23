@@ -41,7 +41,7 @@ class TestOutCardViewController: UIViewController {
 
     @objc func handleTap() {
         Utils.print("tapped")
-        perform(#selector(flip), with: nil, afterDelay: 2)
+        perform(#selector(flip), with: nil, afterDelay: 0)
     }
     
     @objc func flip() {
