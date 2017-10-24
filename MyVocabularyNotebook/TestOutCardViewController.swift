@@ -22,7 +22,7 @@ class TestOutCardViewController: UIViewController {
     @IBOutlet weak var showButton: UIButton!
     
     var pageIndex: Int?
-    var dummyString: String?
+    var translation: Translation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class TestOutCardViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        translationText.text = dummyString
+        translationText.text = translation?.sourceTranslation
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -39,7 +39,7 @@ class TestOutCardViewController: UIViewController {
         backView.isHidden = true
         backView.layer.cornerRadius = 25
         backView.layer.masksToBounds = true
-        backLabel.text = dummyString! + " Back"
+        backLabel.text = (translation?.sourceTranslation)! + " Back"
         
     }
 
