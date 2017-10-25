@@ -16,7 +16,7 @@ class TestOutCardViewController: UIViewController {
 //    @IBOutlet fileprivate weak var cardView: UIView!
 //    @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var translationText: UITextView!
+    @IBOutlet weak var sourceTranslation: UILabel!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var showButton: UIButton!
@@ -30,7 +30,7 @@ class TestOutCardViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        translationText.text = translation?.sourceTranslation
+        sourceTranslation.text = translation?.sourceTranslation
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
