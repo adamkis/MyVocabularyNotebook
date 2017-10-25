@@ -17,9 +17,16 @@ class TestOutCardViewController: UIViewController {
 //    @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var sourceTranslation: UILabel!
-    @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var backLabel: UILabel!
+    @IBOutlet weak var targetTranslation: UITextField!
     @IBOutlet weak var showButton: UIButton!
+    
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var sourceLanguageLabel: UILabel!
+    @IBOutlet weak var correctAnswerText: UILabel!
+    @IBOutlet weak var myGuessText: UILabel!
+    @IBOutlet weak var isCorrectImage: UIImageView!
+    @IBOutlet weak var itWasRightButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     var pageIndex: Int?
     var translation: Translation?
@@ -36,10 +43,13 @@ class TestOutCardViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         showButton.addGestureRecognizer(tapRecognizer)
         
+        targetTranslation.becomeFirstResponder()
+        
         backView.isHidden = true
         backView.layer.cornerRadius = 25
         backView.layer.masksToBounds = true
-        backLabel.text = (translation?.sourceTranslation)! + " Back"
+        
+        correctAnswerText.text = translation?.targetTranslation
         
     }
 
@@ -49,6 +59,9 @@ class TestOutCardViewController: UIViewController {
     }
     
     @objc func flip() {
+        
+        myGuessText.text = targetTranslation.text
+        
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         
         UIView.transition(with: cardView, duration: 1.0, options: transitionOptions, animations: {
