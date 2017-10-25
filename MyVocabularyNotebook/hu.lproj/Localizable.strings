@@ -13,3 +13,7 @@
 
 // For empty screen
 "You don't have any translations yet.\nTap the plus icon to make your first one" = "Nincs még fordításod.\nNyomj a plusz ikonra, hogy létrehozz egyet";
+
+// At test out
+"Your guess: " = "Kapott: ";
+

@@ -48,6 +48,7 @@ class TestOutCardViewController: UIViewController {
         backView.layer.masksToBounds = true
         
         correctAnswerText.text = translation?.targetTranslation
+        sourceLanguageLabel.text = translation?.sourceTranslation
         
     }
 
@@ -58,7 +59,10 @@ class TestOutCardViewController: UIViewController {
     
     @objc func flip() {
         
-        myGuessText.text = targetTranslation.text
+        let yourGuess = NSLocalizedString("Your guess: ", comment: "Stands in front of the guess at test out function")
+        if let translation = targetTranslation.text {
+            myGuessText.text = yourGuess + translation
+        }
         
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         

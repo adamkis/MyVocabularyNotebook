@@ -560,20 +560,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAG-CV-H7I">
-                                                <rect key="frame" x="0.0" y="28" width="232.33333333333334" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Correct Answer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOY-06-Obf" userLabel="Correct answer">
-                                                <rect key="frame" x="0.0" y="56.333333333333314" width="232.33333333333334" height="53.666666666666657"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Guess:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-xb-k2o">
-                                                <rect key="frame" x="0.0" y="117.99999999999999" width="232.33333333333334" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="27.999999999999993" width="232.33333333333334" height="110.33333333333331"/>
+                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -617,13 +606,9 @@
                                             <constraint firstItem="lOY-06-Obf" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="2a1-ug-7W8"/>
                                             <constraint firstItem="iqh-yE-wpA" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="6Sj-yC-1yW"/>
                                             <constraint firstAttribute="trailing" secondItem="kP1-Ik-BgV" secondAttribute="trailing" id="ANz-A8-GZX"/>
-                                            <constraint firstAttribute="trailing" secondItem="YAG-CV-H7I" secondAttribute="trailing" id="Bi7-7T-afi"/>
                                             <constraint firstAttribute="trailing" secondItem="iqh-yE-wpA" secondAttribute="trailing" id="G0V-hc-fR8"/>
-                                            <constraint firstItem="YAG-CV-H7I" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="VQ6-nA-iaj"/>
                                             <constraint firstAttribute="trailing" secondItem="lOY-06-Obf" secondAttribute="trailing" id="WUT-uK-GcR"/>
                                             <constraint firstItem="kP1-Ik-BgV" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="dSZ-RH-Aww"/>
-                                            <constraint firstAttribute="trailing" secondItem="7lm-xb-k2o" secondAttribute="trailing" id="gU6-FN-bbG"/>
-                                            <constraint firstItem="7lm-xb-k2o" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="zDa-uf-iVh"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
