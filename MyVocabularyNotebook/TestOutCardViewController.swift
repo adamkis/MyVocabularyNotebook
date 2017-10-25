@@ -43,8 +43,6 @@ class TestOutCardViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         showButton.addGestureRecognizer(tapRecognizer)
         
-        targetTranslation.becomeFirstResponder()
-        
         backView.isHidden = true
         backView.layer.cornerRadius = 25
         backView.layer.masksToBounds = true
@@ -76,19 +74,25 @@ class TestOutCardViewController: UIViewController {
     // MARK: handle keyboard
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
+//                self.view.frame.origin.y -= keyboardSize.height
+                self.view.frame.origin.y -= 60
             }
-        }
+//        }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
+//                self.view.frame.origin.y += keyboardSize.height
+                self.view.frame.origin.y += 60
             }
-        }
+//        }
+    }
+    
+    @IBAction func onBackgroundTouchUpInside(_ sender: Any) {
+        view.endEditing(true)
     }
     
 }

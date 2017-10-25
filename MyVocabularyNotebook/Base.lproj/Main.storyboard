@@ -469,7 +469,7 @@
                         <viewControllerLayoutGuide type="top" id="EBn-6y-WQZ"/>
                         <viewControllerLayoutGuide type="bottom" id="NET-Af-Im2"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pUl-96-XUi">
+                    <view key="view" contentMode="scaleToFill" id="pUl-96-XUi" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -646,6 +646,9 @@
                             <constraint firstItem="YEu-44-iv4" firstAttribute="centerY" secondItem="pUl-96-XUi" secondAttribute="centerY" id="x1V-5A-LKh"/>
                             <constraint firstItem="sFc-3j-r0D" firstAttribute="centerX" secondItem="pUl-96-XUi" secondAttribute="centerX" id="z08-7V-ZF7"/>
                         </constraints>
+                        <connections>
+                            <action selector="onBackgroundTouchUpInside:" destination="hsu-MZ-iIW" eventType="touchUpInside" id="G1E-eb-bvT"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="backView" destination="sFc-3j-r0D" id="vxc-zE-fMg"/>
