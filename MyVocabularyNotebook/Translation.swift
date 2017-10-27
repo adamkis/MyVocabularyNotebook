@@ -15,11 +15,6 @@ class Translation: NSObject, NSCoding, NSCopying {
     var targetTranslation: String
     // Optional properties for testing out
     var guess: String? = nil
-    var hasGuess: Bool{
-        get{
-            return guess != nil
-        }
-    }
     var isGuessRight: Bool? = nil
     // it's either the source or the target translation
     var translationToAsk: String? = nil

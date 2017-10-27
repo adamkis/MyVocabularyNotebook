@@ -43,15 +43,21 @@ class TestOutCardViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         showButton.addGestureRecognizer(tapRecognizer)
         
-        backView.isHidden = true
         backView.layer.cornerRadius = 25
         backView.layer.masksToBounds = true
+        
+        if(translation?.guess == nil){
+            backView.isHidden = true
+        }
+        else{
+            setGuess(guess: translation?.guess)
+            cardView.isHidden = true
+        }
         
         correctAnswerText.text = translation?.targetTranslation
         sourceLanguageLabel.text = translation?.sourceTranslation
         
         Utils.print("ViewDidLoad" + (translation?.sourceTranslation)!)
-        itWasRightButton.setTitle(translation?.guess, for: .normal)
     }
 
     @objc func handleTap() {
@@ -59,15 +65,18 @@ class TestOutCardViewController: UIViewController {
         perform(#selector(flip), with: nil, afterDelay: 0)
     }
     
+    private func setGuess (guess: String?){
+        let yourGuessPreText = NSLocalizedString("Your guess: ", comment: "Stands in front of the guess at test out function")
+        if let myGuessInput = guess {
+            myGuessText.text = yourGuessPreText + myGuessInput
+        }
+    }
+    
     @objc func flip() {
         
-        let yourGuess = NSLocalizedString("Your guess: ", comment: "Stands in front of the guess at test out function")
-        
         if let parentPVC = parent as? TestOutPageViewController{
-            if let translation = targetTranslation.text {
-                myGuessText.text = yourGuess + translation
-            }
-            parentPVC.selectedDictionary.translations[pageIndex!].guess = myGuessText.text! + " cool"
+            setGuess(guess: targetTranslation.text)
+            parentPVC.selectedDictionary.translations[pageIndex!].guess = targetTranslation.text!
             parentPVC.reloadData()
         }
         
