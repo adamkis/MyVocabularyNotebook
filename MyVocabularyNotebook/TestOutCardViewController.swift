@@ -28,11 +28,14 @@ class TestOutCardViewController: UIViewController {
     @IBOutlet weak var itWasRightButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    var parentPVC: TestOutPageViewController?
     var pageIndex: Int?
     var translation: Translation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        parentPVC = parent as? TestOutPageViewController
         
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -40,8 +43,11 @@ class TestOutCardViewController: UIViewController {
         sourceTranslation.text = translation?.sourceTranslation
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        showButton.addGestureRecognizer(tapRecognizer)
+        
+        let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flipCard))
+        showButton.addGestureRecognizer(showTapRecognizer)
+        let nextTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(nextCard))
+        nextButton.addGestureRecognizer(nextTapRecogniser)
         
         backView.layer.cornerRadius = 25
         backView.layer.masksToBounds = true
@@ -60,9 +66,12 @@ class TestOutCardViewController: UIViewController {
         Utils.print("ViewDidLoad" + (translation?.sourceTranslation)!)
     }
 
-    @objc func handleTap() {
-        Utils.print("tapped")
+    @objc func flipCard() {
         perform(#selector(flip), with: nil, afterDelay: 0)
+    }
+    
+    @objc func nextCard() {
+        parentPVC?.goToNextPage()
     }
     
     private func setGuess (guess: String?){
@@ -74,11 +83,9 @@ class TestOutCardViewController: UIViewController {
     
     @objc func flip() {
         
-        if let parentPVC = parent as? TestOutPageViewController{
-            setGuess(guess: targetTranslation.text)
-            parentPVC.selectedDictionary.translations[pageIndex!].guess = targetTranslation.text!
-            parentPVC.reloadData()
-        }
+        setGuess(guess: targetTranslation.text)
+        parentPVC?.selectedDictionary.translations[pageIndex!].guess = targetTranslation.text!
+        parentPVC?.reloadData()
         
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         
