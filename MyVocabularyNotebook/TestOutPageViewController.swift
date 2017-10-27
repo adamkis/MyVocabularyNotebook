@@ -24,26 +24,16 @@ class TestOutPageViewController: UIPageViewController {
         selectedDictionary = PersistenceHelper.loadDictionary(dictionaryId: savedDictionaryId)
         selectedDictionary.translations = selectedDictionary.translations.shuffled.choose(10)
         
-        dataSource = self
+        reloadData()
         setViewControllers([initialViewController], direction: .forward, animated: false, completion: nil)
         
-        
-        // Playing with random picking
-        let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-        let shuffledAlphabet = alphabet.shuffled
-        Utils.print(shuffledAlphabet)
-        let letter = alphabet.chooseOne
-        Utils.print(letter)
-        var numbers = Array(0...9)
-        let shuffledNumbers = numbers.shuffled
-        Utils.print(shuffledNumbers)                              // [8, 9, 3, 6, 0, 1, 4, 2, 5, 7]
-        Utils.print(numbers)            // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        numbers.shuffle() // mutate it  [6, 0, 2, 3, 9, 1, 5, 7, 4, 8]
-        Utils.print(numbers)            // [6, 0, 2, 3, 9, 1, 5, 7, 4, 8]
-        let pick3numbers = numbers.choose(3)  // [8, 9, 2]
-        Utils.print(pick3numbers)
-        
     }
+    
+    internal func reloadData(){
+        dataSource = nil;
+        dataSource = self;
+    }
+    
 }
 
 // MARK: Page view controller data source

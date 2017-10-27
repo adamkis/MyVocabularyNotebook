@@ -50,6 +50,8 @@ class TestOutCardViewController: UIViewController {
         correctAnswerText.text = translation?.targetTranslation
         sourceLanguageLabel.text = translation?.sourceTranslation
         
+        Utils.print("ViewDidLoad" + (translation?.sourceTranslation)!)
+        itWasRightButton.setTitle(translation?.guess, for: .normal)
     }
 
     @objc func handleTap() {
@@ -60,8 +62,13 @@ class TestOutCardViewController: UIViewController {
     @objc func flip() {
         
         let yourGuess = NSLocalizedString("Your guess: ", comment: "Stands in front of the guess at test out function")
-        if let translation = targetTranslation.text {
-            myGuessText.text = yourGuess + translation
+        
+        if let parentPVC = parent as? TestOutPageViewController{
+            if let translation = targetTranslation.text {
+                myGuessText.text = yourGuess + translation
+            }
+            parentPVC.selectedDictionary.translations[pageIndex!].guess = myGuessText.text! + " cool"
+            parentPVC.reloadData()
         }
         
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]

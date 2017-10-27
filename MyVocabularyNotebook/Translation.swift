@@ -13,10 +13,17 @@ class Translation: NSObject, NSCoding, NSCopying {
     // MARK: Properties
     var sourceTranslation: String
     var targetTranslation: String
-//    var session: String!
-//    var priority: Int!
-//    var color: UIColor!
-
+    // Optional properties for testing out
+    var guess: String? = nil
+    var hasGuess: Bool{
+        get{
+            return guess != nil
+        }
+    }
+    var isGuessRight: Bool? = nil
+    // it's either the source or the target translation
+    var translationToAsk: String? = nil
+    
     //MARK: Types
     struct PropertyKey {
         static let sourceTranslation = "sourceTranslation"
