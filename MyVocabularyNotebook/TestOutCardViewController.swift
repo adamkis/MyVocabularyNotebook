@@ -44,7 +44,7 @@ class TestOutCardViewController: UIViewController {
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
         
-        let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flipCard))
+        let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
         showButton.addGestureRecognizer(showTapRecognizer)
         let nextTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(nextCard))
         nextButton.addGestureRecognizer(nextTapRecogniser)
@@ -66,10 +66,6 @@ class TestOutCardViewController: UIViewController {
         Utils.print("ViewDidLoad" + (translation?.sourceTranslation)!)
     }
 
-    @objc func flipCard() {
-        perform(#selector(flip), with: nil, afterDelay: 0)
-    }
-    
     @objc func nextCard() {
         parentPVC?.goToNextPage()
     }
