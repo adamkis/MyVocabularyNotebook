@@ -59,7 +59,8 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredDictionary.translations = selectedDictionary.translations.filter({( translation : Translation) -> Bool in
-            return translation.sourceTranslation.lowercased().contains(searchText.lowercased())
+            let textToCompare = translation.sourceTranslation.lowercased() + translation.targetTranslation.lowercased()
+            return textToCompare.contains(searchText.lowercased())
         })
         tableView.reloadData()
     }
