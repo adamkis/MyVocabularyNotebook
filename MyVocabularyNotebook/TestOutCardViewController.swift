@@ -63,7 +63,6 @@ class TestOutCardViewController: UIViewController {
         correctAnswerText.text = translation?.targetTranslation
         sourceLanguageLabel.text = translation?.sourceTranslation
         
-        Utils.print("ViewDidLoad" + (translation?.sourceTranslation)!)
     }
 
     @objc func nextCard() {
@@ -73,7 +72,8 @@ class TestOutCardViewController: UIViewController {
     private func setGuess (guess: String?){
         let yourGuessPreText = NSLocalizedString("Your guess: ", comment: "Stands in front of the guess at test out function")
         if let myGuessInput = guess {
-            myGuessText.text = yourGuessPreText + myGuessInput
+            let dist = Utils.levenshteinRatio(aStr: myGuessInput.lowercased(), bStr: (translation?.targetTranslation)!.lowercased())
+            myGuessText.text = yourGuessPreText + myGuessInput + String(dist)
         }
     }
     
