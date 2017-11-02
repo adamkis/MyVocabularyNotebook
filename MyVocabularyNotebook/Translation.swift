@@ -22,7 +22,7 @@ class Translation: NSObject, NSCoding, NSCopying {
     var guess: String? = nil
     var isGuessRight: Bool? = nil
     // Which one to ask in test out mode
-    var toAsk: Translation.ToAsk = .Source
+    var selectedToAsk: Translation.ToAsk = .Source
     
     //MARK: Types
     struct PropertyKey {
@@ -36,7 +36,7 @@ class Translation: NSObject, NSCoding, NSCopying {
     }
     
     public func setRandomToAsk() {
-        toAsk = ToAsk(rawValue: arc4random_uniform(ToAsk.Target.rawValue + 1))!
+        selectedToAsk = ToAsk(rawValue: arc4random_uniform(ToAsk.Target.rawValue + 1))!
     }
     
     //MARK: NSCoding
