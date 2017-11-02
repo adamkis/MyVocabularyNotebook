@@ -25,9 +25,19 @@ class Utils: NSObject {
     }
     
     open class func levenshtein(aStr: String, bStr: String) -> Int {
+        
+        // Empty String error handling - TODO fix it properly later
+        var aStringValue = aStr
+        var bStringValue = bStr
+        if aStringValue.count < 1 {
+            aStringValue = "⬜"
+        }
+        if bStringValue.count < 1 {
+            bStringValue = "⬜"
+        }
         // create character arrays
-        let a = Array(aStr)
-        let b = Array(bStr)
+        let a = Array(aStringValue)
+        let b = Array(bStringValue)
         
         // initialize matrix of size |a|+1 * |b|+1 to zero
         var dist: [[Int]] = [[Int]]()

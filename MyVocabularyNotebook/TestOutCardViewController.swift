@@ -13,8 +13,6 @@ private let revealSequeId = "revealSegue"
 
 class TestOutCardViewController: UIViewController {
     
-//    @IBOutlet fileprivate weak var cardView: UIView!
-//    @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var sourceTranslation: UILabel!
     @IBOutlet weak var targetTranslation: UITextField!
@@ -32,6 +30,9 @@ class TestOutCardViewController: UIViewController {
     var pageIndex: Int?
     var translation: Translation?
     
+    var toShow: String? = nil
+    var toGuess: String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,15 +41,23 @@ class TestOutCardViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TestOutCardViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        sourceTranslation.text = translation?.sourceTranslation
+        
+        if translation?.selectedToAsk == .Source {
+            toShow = translation?.sourceTranslation
+            toGuess = translation?.targetTranslation
+        }
+        else{
+            toShow = translation?.targetTranslation
+            toGuess = translation?.sourceTranslation
+        }
+        
+        // Front view
         cardView.layer.cornerRadius = 25
         cardView.layer.masksToBounds = true
         
-        let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
-        showButton.addGestureRecognizer(showTapRecognizer)
-        let nextTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(nextCard))
-        nextButton.addGestureRecognizer(nextTapRecogniser)
+        sourceTranslation.text = toShow
         
+        // Back view
         backView.layer.cornerRadius = 25
         backView.layer.masksToBounds = true
         
@@ -60,10 +69,16 @@ class TestOutCardViewController: UIViewController {
             cardView.isHidden = true
         }
         
-        correctAnswerText.text = translation?.targetTranslation
-        sourceLanguageLabel.text = translation?.sourceTranslation
+        correctAnswerText.text = toGuess
+        sourceLanguageLabel.text = toShow
         
         Utils.print(translation?.selectedToAsk)
+        
+        // Gesture Recognisers
+        let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
+        showButton.addGestureRecognizer(showTapRecognizer)
+        let nextTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(nextCard))
+        nextButton.addGestureRecognizer(nextTapRecogniser)
         
     }
 
@@ -74,7 +89,7 @@ class TestOutCardViewController: UIViewController {
     private func setGuess (guess: String?){
         let yourGuessPreText = NSLocalizedString("Your guess: ", comment: "Stands in front of the guess at test out function")
         if let myGuessInput = guess {
-            let dist = Utils.levenshteinRatio(aStr: myGuessInput.lowercased(), bStr: (translation?.targetTranslation)!.lowercased())
+            let dist = Utils.levenshteinRatio(aStr: myGuessInput.lowercased(), bStr: (toGuess)!.lowercased())
             myGuessText.text = yourGuessPreText + myGuessInput + String(dist)
         }
     }
