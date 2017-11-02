@@ -63,6 +63,8 @@ class TestOutCardViewController: UIViewController {
         correctAnswerText.text = translation?.targetTranslation
         sourceLanguageLabel.text = translation?.sourceTranslation
         
+        Utils.print(translation?.toAsk)
+        
     }
 
     @objc func nextCard() {

@@ -39,6 +39,12 @@ class MyDictionary: NSObject, NSCoding, NSCopying{
         }
     }
     
+    public func randomizeForTestOut(){
+        for translation in translations{
+            translation.setRandomToAsk()
+        }
+    }
+    
     public func getDictionaryID() -> String{
         return self.sourceLanguageCode + "::" + self.targetLanguageCode
     }

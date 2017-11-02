@@ -10,14 +10,19 @@ import UIKit
 
 class Translation: NSObject, NSCoding, NSCopying {
 
+    public enum ToAsk: UInt32{
+        case Source
+        case Target
+    }
+    
     // MARK: Properties
     var sourceTranslation: String
     var targetTranslation: String
     // Optional properties for testing out
     var guess: String? = nil
     var isGuessRight: Bool? = nil
-    // it's either the source or the target translation
-    var translationToAsk: String? = nil
+    // Which one to ask in test out mode
+    var toAsk: Translation.ToAsk = .Source
     
     //MARK: Types
     struct PropertyKey {
@@ -28,6 +33,10 @@ class Translation: NSObject, NSCoding, NSCopying {
     init?(sourceTranslation: String?, targetTranslation: String?){
         self.sourceTranslation = sourceTranslation!
         self.targetTranslation = targetTranslation!
+    }
+    
+    public func setRandomToAsk() {
+        toAsk = ToAsk(rawValue: arc4random_uniform(ToAsk.Target.rawValue + 1))!
     }
     
     //MARK: NSCoding

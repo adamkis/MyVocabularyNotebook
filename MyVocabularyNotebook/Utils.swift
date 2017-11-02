@@ -67,4 +67,8 @@ class Utils: NSObject {
         return (Double(levenshtein(aStr: aStr, bStr: bStr)) / average)
     }
     
+    open class func wasGuessGood(aStr: String, bStr: String) -> Bool {
+        return levenshteinRatio(aStr: aStr, bStr: bStr) < 0.5
+    }
+    
 }

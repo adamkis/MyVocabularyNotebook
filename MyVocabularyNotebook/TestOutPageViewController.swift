@@ -23,6 +23,7 @@ class TestOutPageViewController: UIPageViewController {
         }
         selectedDictionary = PersistenceHelper.loadDictionary(dictionaryId: savedDictionaryId)
         selectedDictionary.translations = selectedDictionary.translations.shuffled.choose(10)
+        selectedDictionary.randomizeForTestOut()
         
         reloadData()
         setViewControllers([initialViewController], direction: .forward, animated: false, completion: nil)
