@@ -39,6 +39,20 @@ class Translation: NSObject, NSCoding, NSCopying {
         selectedToAsk = ToAsk(rawValue: arc4random_uniform(ToAsk.Target.rawValue + 1))!
     }
     
+    public func wasGuessRight(aStr: String, bStr: String) -> Bool {
+        var toGuess: String? = nil
+        if selectedToAsk == .Source {
+            toGuess = targetTranslation
+        }
+        else{
+            toGuess = sourceTranslation
+        }
+        guard let toGuessValue = toGuess, let guessValue = guess else {
+            return false
+        }
+        return Utils.levenshteinRatio(aStr: toGuessValue, bStr: guessValue) < 0.5
+    }
+    
     //MARK: NSCoding
     
     func encode(with aCoder: NSCoder) {

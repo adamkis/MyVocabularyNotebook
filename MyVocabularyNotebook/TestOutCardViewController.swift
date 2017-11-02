@@ -77,13 +77,33 @@ class TestOutCardViewController: UIViewController {
         // Gesture Recognisers
         let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
         showButton.addGestureRecognizer(showTapRecognizer)
-        let nextTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(nextCard))
-        nextButton.addGestureRecognizer(nextTapRecogniser)
+        
+        // Handle last page
+        Utils.print(pageIndex)
+        Utils.print(parentPVC?.selectedDictionary.translations.count)
+        if(pageIndex! == (parentPVC?.selectedDictionary.translations.count)!-1){
+            nextButton.setTitle("Finish", for: .normal)
+            let finishTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(finish))
+            nextButton.addGestureRecognizer(finishTapRecogniser)
+        }
+        else{
+            nextButton.setTitle("Next", for: .normal)
+            let nextTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(nextCard))
+            nextButton.addGestureRecognizer(nextTapRecogniser)
+        }
         
     }
 
     @objc func nextCard() {
         parentPVC?.goToNextPage()
+    }
+    
+    @objc func finish() {
+        let refreshAlert = UIAlertController(title: "Results", message: "Results: \(pageIndex ?? 0)", preferredStyle: UIAlertControllerStyle.alert)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            self.performSegue(withIdentifier: "finishTestOut", sender: self)
+        }))
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     private func setGuess (guess: String?){

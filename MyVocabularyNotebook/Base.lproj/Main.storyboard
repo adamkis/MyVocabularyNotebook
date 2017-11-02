@@ -310,10 +310,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="101-WZ-CxI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qME-Q4-7h3">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="75c-qg-dYY">
+                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -330,6 +332,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Xt-xf-1RC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4gO-st-gzx">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -361,11 +364,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z8g-Xr-H1O" id="st2-Je-94T">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source language - Target language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wc-9G-eqa">
-                                                    <rect key="frame" x="17" y="39" width="347" height="21"/>
+                                                    <rect key="frame" x="24" y="39" width="340" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -420,6 +423,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aBR-ki-zYQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D9Q-JK-6DZ">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -437,6 +441,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="USl-5e-dUC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EhC-z4-LVC">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -642,9 +647,11 @@
                         <outlet property="sourceLanguageLabel" destination="Ybj-ID-gbr" id="mKG-zJ-Aqz"/>
                         <outlet property="sourceTranslation" destination="dLR-yr-4XJ" id="RDl-H9-d6l"/>
                         <outlet property="targetTranslation" destination="yha-Jb-ox0" id="Lej-Z1-nLH"/>
+                        <segue destination="agX-N8-1ev" kind="unwind" identifier="finishTestOut" unwindAction="unwindToTranslationListWithSender:" id="6xb-Tt-Ev7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghf-Ph-HkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="agX-N8-1ev" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2075.36231884058" y="1258.6956521739132"/>
         </scene>

@@ -20,9 +20,9 @@ class Utils: NSObject {
     }
     
     // return minimum value in a list of Ints
-    open class func min(numbers: Int...) -> Int {
-        return numbers.reduce(numbers[0], {$0 < $1 ? $0 : $1})
-    }
+//    open class func min(numbers: Int...) -> Int {
+//        return numbers.reduce(numbers[0], {$0 < $1 ? $0 : $1})
+//    }
     
     open class func levenshtein(aStr: String, bStr: String) -> Int {
         
@@ -77,7 +77,7 @@ class Utils: NSObject {
         return (Double(levenshtein(aStr: aStr, bStr: bStr)) / average)
     }
     
-    open class func wasGuessGood(aStr: String, bStr: String) -> Bool {
+    open class func wasGuessRight(aStr: String, bStr: String) -> Bool {
         return levenshteinRatio(aStr: aStr, bStr: bStr) < 0.5
     }
     
