@@ -99,7 +99,14 @@ class TestOutCardViewController: UIViewController {
     }
     
     @objc func finish() {
-        let refreshAlert = UIAlertController(title: "Results", message: "Results: \(pageIndex ?? 0)", preferredStyle: UIAlertControllerStyle.alert)
+        
+        var goodGuessCount = 0
+        for translation in (parentPVC?.selectedDictionary.translations)!{
+            if translation.wasGuessRight() {
+                goodGuessCount += 1
+            }
+        }
+        let refreshAlert = UIAlertController(title: "Results: \(goodGuessCount)/\(parentPVC?.selectedDictionary.translations.count ?? 0)", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             self.performSegue(withIdentifier: "finishTestOut", sender: self)
         }))

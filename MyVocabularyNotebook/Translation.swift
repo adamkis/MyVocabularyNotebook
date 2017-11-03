@@ -39,7 +39,7 @@ class Translation: NSObject, NSCoding, NSCopying {
         selectedToAsk = ToAsk(rawValue: arc4random_uniform(ToAsk.Target.rawValue + 1))!
     }
     
-    public func wasGuessRight(aStr: String, bStr: String) -> Bool {
+    public func wasGuessRight() -> Bool {
         var toGuess: String? = nil
         if selectedToAsk == .Source {
             toGuess = targetTranslation
