@@ -71,7 +71,7 @@ class TestOutCardViewController: UIViewController {
         
         correctAnswerText.text = toGuess
         sourceLanguageLabel.text = toShow
-        setIsGuessCorrectIconLabel()
+        setIsCorrectIndication()
         
         // Gesture Recognisers
         let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
@@ -116,12 +116,14 @@ class TestOutCardViewController: UIViewController {
         }
     }
     
-    func setIsGuessCorrectIconLabel(){
+    func setIsCorrectIndication(){
         if (translation?.wasGuessRight())! {
             isCorrectIconLabel.text = "✔"
+            myGuessText.backgroundColor = UIColor.green
         }
         else{
             isCorrectIconLabel.text = "❌"
+            myGuessText.backgroundColor = UIColor.red
         }
     }
     
@@ -130,7 +132,7 @@ class TestOutCardViewController: UIViewController {
         setGuess(guess: targetTranslation.text)
         parentPVC?.selectedDictionary.translations[pageIndex!].guess = targetTranslation.text!
         parentPVC?.reloadData()
-        setIsGuessCorrectIconLabel()
+        setIsCorrectIndication()
         
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         
