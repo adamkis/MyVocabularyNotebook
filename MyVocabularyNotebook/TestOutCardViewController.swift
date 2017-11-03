@@ -72,15 +72,11 @@ class TestOutCardViewController: UIViewController {
         correctAnswerText.text = toGuess
         sourceLanguageLabel.text = toShow
         
-        Utils.print(translation?.selectedToAsk)
-        
         // Gesture Recognisers
         let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
         showButton.addGestureRecognizer(showTapRecognizer)
         
         // Handle last page
-        Utils.print(pageIndex)
-        Utils.print(parentPVC?.selectedDictionary.translations.count)
         if(pageIndex! == (parentPVC?.selectedDictionary.translations.count)!-1){
             nextButton.setTitle("Finish", for: .normal)
             let finishTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(finish))
