@@ -22,9 +22,9 @@ class TestOutCardViewController: UIViewController {
     @IBOutlet weak var sourceLanguageLabel: UILabel!
     @IBOutlet weak var correctAnswerText: UILabel!
     @IBOutlet weak var myGuessText: UILabel!
-    @IBOutlet weak var isCorrectImage: UIImageView!
     @IBOutlet weak var itWasRightButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var isCorrectIconLabel: UILabel!
     
     var parentPVC: TestOutPageViewController?
     var pageIndex: Int?
@@ -71,6 +71,7 @@ class TestOutCardViewController: UIViewController {
         
         correctAnswerText.text = toGuess
         sourceLanguageLabel.text = toShow
+        setIsGuessCorrectIconLabel()
         
         // Gesture Recognisers
         let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
@@ -110,10 +111,17 @@ class TestOutCardViewController: UIViewController {
     }
     
     private func setGuess (guess: String?){
-        let yourGuessPreText = NSLocalizedString("Your guess: ", comment: "Stands in front of the guess at test out function")
         if let myGuessInput = guess {
-            let dist = Utils.levenshteinRatio(aStr: myGuessInput.lowercased(), bStr: (toGuess)!.lowercased())
-            myGuessText.text = yourGuessPreText + myGuessInput + String(dist)
+            myGuessText.text = myGuessInput
+        }
+    }
+    
+    func setIsGuessCorrectIconLabel(){
+        if (translation?.wasGuessRight())! {
+            isCorrectIconLabel.text = "✔"
+        }
+        else{
+            isCorrectIconLabel.text = "❌"
         }
     }
     
@@ -122,6 +130,7 @@ class TestOutCardViewController: UIViewController {
         setGuess(guess: targetTranslation.text)
         parentPVC?.selectedDictionary.translations[pageIndex!].guess = targetTranslation.text!
         parentPVC?.reloadData()
+        setIsGuessCorrectIconLabel()
         
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         

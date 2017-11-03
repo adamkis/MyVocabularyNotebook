@@ -529,64 +529,73 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-rH-Dtu">
                                         <rect key="frame" x="8" y="8.6666666666666856" width="315" height="205"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source Language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-ID-gbr" userLabel="Source Translation">
-                                                <rect key="frame" x="90.666666666666686" y="0.0" width="134" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source Language" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-ID-gbr" userLabel="Source Translation">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="Anh-bh-DCZ"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Anh-bh-DCZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Correct Answer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOY-06-Obf" userLabel="Correct answer">
-                                                <rect key="frame" x="0.0" y="28" width="315" height="83"/>
-                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The guess" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kP1-Ik-BgV" userLabel="The guess">
-                                                <rect key="frame" x="0.0" y="119" width="315" height="20"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8F-ad-TJu">
+                                                <rect key="frame" x="0.0" y="38" width="315" height="119"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Correct Answer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOY-06-Obf" userLabel="Correct answer">
+                                                        <rect key="frame" x="0.0" y="0.0" width="142.66666666666666" height="119"/>
+                                                        <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-Ws-XMU">
+                                                        <rect key="frame" x="142.66666666666669" y="0.0" width="30" height="119"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="VKD-9e-VzI"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The guess" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kP1-Ik-BgV" userLabel="The guess">
+                                                        <rect key="frame" x="172.66666666666669" y="0.0" width="142.33333333333331" height="119"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="M0m-eS-mVr"/>
+                                                    <constraint firstItem="kP1-Ik-BgV" firstAttribute="width" secondItem="lOY-06-Obf" secondAttribute="width" id="yQ0-o3-15C"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eNM-0y-zz9">
-                                                <rect key="frame" x="147.66666666666669" y="147" width="20" height="20"/>
-                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="0ed-3A-ZHl"/>
-                                                    <constraint firstAttribute="height" constant="20" id="s0g-74-QRB"/>
-                                                </constraints>
-                                            </imageView>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-yE-wpA">
-                                                <rect key="frame" x="0.0" y="175" width="315" height="30"/>
+                                                <rect key="frame" x="0.0" y="165" width="315" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKL-jz-DJP" userLabel="It was right Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="40"/>
                                                         <state key="normal" title="It was right"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Q1-I3-Zdi" userLabel="Next">
-                                                        <rect key="frame" x="157.66666666666669" y="0.0" width="157.33333333333331" height="30"/>
+                                                        <rect key="frame" x="157.66666666666669" y="0.0" width="157.33333333333331" height="40"/>
                                                         <color key="tintColor" red="0.0" green="0.5447398671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Next"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Kbl-8M-QLN"/>
                                                     <constraint firstItem="4Q1-I3-Zdi" firstAttribute="width" secondItem="ZKL-jz-DJP" secondAttribute="width" id="l8T-Dm-i8I"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="lOY-06-Obf" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="2a1-ug-7W8"/>
-                                            <constraint firstItem="iqh-yE-wpA" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="6Sj-yC-1yW"/>
-                                            <constraint firstAttribute="trailing" secondItem="kP1-Ik-BgV" secondAttribute="trailing" id="ANz-A8-GZX"/>
-                                            <constraint firstAttribute="trailing" secondItem="iqh-yE-wpA" secondAttribute="trailing" id="G0V-hc-fR8"/>
-                                            <constraint firstAttribute="trailing" secondItem="lOY-06-Obf" secondAttribute="trailing" id="WUT-uK-GcR"/>
-                                            <constraint firstItem="kP1-Ik-BgV" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="dSZ-RH-Aww"/>
+                                            <constraint firstAttribute="trailing" secondItem="A8F-ad-TJu" secondAttribute="trailing" id="9LL-Dr-y3h"/>
+                                            <constraint firstAttribute="trailing" secondItem="iqh-yE-wpA" secondAttribute="trailing" id="TU2-00-Lft"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ybj-ID-gbr" secondAttribute="trailing" id="UJ2-wL-fWO"/>
+                                            <constraint firstItem="A8F-ad-TJu" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="YhE-t7-yjV"/>
+                                            <constraint firstItem="A8F-ad-TJu" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="dhm-ZJ-eRZ"/>
+                                            <constraint firstItem="iqh-yE-wpA" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="s2c-oP-6qC"/>
+                                            <constraint firstItem="Ybj-ID-gbr" firstAttribute="leading" secondItem="MOQ-rH-Dtu" secondAttribute="leading" id="tzu-4u-DTn"/>
+                                            <constraint firstAttribute="trailing" secondItem="A8F-ad-TJu" secondAttribute="trailing" id="uQ7-EW-Mko"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -617,7 +626,7 @@
                         <outlet property="backView" destination="sFc-3j-r0D" id="vxc-zE-fMg"/>
                         <outlet property="cardView" destination="YEu-44-iv4" id="uoo-0h-1z5"/>
                         <outlet property="correctAnswerText" destination="lOY-06-Obf" id="xyZ-uK-3JW"/>
-                        <outlet property="isCorrectImage" destination="eNM-0y-zz9" id="ZtQ-hY-nao"/>
+                        <outlet property="isCorrectIconLabel" destination="RbT-Ws-XMU" id="g8B-cw-vPV"/>
                         <outlet property="itWasRightButton" destination="ZKL-jz-DJP" id="ti8-Aq-SNc"/>
                         <outlet property="myGuessText" destination="kP1-Ik-BgV" id="a8K-KL-iGf"/>
                         <outlet property="nextButton" destination="4Q1-I3-Zdi" id="ieU-j6-HrS"/>
