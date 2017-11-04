@@ -52,13 +52,13 @@ class TestOutCardViewController: UIViewController {
         }
         
         // Front view
-        cardView.layer.cornerRadius = 25
+        cardView.layer.cornerRadius = 15
         cardView.layer.masksToBounds = true
         
         sourceTranslation.text = toShow
         
         // Back view
-        backView.layer.cornerRadius = 25
+        backView.layer.cornerRadius = 15
         backView.layer.masksToBounds = true
         
         if(translation?.guess == nil){
@@ -151,7 +151,7 @@ class TestOutCardViewController: UIViewController {
 //        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
 //                self.view.frame.origin.y -= keyboardSize.height
-                self.view.frame.origin.y -= 60
+                self.view.frame.origin.y -= 80
             }
 //        }
     }
@@ -160,7 +160,7 @@ class TestOutCardViewController: UIViewController {
 //        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
 //                self.view.frame.origin.y += keyboardSize.height
-                self.view.frame.origin.y += 60
+                self.view.frame.origin.y += 80
             }
 //        }
     }
