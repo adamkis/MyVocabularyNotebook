@@ -23,6 +23,16 @@ extension UIColor {
         return UIColor.rgb(fromHex: darkTurquoise)
     }
     
+    class var customTurquoiseLight: UIColor {
+        let lightTurquoise = 0x0febd1
+        return UIColor.rgb(fromHex: lightTurquoise)
+    }
+    
+    class var customRedViolet: UIColor {
+        let redViolet = 0xeb0f8c
+        return UIColor.rgb(fromHex: redViolet)
+    }
+    
     class func rgb(fromHex: Int) -> UIColor {
 
         let red =   CGFloat((fromHex & 0xFF0000) >> 16) / 0xFF

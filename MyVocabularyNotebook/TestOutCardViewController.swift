@@ -60,6 +60,12 @@ class TestOutCardViewController: UIViewController {
         // Back view
         backView.layer.cornerRadius = 15
         backView.layer.masksToBounds = true
+        correctAnswerText.layer.cornerRadius = 15
+        correctAnswerText.layer.masksToBounds = true
+        correctAnswerText.backgroundColor = UIColor.customTurquoiseLight
+        myGuessText.layer.cornerRadius = 15
+        myGuessText.layer.masksToBounds = true
+        myGuessText.backgroundColor = UIColor.customRedViolet
         
         if(translation?.guess == nil){
             backView.isHidden = true
@@ -117,13 +123,15 @@ class TestOutCardViewController: UIViewController {
     }
     
     func setIsCorrectIndication(){
+        let happyEmojis = "😀😃😄😁😆😅😂🤣☺😊😇🙂🙃😉😌😘😗😚😝😛🤗🤓😎🤠😺😸🙌👏🤝👍👌💪"
+        let sadEmojis = "😕😢😥😭😓😪🙄🤔"
         if (translation?.wasGuessRight())! {
-            isCorrectIconLabel.text = "✔"
-            myGuessText.backgroundColor = UIColor.green
+            isCorrectIconLabel.text = String(Utils.pickRandomChar(inputString: happyEmojis))
+            myGuessText.backgroundColor = UIColor.customTurquoiseLight
         }
         else{
-            isCorrectIconLabel.text = "❌"
-            myGuessText.backgroundColor = UIColor.red
+            isCorrectIconLabel.text = String(Utils.pickRandomChar(inputString: sadEmojis))
+            myGuessText.backgroundColor = UIColor.customRedViolet
         }
     }
     

@@ -81,4 +81,8 @@ class Utils: NSObject {
         return levenshteinRatio(aStr: aStr, bStr: bStr) < 0.5
     }
     
+    open class func pickRandomChar(inputString: String) -> Character {
+        return inputString[inputString.index(inputString.startIndex, offsetBy: Int(arc4random_uniform(UInt32(inputString.count))))]
+    }
+    
 }
