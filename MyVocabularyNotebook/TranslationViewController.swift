@@ -80,7 +80,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         }
         let sourceTranslation: String = sourceTranslationView.text
         let targetTranslation: String = targetTranslationView.text
-        if( sourceTranslation.characters.count < 1 || targetTranslation.characters.count < 1 ){
+        if( sourceTranslation.count < 1 || targetTranslation.count < 1 ){
             showEmptyAlert()
             return false
         }

@@ -185,7 +185,6 @@
                             <constraint firstItem="Ont-Rn-qCC" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leading" id="hwo-X8-xQS"/>
                             <constraint firstAttribute="trailing" secondItem="K1L-eh-aPS" secondAttribute="trailing" id="mhH-PH-XZw"/>
                             <constraint firstAttribute="trailing" secondItem="Ont-Rn-qCC" secondAttribute="trailing" id="p6u-fT-VQi"/>
-                            <constraint firstItem="Ont-Rn-qCC" firstAttribute="leading" secondItem="yWj-7Z-trA" secondAttribute="leadingMargin" id="scu-oo-fJt"/>
                             <constraint firstAttribute="trailing" secondItem="cVm-Bf-48y" secondAttribute="trailing" id="tp5-gE-zoU"/>
                             <constraint firstItem="Ont-Rn-qCC" firstAttribute="top" secondItem="K1L-eh-aPS" secondAttribute="bottom" constant="20" id="v14-xv-YwA"/>
                         </constraints>
@@ -548,7 +547,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-Ws-XMU">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-Ws-XMU">
                                                         <rect key="frame" x="153" y="0.0" width="30" height="191"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="VKD-9e-VzI"/>
