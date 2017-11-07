@@ -108,11 +108,9 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         }
 //        let translation = selectedDictionary.translations[indexPath.row]
         
-        cell.translationTextView1.text = translation.sourceTranslation
-        cell.translationTextView2.text = translation.targetTranslation
+        cell.translationLabel1.text = translation.sourceTranslation
+        cell.translationLabel2.text = translation.targetTranslation
         
-        cell.translationTextView1.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        cell.translationTextView2.textContainerInset = UIEdgeInsetsMake(8, 8, 8, 8);
         cell.translation1Background.layer.cornerRadius = 5;
         cell.translation2Background.layer.cornerRadius = 5;
         

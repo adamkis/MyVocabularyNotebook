@@ -11,8 +11,8 @@ import UIKit
 class TranslationTableViewCell: UITableViewCell {
 
     // MARK: Properties
-    @IBOutlet weak var translationTextView1: UITextView!
-    @IBOutlet weak var translationTextView2: UITextView!
+    @IBOutlet weak var translationLabel1: UILabel!
+    @IBOutlet weak var translationLabel2: UILabel!
     @IBOutlet weak var translation1Background: UIView!
     @IBOutlet weak var translation2Background: UIView!
     
