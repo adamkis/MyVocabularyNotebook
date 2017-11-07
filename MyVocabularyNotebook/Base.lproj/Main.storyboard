@@ -38,15 +38,15 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzs-Zt-YBt">
                                                     <rect key="frame" x="0.0" y="0.0" width="195" height="95.666666666666671"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfc-PS-kAo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="83.666666666666671"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rfc-PS-kAo">
+                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="Rfc-PS-kAo" secondAttribute="bottom" constant="12" id="JGq-wD-F2C"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Rfc-PS-kAo" secondAttribute="bottom" constant="12" id="JGq-wD-F2C"/>
                                                         <constraint firstAttribute="trailing" secondItem="Rfc-PS-kAo" secondAttribute="trailing" constant="8" id="UPT-qg-5rL"/>
                                                         <constraint firstItem="Rfc-PS-kAo" firstAttribute="leading" secondItem="pzs-Zt-YBt" secondAttribute="leading" id="iBd-gB-Aq6"/>
                                                         <constraint firstItem="Rfc-PS-kAo" firstAttribute="top" secondItem="pzs-Zt-YBt" secondAttribute="top" id="xKy-bd-qpP"/>
@@ -55,18 +55,18 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d5h-IX-PXI">
                                                     <rect key="frame" x="195" y="0.0" width="195" height="95.666666666666671"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSP-i1-543">
-                                                            <rect key="frame" x="8" y="0.0" width="187" height="95.666666666666671"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSP-i1-543">
+                                                            <rect key="frame" x="8" y="8" width="179" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.66120717005076135" green="0.66120717005076135" blue="0.66120717005076135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="lSP-i1-543" secondAttribute="trailing" id="2PP-YK-hFY"/>
-                                                        <constraint firstItem="lSP-i1-543" firstAttribute="top" secondItem="d5h-IX-PXI" secondAttribute="top" id="5T0-Z1-7Ek"/>
-                                                        <constraint firstAttribute="bottom" secondItem="lSP-i1-543" secondAttribute="bottom" id="78p-wH-6Qb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="lSP-i1-543" secondAttribute="trailing" constant="8" id="2PP-YK-hFY"/>
+                                                        <constraint firstItem="lSP-i1-543" firstAttribute="top" secondItem="d5h-IX-PXI" secondAttribute="top" constant="8" id="5T0-Z1-7Ek"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lSP-i1-543" secondAttribute="bottom" constant="8" id="78p-wH-6Qb"/>
                                                         <constraint firstItem="lSP-i1-543" firstAttribute="leading" secondItem="d5h-IX-PXI" secondAttribute="leading" constant="8" id="oQy-iU-B8Q"/>
                                                     </constraints>
                                                 </view>
