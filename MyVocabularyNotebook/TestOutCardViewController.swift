@@ -82,6 +82,8 @@ class TestOutCardViewController: UIViewController {
         // Gesture Recognisers
         let showTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
         showButton.addGestureRecognizer(showTapRecognizer)
+        let itWasRightGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(itWasRight))
+        itWasRightButton.addGestureRecognizer(itWasRightGestureRecogniser)
         
         // Handle last page
         if(pageIndex! == (parentPVC?.selectedDictionary.translations.count)!-1){
@@ -97,6 +99,11 @@ class TestOutCardViewController: UIViewController {
         
     }
 
+    @objc func itWasRight() {
+        translation?.guess = toGuess
+        setIsCorrectIndication()
+    }
+    
     @objc func nextCard() {
         parentPVC?.goToNextPage()
     }
@@ -128,10 +135,12 @@ class TestOutCardViewController: UIViewController {
         if (translation?.wasGuessRight())! {
             isCorrectIconLabel.text = String(Utils.pickRandomChar(inputString: happyEmojis))
             myGuessText.backgroundColor = UIColor.customTurquoiseLight
+            itWasRightButton.isHidden = true
         }
         else{
             isCorrectIconLabel.text = String(Utils.pickRandomChar(inputString: sadEmojis))
             myGuessText.backgroundColor = UIColor.customRedViolet
+            itWasRightButton.isHidden = false
         }
     }
     
