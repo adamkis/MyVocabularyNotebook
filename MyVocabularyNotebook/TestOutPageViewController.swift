@@ -37,6 +37,35 @@ class TestOutPageViewController: UIPageViewController {
     
 }
 
+
+extension TestOutPageViewController {
+
+    func goToNextPage(animated: Bool = true) {
+        guard let currentViewController = viewControllers?.first else { return }
+        guard let nextViewController = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) as? TestOutCardViewController else { return }
+        setViewControllers([nextViewController], direction: .forward, animated: animated, completion: nil)
+        getUIPageControl()?.currentPage = nextViewController.pageIndex!
+        
+    }
+    
+    func goToPreviousPage(animated: Bool = true) {
+        guard let currentViewController = self.viewControllers?.first else { return }
+        guard let previousViewController = dataSource?.pageViewController(self, viewControllerBefore: currentViewController) as? TestOutCardViewController else { return }
+        setViewControllers([previousViewController], direction: .reverse, animated: animated, completion: nil)
+        getUIPageControl()?.currentPage = previousViewController.pageIndex!
+    }
+    
+    func getUIPageControl() -> UIPageControl?{
+        for view in view.subviews {
+            if view is UIPageControl{
+                return view as? UIPageControl
+            }
+        }
+        return nil
+    }
+    
+}
+
 // MARK: Page view controller data source
 
 extension TestOutPageViewController: UIPageViewControllerDataSource {
