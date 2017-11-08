@@ -14,6 +14,16 @@ class TestOutPageViewController: UIPageViewController {
     
     var selectedDictionary: MyDictionary!
     
+    var pageControl: UIPageControl? = nil
+    
+    override func viewDidAppear(_ animated: Bool) {
+        for view in view.subviews {
+            if view is UIPageControl{
+                pageControl = view as? UIPageControl
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +47,7 @@ class TestOutPageViewController: UIPageViewController {
     
 }
 
+// MARK: Page view controller paging
 
 extension TestOutPageViewController {
 
@@ -44,7 +55,7 @@ extension TestOutPageViewController {
         guard let currentViewController = viewControllers?.first else { return }
         guard let nextViewController = dataSource?.pageViewController(self, viewControllerAfter: currentViewController) as? TestOutCardViewController else { return }
         setViewControllers([nextViewController], direction: .forward, animated: animated, completion: nil)
-        getUIPageControl()?.currentPage = nextViewController.pageIndex!
+        pageControl?.currentPage = nextViewController.pageIndex!
         
     }
     
@@ -52,16 +63,7 @@ extension TestOutPageViewController {
         guard let currentViewController = self.viewControllers?.first else { return }
         guard let previousViewController = dataSource?.pageViewController(self, viewControllerBefore: currentViewController) as? TestOutCardViewController else { return }
         setViewControllers([previousViewController], direction: .reverse, animated: animated, completion: nil)
-        getUIPageControl()?.currentPage = previousViewController.pageIndex!
-    }
-    
-    func getUIPageControl() -> UIPageControl?{
-        for view in view.subviews {
-            if view is UIPageControl{
-                return view as? UIPageControl
-            }
-        }
-        return nil
+        pageControl?.currentPage = previousViewController.pageIndex!
     }
     
 }
