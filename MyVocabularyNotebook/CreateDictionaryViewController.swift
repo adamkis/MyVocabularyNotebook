@@ -29,7 +29,6 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         titleLabel.textColor = UIColor.customTurquoise
         sourceLanguageLabel.textColor = UIColor.customTurquoise
         targetLanguageLabel.textColor = UIColor.customTurquoise
-        saveButtonNavBar.tintColor = UIColor.customTurquoiseDark
         
         // Getting the device language
         var deviceLanguage: String = Locale.preferredLanguages[0]
