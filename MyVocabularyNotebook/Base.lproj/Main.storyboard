@@ -522,7 +522,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="SZy-KZ-rAw"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.0" green="0.5447398671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Show"/>
                                             </button>
                                         </subviews>
@@ -600,7 +599,6 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Q1-I3-Zdi" userLabel="Next">
                                                         <rect key="frame" x="168" y="0.0" width="167.66666666666663" height="40"/>
-                                                        <color key="tintColor" red="0.0" green="0.5447398671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Next"/>
                                                     </button>
                                                 </subviews>

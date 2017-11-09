@@ -42,6 +42,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         filteredDictionary = MyDictionary(selectedDictionary)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = UIColor.customTurquoiseDark
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
