@@ -158,6 +158,13 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         let emptyText = NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when dictionary is empty")
         emptyLabel = TableViewHelper.EmptyMessage(message: emptyText, viewController: self)
     }
+    
+    
+    func showTestOutNotPossibleAlert(){
+        let testOutNotPossibleAlert = UIAlertController(title: NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when dictionary is empty"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        testOutNotPossibleAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in }))
+        present(testOutNotPossibleAlert, animated: true, completion: nil)
+    }
 
     func showSelectedDictionary(myDictionary: MyDictionary){
         PersistenceHelper.saveSelectedDictionaryId(myDictionary: myDictionary)
@@ -257,6 +264,10 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
             case "MyDictionaries":
                 Utils.log("Showing my dictionaries in a list.")
             case "ShowTestOut":
+                if selectedDictionary.translations.count < 1{
+                    showTestOutNotPossibleAlert()
+                    return
+                }
                 Utils.log("Showing test out function")
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

@@ -200,6 +200,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cVw-V1-YPj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlN-vB-CKv">
+                            <connections>
+                                <segue destination="FNC-Gr-hfc" kind="unwind" unwindAction="unwindToTranslationListWithSender:" id="8l8-6t-pPy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Ip-Ex-iVU">
                             <connections>
                                 <segue destination="FNC-Gr-hfc" kind="unwind" unwindAction="unwindToTranslationListWithSender:" id="NpQ-1r-RsI"/>
