@@ -36,9 +36,9 @@ class PhraseBookListViewController: UIViewController, UITableViewDelegate, UITab
             fatalError("The dequeued cell is not an instance of PhraseBookTableViewCell.")
         }
         
-        let myDictionary = phraseBookList[indexPath.row]
+        let phraseBook = phraseBookList[indexPath.row]
         
-        cell.myDictionaryName.text = myDictionary.getDisplayName()
+        cell.phraseBookName.text = phraseBook.getDisplayName()
         
         return cell
         
@@ -49,13 +49,13 @@ class PhraseBookListViewController: UIViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
-        case "CreateDictionary":
-            print("Creating dictionary from Dictionaries list")
-        case "dictionarySelected":
-            guard let selectedDictionaryCell = sender as? PhraseBookTableViewCell else {
+        case "CreatePhraseBook":
+            print("Creating PhraseBook from PhraseBook list")
+        case "PhraseBookSelected":
+            guard let selectedPhraseBookCell = sender as? PhraseBookTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
-            guard let indexPath = phraseBookListTableView.indexPath(for: selectedDictionaryCell) else {
+            guard let indexPath = phraseBookListTableView.indexPath(for: selectedPhraseBookCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             selectedPhraseBook = phraseBookList[indexPath.row]

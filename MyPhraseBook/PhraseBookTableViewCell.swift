@@ -10,7 +10,7 @@ import UIKit
 
 class PhraseBookTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var myDictionaryName: UILabel!
+    @IBOutlet weak var phraseBookName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
