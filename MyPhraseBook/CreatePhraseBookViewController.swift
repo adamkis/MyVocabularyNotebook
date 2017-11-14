@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreatePhraseBookViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var sourceLanguage: UIPickerView!
     @IBOutlet weak var targetLanguage: UIPickerView!

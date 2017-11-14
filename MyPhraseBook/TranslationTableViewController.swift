@@ -221,11 +221,11 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
             PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
         }
         
-        if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
+        if let sourceViewController = sender.source as? CreatePhraseBookViewController, let createdDictionary = sourceViewController.createdDictionary {
             // Dictionary created
             showSelectedDictionary(myDictionary: createdDictionary)
         }
-        if let sourceViewController = sender.source as? MyDictionariesViewController, let unwindedSelectedDictionary = sourceViewController.selectedDictionary {
+        if let sourceViewController = sender.source as? PhraseBookListViewController, let unwindedSelectedDictionary = sourceViewController.selectedDictionary {
             // Dictionary created
             showSelectedDictionary(myDictionary: unwindedSelectedDictionary)
         }

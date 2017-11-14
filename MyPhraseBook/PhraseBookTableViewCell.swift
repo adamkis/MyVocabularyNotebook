@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyDictionaryTableViewCell: UITableViewCell {
+class PhraseBookTableViewCell: UITableViewCell {
     
     @IBOutlet weak var myDictionaryName: UILabel!
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PhraseBookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Properties
     @IBOutlet weak var myDictionariesTableView: UITableView!
@@ -32,7 +32,7 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         
         let cellIdentifier = "MyDictionaryTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MyDictionaryTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PhraseBookTableViewCell  else {
             fatalError("The dequeued cell is not an instance of MyDictionaryTableViewCell.")
         }
         
@@ -52,7 +52,7 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
         case "CreateDictionary":
             print("Creating dictionary from Dictionaries list")
         case "dictionarySelected":
-            guard let selectedDictionaryCell = sender as? MyDictionaryTableViewCell else {
+            guard let selectedDictionaryCell = sender as? PhraseBookTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             guard let indexPath = myDictionariesTableView.indexPath(for: selectedDictionaryCell) else {
