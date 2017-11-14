@@ -27,7 +27,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         navigationItem.leftBarButtonItem = editButtonItem
         
         guard let savedPhraseBookId = PersistenceHelper.loadSelectedPhraseBookId() else{
-            self.performSegue(withIdentifier: "CreateDictionary", sender:self)
+            self.performSegue(withIdentifier: "CreatePhraseBook", sender:self)
             return
         }
         selectedPhraseBook = PersistenceHelper.loadPhraseBook(phraseBookId: savedPhraseBookId)
@@ -258,9 +258,9 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
                 }
                 translationDetailViewController.translation = selectedTranslation
                 translationDetailViewController.phraseBook = selectedPhraseBook
-            case "CreateDictionary":
+            case "CreatePhraseBook":
                 Utils.log("Creating new PhraseBook.")
-            case "MyDictionaries":
+            case "PhraseBookList":
                 Utils.log("Showing my PhraseBooks in a list.")
             case "ShowTestOut":
                 if selectedPhraseBook.translations.count < 1{
