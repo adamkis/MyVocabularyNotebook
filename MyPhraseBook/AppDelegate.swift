@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MyVocabularyNotebook
+//  MyPhraseBook
 //
 //  Created by Adam on 2017. 08. 29..
 //  Copyright © 2017. Adam. All rights reserved.

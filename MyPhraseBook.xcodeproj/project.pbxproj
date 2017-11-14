@@ -18,7 +18,7 @@
 		6671D45D1F555E6100BE86BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6671D45B1F555E6100BE86BE /* Main.storyboard */; };
 		6671D45F1F555E6100BE86BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6671D45E1F555E6100BE86BE /* Assets.xcassets */; };
 		6671D4621F555E6100BE86BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6671D4601F555E6100BE86BE /* LaunchScreen.storyboard */; };
-		6671D46D1F555E6200BE86BE /* MyVocabularyNotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D46C1F555E6200BE86BE /* MyVocabularyNotebookTests.swift */; };
+		6671D46D1F555E6200BE86BE /* MyPhraseBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D46C1F555E6200BE86BE /* MyPhraseBookTests.swift */; };
 		6671D47A1F56AB4400BE86BE /* TranslationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */; };
 		6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D47D1F580B3000BE86BE /* TranslationTableViewController.swift */; };
 		6671D4801F5983D800BE86BE /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D47F1F5983D800BE86BE /* Translation.swift */; };
@@ -56,7 +56,7 @@
 		6671D4611F555E6100BE86BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6671D4631F555E6100BE86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6671D4681F555E6200BE86BE /* MyPhraseBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPhraseBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6671D46C1F555E6200BE86BE /* MyVocabularyNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocabularyNotebookTests.swift; sourceTree = "<group>"; };
+		6671D46C1F555E6200BE86BE /* MyPhraseBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhraseBookTests.swift; sourceTree = "<group>"; };
 		6671D46E1F555E6200BE86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6671D4781F55771E00BE86BE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6671D4791F56AB4400BE86BE /* TranslationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		6671D46B1F555E6200BE86BE /* MyPhraseBookTests */ = {
 			isa = PBXGroup;
 			children = (
-				6671D46C1F555E6200BE86BE /* MyVocabularyNotebookTests.swift */,
+				6671D46C1F555E6200BE86BE /* MyPhraseBookTests.swift */,
 				6671D46E1F555E6200BE86BE /* Info.plist */,
 			);
 			path = MyPhraseBookTests;
@@ -310,7 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6671D46D1F555E6200BE86BE /* MyVocabularyNotebookTests.swift in Sources */,
+				6671D46D1F555E6200BE86BE /* MyPhraseBookTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,9 +497,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MyVocabularyNotebookTests/Info.plist;
+				INFOPLIST_FILE = MyPhraseBookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyVocabularyNotebookTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyPhraseBookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -512,9 +512,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = MyVocabularyNotebookTests/Info.plist;
+				INFOPLIST_FILE = MyPhraseBookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyVocabularyNotebookTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyPhraseBookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

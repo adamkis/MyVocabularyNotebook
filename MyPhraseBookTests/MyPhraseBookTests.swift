@@ -1,15 +1,15 @@
 //
-//  MyVocabularyNotebookTests.swift
-//  MyVocabularyNotebookTests
+//  MyPhraseBookTests.swift
+//  MyPhraseBookTests
 //
 //  Created by Adam on 2017. 08. 29..
 //  Copyright © 2017. Adam. All rights reserved.
 //
 
 import XCTest
-@testable import MyVocabularyNotebook
+@testable import MyPhraseBook
 
-class MyVocabularyNotebookTests: XCTestCase {
+class MyPhraseBookTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

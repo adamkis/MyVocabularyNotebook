@@ -1,6 +1,6 @@
 //
 //  CreateDictionaryViewController.swift
-//  MyVocabularyNotebook
+//  MyPhraseBook
 //
 //  Created by Adam on 2017. 09. 12..
 //  Copyright © 2017. Adam. All rights reserved.

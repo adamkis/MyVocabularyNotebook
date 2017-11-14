@@ -1,6 +1,6 @@
 //
 //  TranslationViewController.swift
-//  MyVocabularyNotebook
+//  MyPhraseBook
 //
 //  Created by Adam on 2017. 09. 02..
 //  Copyright © 2017. Adam. All rights reserved.

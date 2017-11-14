@@ -1,6 +1,6 @@
 //
 //  TestOutCardViewController.swift
-//  MyVocabularyNotebook
+//  MyPhraseBook
 //
 //  Created by Adam on 2017. 10. 17..
 //  Copyright © 2017. Adam. All rights reserved.

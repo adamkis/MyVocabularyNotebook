@@ -1,6 +1,6 @@
 //
 //  Translation.swift
-//  MyVocabularyNotebook
+//  MyPhraseBook
 //
 //  Created by Adam on 2017. 09. 01..
 //  Copyright © 2017. Adam. All rights reserved.
