@@ -1,5 +1,5 @@
 //
-//  MyDictionariesViewController.swift
+//  PhraseBookListViewController.swift
 //  MyPhraseBook
 //
 //  Created by Adam on 2017. 09. 17..
@@ -11,32 +11,32 @@ import UIKit
 class PhraseBookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Properties
-    @IBOutlet weak var myDictionariesTableView: UITableView!
-    var myDictionaries: [PhraseBook] = [PhraseBook]()
-    var selectedDictionary: PhraseBook!
+    @IBOutlet weak var phraseBookListTableView: UITableView!
+    var phraseBookList: [PhraseBook] = [PhraseBook]()
+    var selectedPhraseBook: PhraseBook!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myDictionaries = PersistenceHelper.getPhraseBookList()
-        myDictionariesTableView.delegate = self
-        myDictionariesTableView.dataSource = self
+        phraseBookList = PersistenceHelper.getPhraseBookList()
+        phraseBookListTableView.delegate = self
+        phraseBookListTableView.dataSource = self
     }
 
     // MARK: - Table view Delegate Methods
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myDictionaries.count
+        return phraseBookList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "MyDictionaryTableViewCell"
+        let cellIdentifier = "PhraseBookTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PhraseBookTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MyDictionaryTableViewCell.")
+            fatalError("The dequeued cell is not an instance of PhraseBookTableViewCell.")
         }
         
-        let myDictionary = myDictionaries[indexPath.row]
+        let myDictionary = phraseBookList[indexPath.row]
         
         cell.myDictionaryName.text = myDictionary.getDisplayName()
         
@@ -55,10 +55,10 @@ class PhraseBookListViewController: UIViewController, UITableViewDelegate, UITab
             guard let selectedDictionaryCell = sender as? PhraseBookTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
-            guard let indexPath = myDictionariesTableView.indexPath(for: selectedDictionaryCell) else {
+            guard let indexPath = phraseBookListTableView.indexPath(for: selectedDictionaryCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
-            selectedDictionary = myDictionaries[indexPath.row]
+            selectedPhraseBook = phraseBookList[indexPath.row]
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }

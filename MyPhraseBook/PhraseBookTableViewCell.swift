@@ -1,5 +1,5 @@
 //
-//  MyDictionaryTableViewCell.swift
+//  PhraseBookTableViewCell.swift
 //  MyPhraseBook
 //
 //  Created by Adam on 2017. 09. 17..

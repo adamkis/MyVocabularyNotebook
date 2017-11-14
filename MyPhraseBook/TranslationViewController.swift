@@ -18,7 +18,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var targetLanguageName: UILabel!
     
     var translation: Translation?
-    var myDictionary: PhraseBook?
+    var phraseBook: PhraseBook?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +48,8 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         targetTranslationView.layer.borderWidth = borderWidth
         targetTranslationView.layer.cornerRadius = cornerRadius
         
-        sourceLanguageName.text = myDictionary?.sourceLanguageName
-        targetLanguageName.text = myDictionary?.targetLanguageName
+        sourceLanguageName.text = phraseBook?.sourceLanguageName
+        targetLanguageName.text = phraseBook?.targetLanguageName
         
     }
 

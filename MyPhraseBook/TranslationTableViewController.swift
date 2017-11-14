@@ -11,8 +11,8 @@ import UIKit
 class TranslationTableViewController: UITableViewController, UISearchResultsUpdating {
 
     // MARK: Properties
-    var selectedDictionary: PhraseBook!
-    var filteredDictionary: PhraseBook!
+    var selectedPhraseBook: PhraseBook!
+    var filteredPhraseBook: PhraseBook!
     var emptyLabel: UILabel?
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -20,26 +20,25 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         super.viewDidLoad()
         
         // Testing printing things
-        UserDefaults.standard.removeObject(forKey: "DICTIONARY_KEY")
         PersistenceHelper.printAllUserDefaults()
         PersistenceHelper.printAllFilesInDirectory()
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        guard let savedDictionaryId = PersistenceHelper.loadSelectedPhraseBookId() else{
+        guard let savedPhraseBookId = PersistenceHelper.loadSelectedPhraseBookId() else{
             self.performSegue(withIdentifier: "CreateDictionary", sender:self)
             return
         }
-        selectedDictionary = PersistenceHelper.loadPhraseBook(phraseBookId: savedDictionaryId)
-        if (selectedDictionary.translations.count < 1){
+        selectedPhraseBook = PersistenceHelper.loadPhraseBook(phraseBookId: savedPhraseBookId)
+        if (selectedPhraseBook.translations.count < 1){
             showEmptyMessage()
         }
         
-        self.title = selectedDictionary.getDisplayName()
+        self.title = selectedPhraseBook.getDisplayName()
         
         // Setting up search
-        filteredDictionary = PhraseBook(selectedDictionary)
+        filteredPhraseBook = PhraseBook(selectedPhraseBook)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = UIColor.customTurquoiseDark
@@ -59,7 +58,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredDictionary.translations = selectedDictionary.translations.filter({( translation : Translation) -> Bool in
+        filteredPhraseBook.translations = selectedPhraseBook.translations.filter({( translation : Translation) -> Bool in
             let textToCompare = translation.sourceTranslation.lowercased() + translation.targetTranslation.lowercased()
             return textToCompare.contains(searchText.lowercased())
         })
@@ -77,15 +76,15 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
-            if filteredDictionary != nil {
-                return filteredDictionary.translations.count
+            if filteredPhraseBook != nil {
+                return filteredPhraseBook.translations.count
             }
             else{
                 return 0
             }
         }
-        if( selectedDictionary != nil ){
-            return selectedDictionary.translations.count
+        if( selectedPhraseBook != nil ){
+            return selectedPhraseBook.translations.count
         }
         else{
             return 0
@@ -103,11 +102,10 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         
         let translation: Translation
         if isFiltering() {
-            translation = filteredDictionary.translations[indexPath.row]
+            translation = filteredPhraseBook.translations[indexPath.row]
         } else {
-            translation = selectedDictionary.translations[indexPath.row]
+            translation = selectedPhraseBook.translations[indexPath.row]
         }
-//        let translation = selectedDictionary.translations[indexPath.row]
         
         cell.translationLabel1.text = translation.sourceTranslation
         cell.translationLabel2.text = translation.targetTranslation
@@ -130,8 +128,8 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            selectedDictionary.translations.remove(at: indexPath.row)
-            PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
+            selectedPhraseBook.translations.remove(at: indexPath.row)
+            PersistenceHelper.savePhraseBook(phraseBook: selectedPhraseBook)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -140,10 +138,10 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let itemToMove:Translation = selectedDictionary.translations[fromIndexPath.row]
-        selectedDictionary.translations.remove(at: fromIndexPath.row)
-        selectedDictionary.translations.insert(itemToMove, at: to.row)
-        PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
+        let itemToMove:Translation = selectedPhraseBook.translations[fromIndexPath.row]
+        selectedPhraseBook.translations.remove(at: fromIndexPath.row)
+        selectedPhraseBook.translations.insert(itemToMove, at: to.row)
+        PersistenceHelper.savePhraseBook(phraseBook: selectedPhraseBook)
     }
     
     // Override to support conditional rearranging of the table view.
@@ -156,33 +154,33 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     //MARK: Private methods
 
     private func showEmptyMessage(){
-        let emptyText = NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when dictionary is empty")
+        let emptyText = NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when PhraseBook is empty")
         emptyLabel = TableViewHelper.EmptyMessage(message: emptyText, viewController: self)
     }
     
     
     func showTestOutNotPossibleAlert(){
-        let testOutNotPossibleAlert = UIAlertController(title: NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when dictionary is empty"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let testOutNotPossibleAlert = UIAlertController(title: NSLocalizedString("You don't have any translations yet.\nTap the plus icon to make your first one", comment: "Show this when PhraseBook is empty"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
         testOutNotPossibleAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in }))
         present(testOutNotPossibleAlert, animated: true, completion: nil)
     }
 
-    func showSelectedDictionary(myDictionary: PhraseBook){
-        PersistenceHelper.saveSelectedPhraseBookId(phraseBook: myDictionary)
-        selectedDictionary = myDictionary
-        PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
-        self.title = selectedDictionary.getDisplayName()
+    func showSelectedPhraseBook(phraseBook: PhraseBook){
+        PersistenceHelper.saveSelectedPhraseBookId(phraseBook: phraseBook)
+        selectedPhraseBook = phraseBook
+        PersistenceHelper.savePhraseBook(phraseBook: selectedPhraseBook)
+        self.title = selectedPhraseBook.getDisplayName()
         self.tableView.reloadData()
-        if (selectedDictionary.translations.count < 1){
+        if (selectedPhraseBook.translations.count < 1){
             showEmptyMessage()
         }
     }
     
-    func shareDictionary(myDictionary: PhraseBook){
-        // get the extraction of the dictionary
-        let dictionaryExtractString = myDictionary.getShareString()
+    func sharePhraseBook(phraseBook: PhraseBook){
+        // get the extraction of the PhraseBook
+        let phraseBookExtractString = phraseBook.getShareString()
         // set up activity view controller
-        let textToShare = [ dictionaryExtractString ]
+        let textToShare = [ phraseBookExtractString ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         // so that iPads won't crash
         activityViewController.popoverPresentationController?.sourceView = self.view
@@ -193,8 +191,8 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     
     //MARK: Navigation
     @IBAction func sharePressed(_ sender: Any) {
-        Utils.print(selectedDictionary.getShareString())
-        shareDictionary(myDictionary: selectedDictionary)
+        Utils.print(selectedPhraseBook.getShareString())
+        sharePhraseBook(phraseBook: selectedPhraseBook)
     }
     
     @IBAction func unwindToTranslationList(sender: UIStoryboardSegue) {
@@ -208,26 +206,26 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         if let sourceViewController = sender.source as? TranslationViewController, let translation = sourceViewController.translation {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing translation.
-                selectedDictionary.translations[selectedIndexPath.row] = translation
+                selectedPhraseBook.translations[selectedIndexPath.row] = translation
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else{
                 // Add new translation
-                let newIndexPath = IndexPath(row: selectedDictionary.translations.count, section: 0)
-                selectedDictionary.translations.append(translation)
+                let newIndexPath = IndexPath(row: selectedPhraseBook.translations.count, section: 0)
+                selectedPhraseBook.translations.append(translation)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
-            // Save the dictionary.
-            PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
+            // Save the PhraseBook.
+            PersistenceHelper.savePhraseBook(phraseBook: selectedPhraseBook)
         }
         
-        if let sourceViewController = sender.source as? CreatePhraseBookViewController, let createdDictionary = sourceViewController.createdDictionary {
-            // Dictionary created
-            showSelectedDictionary(myDictionary: createdDictionary)
+        if let sourceViewController = sender.source as? CreatePhraseBookViewController, let createdPhraseBook = sourceViewController.createdPhraseBook {
+            // PhraseBook created
+            showSelectedPhraseBook(phraseBook: createdPhraseBook)
         }
-        if let sourceViewController = sender.source as? PhraseBookListViewController, let unwindedSelectedDictionary = sourceViewController.selectedDictionary {
-            // Dictionary created
-            showSelectedDictionary(myDictionary: unwindedSelectedDictionary)
+        if let sourceViewController = sender.source as? PhraseBookListViewController, let unwindedSelectedPhraseBook = sourceViewController.selectedPhraseBook {
+            // PhraseBook created
+            showSelectedPhraseBook(phraseBook: unwindedSelectedPhraseBook)
         }
         
     }
@@ -238,7 +236,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
             case "AddItem":
                 let navVC = segue.destination as! UINavigationController
                 let addTranslationViewController = navVC.viewControllers.first as! TranslationViewController
-                addTranslationViewController.myDictionary = selectedDictionary
+                addTranslationViewController.phraseBook = selectedPhraseBook
                 Utils.log("Adding a new translation.")
             case "ShowDetail":
                 guard let translationDetailViewController = segue.destination as? TranslationViewController else {
@@ -254,18 +252,18 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
                 }
                 let selectedTranslation: Translation
                 if isFiltering() {
-                    selectedTranslation = filteredDictionary.translations[indexPath.row]
+                    selectedTranslation = filteredPhraseBook.translations[indexPath.row]
                 } else {
-                    selectedTranslation = selectedDictionary.translations[indexPath.row]
+                    selectedTranslation = selectedPhraseBook.translations[indexPath.row]
                 }
                 translationDetailViewController.translation = selectedTranslation
-                translationDetailViewController.myDictionary = selectedDictionary
+                translationDetailViewController.phraseBook = selectedPhraseBook
             case "CreateDictionary":
-                Utils.log("Creating new dictionary.")
+                Utils.log("Creating new PhraseBook.")
             case "MyDictionaries":
-                Utils.log("Showing my dictionaries in a list.")
+                Utils.log("Showing my PhraseBooks in a list.")
             case "ShowTestOut":
-                if selectedDictionary.translations.count < 1{
+                if selectedPhraseBook.translations.count < 1{
                     showTestOutNotPossibleAlert()
                     return
                 }

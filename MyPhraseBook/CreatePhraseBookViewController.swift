@@ -1,5 +1,5 @@
 //
-//  CreateDictionaryViewController.swift
+//  CreatePhraseBookViewController.swift
 //  MyPhraseBook
 //
 //  Created by Adam on 2017. 09. 12..
@@ -22,7 +22,7 @@ class CreatePhraseBookViewController: UIViewController, UIPickerViewDataSource, 
     var selectedSourceLanguage: (id: String, name: String)!
     var selectedTargetLanguage: (id: String, name: String)!
     
-    var createdDictionary: PhraseBook!
+    var createdPhraseBook: PhraseBook!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,22 +79,22 @@ class CreatePhraseBookViewController: UIViewController, UIPickerViewDataSource, 
             return true
         }
 
-        let myDictionaries = PersistenceHelper.getPhraseBookList()
-        for myDictionary in myDictionaries{
-            if( myDictionary.sourceLanguageCode == selectedSourceLanguage.id && myDictionary.targetLanguageCode == selectedTargetLanguage.id ){
-                showDictionaryAlreadyExistsAlert()
+        let phraseBookList = PersistenceHelper.getPhraseBookList()
+        for phraseBook in phraseBookList{
+            if( phraseBook.sourceLanguageCode == selectedSourceLanguage.id && phraseBook.targetLanguageCode == selectedTargetLanguage.id ){
+                showPhraseBookAlreadyExistsAlert()
                 return false
             }
         }
 
-        createdDictionary = PhraseBook(sourceLanguageCode: selectedSourceLanguage.id, targetLanguageCode: selectedTargetLanguage.id, sourceLanguageName: selectedSourceLanguage.name, targetLanguageName: selectedTargetLanguage.name, translations: nil)
+        createdPhraseBook = PhraseBook(sourceLanguageCode: selectedSourceLanguage.id, targetLanguageCode: selectedTargetLanguage.id, sourceLanguageName: selectedSourceLanguage.name, targetLanguageName: selectedTargetLanguage.name, translations: nil)
         return true
     }
     
-    func showDictionaryAlreadyExistsAlert(){
-        let dictionaryAlreadyExistsAlert = UIAlertController(title: NSLocalizedString("Dictionary already exists", comment: "Show this when the user wants to create a dictionary when it already exists - otherwise it overwrites the old dictionary"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
-        dictionaryAlreadyExistsAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in }))
-        present(dictionaryAlreadyExistsAlert, animated: true, completion: nil)
+    func showPhraseBookAlreadyExistsAlert(){
+        let phraseBookAlreadyExistsAlert = UIAlertController(title: NSLocalizedString("PhraseBook already exists", comment: "Show this when the user wants to create a PhraseBook when it already exists - otherwise it overwrites the old PhraseBook"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        phraseBookAlreadyExistsAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in }))
+        present(phraseBookAlreadyExistsAlert, animated: true, completion: nil)
     }
 
     
