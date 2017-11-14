@@ -13,6 +13,7 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
     @IBOutlet weak var sourceLanguage: UIPickerView!
     @IBOutlet weak var targetLanguage: UIPickerView!
     @IBOutlet weak var saveButtonNavBar: UIBarButtonItem!
+    @IBOutlet weak var cancelButtonNavBar: UIBarButtonItem!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sourceLanguageLabel: UILabel!
     @IBOutlet weak var targetLanguageLabel: UILabel!
@@ -70,18 +71,32 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        super.prepare(for: segue, sender: sender)
-        
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButtonNavBar else {
-            Utils.log("The save button was not pressed, cancelling")
-            return
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        super.shouldPerformSegue( withIdentifier: identifier, sender: sender)
+
+        if let button = sender as? UIBarButtonItem,  button === cancelButtonNavBar {
+            Utils.log("Cancel button pressed")
+            return true
         }
-        
+
+        let myDictionaries = PersistenceHelper.getAllDictionaries()
+        for myDictionary in myDictionaries{
+            if( myDictionary.sourceLanguageCode == selectedSourceLanguage.id && myDictionary.targetLanguageCode == selectedTargetLanguage.id ){
+                showDictionaryAlreadyExistsAlert()
+                return false
+            }
+        }
+
         createdDictionary = MyDictionary(sourceLanguageCode: selectedSourceLanguage.id, targetLanguageCode: selectedTargetLanguage.id, sourceLanguageName: selectedSourceLanguage.name, targetLanguageName: selectedTargetLanguage.name, translations: nil)
+        return true
     }
+    
+    func showDictionaryAlreadyExistsAlert(){
+        let dictionaryAlreadyExistsAlert = UIAlertController(title: NSLocalizedString("Dictionary already exists", comment: "Show this when the user wants to create a dictionary when it already exists - otherwise it overwrites the old dictionary"), message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        dictionaryAlreadyExistsAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in }))
+        present(dictionaryAlreadyExistsAlert, animated: true, completion: nil)
+    }
+
     
     @available(iOS 2.0, *)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -19,3 +19,5 @@
 
 // At test out end
 "Finish" = "Vége";
+
+"Dictionary already exists" = "Ez a szótár már létezik";

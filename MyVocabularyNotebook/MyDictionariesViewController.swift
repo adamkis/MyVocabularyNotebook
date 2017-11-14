@@ -12,26 +12,12 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: Properties
     @IBOutlet weak var myDictionariesTableView: UITableView!
-    let documentsUrl: URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//    let documentsUrl: URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("PhraseBooks")
     var myDictionaries: [MyDictionary] = [MyDictionary]()
     var selectedDictionary: MyDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        do {
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            for url in directoryContents{
-                let myDictionary: MyDictionary? = PersistenceHelper.loadDictionary(url: url)
-                if( myDictionary != nil ){
-                    myDictionaries.append(myDictionary!)
-                }
-            }
-        } catch let error as NSError {
-            Utils.print(error.localizedDescription)
-        }
-        
+        myDictionaries = PersistenceHelper.getAllDictionaries()
         myDictionariesTableView.delegate = self
         myDictionariesTableView.dataSource = self
     }

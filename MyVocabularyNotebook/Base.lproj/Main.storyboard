@@ -212,6 +212,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButtonNavBar" destination="dlN-vB-CKv" id="s6r-A5-cN9"/>
                         <outlet property="saveButtonNavBar" destination="0Ip-Ex-iVU" id="jbA-u1-Dte"/>
                         <outlet property="sourceLanguage" destination="77A-MF-tGY" id="UUt-ym-VLu"/>
                         <outlet property="sourceLanguageLabel" destination="Ont-Rn-qCC" id="69E-tH-YXd"/>

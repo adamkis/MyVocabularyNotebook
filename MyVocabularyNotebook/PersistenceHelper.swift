@@ -66,6 +66,22 @@ class PersistenceHelper: NSObject {
         return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: dictionaryId).path) as? MyDictionary
     }
     
+    open class func getAllDictionaries() -> [MyDictionary]{
+        var myDictionaries = [MyDictionary]()
+        do {
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: PhraseBooksDirectory, includingPropertiesForKeys: nil, options: [])
+            for url in directoryContents{
+                let myDictionary: MyDictionary? = PersistenceHelper.loadDictionary(url: url)
+                if( myDictionary != nil ){
+                    myDictionaries.append(myDictionary!)
+                }
+            }
+        } catch let error as NSError {
+            Utils.print(error.localizedDescription)
+        }
+        return myDictionaries
+    }
+    
     open class func printAllFilesInDirectory(){
         // Get the document directory url
         let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
