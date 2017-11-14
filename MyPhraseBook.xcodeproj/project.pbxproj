@@ -49,13 +49,13 @@
 		664848BC1F682ABB00F5BD7D /* CreateDictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDictionaryViewController.swift; sourceTree = "<group>"; };
 		665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		666EE0241F641ED400F8CE8D /* MyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDictionary.swift; sourceTree = "<group>"; };
-		6671D4541F555E6100BE86BE /* MyVocabularyNotebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVocabularyNotebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6671D4541F555E6100BE86BE /* MyPhraseBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPhraseBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6671D4571F555E6100BE86BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6671D45C1F555E6100BE86BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6671D45E1F555E6100BE86BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6671D4611F555E6100BE86BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6671D4631F555E6100BE86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6671D4681F555E6200BE86BE /* MyVocabularyNotebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyVocabularyNotebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6671D4681F555E6200BE86BE /* MyPhraseBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPhraseBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6671D46C1F555E6200BE86BE /* MyVocabularyNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVocabularyNotebookTests.swift; sourceTree = "<group>"; };
 		6671D46E1F555E6200BE86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6671D4781F55771E00BE86BE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 		6671D44B1F555E6100BE86BE = {
 			isa = PBXGroup;
 			children = (
-				6671D4561F555E6100BE86BE /* MyVocabularyNotebook */,
-				6671D46B1F555E6200BE86BE /* MyVocabularyNotebookTests */,
+				6671D4561F555E6100BE86BE /* MyPhraseBook */,
+				6671D46B1F555E6200BE86BE /* MyPhraseBookTests */,
 				6671D4551F555E6100BE86BE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,13 +139,13 @@
 		6671D4551F555E6100BE86BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6671D4541F555E6100BE86BE /* MyVocabularyNotebook.app */,
-				6671D4681F555E6200BE86BE /* MyVocabularyNotebookTests.xctest */,
+				6671D4541F555E6100BE86BE /* MyPhraseBook.app */,
+				6671D4681F555E6200BE86BE /* MyPhraseBookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6671D4561F555E6100BE86BE /* MyVocabularyNotebook */ = {
+		6671D4561F555E6100BE86BE /* MyPhraseBook */ = {
 			isa = PBXGroup;
 			children = (
 				666EE0231F641B4400F8CE8D /* Misc */,
@@ -158,16 +158,16 @@
 				6671D4631F555E6100BE86BE /* Info.plist */,
 				66F2AB231F8BA0940064AE29 /* Localizable.strings */,
 			);
-			path = MyVocabularyNotebook;
+			path = MyPhraseBook;
 			sourceTree = "<group>";
 		};
-		6671D46B1F555E6200BE86BE /* MyVocabularyNotebookTests */ = {
+		6671D46B1F555E6200BE86BE /* MyPhraseBookTests */ = {
 			isa = PBXGroup;
 			children = (
 				6671D46C1F555E6200BE86BE /* MyVocabularyNotebookTests.swift */,
 				6671D46E1F555E6200BE86BE /* Info.plist */,
 			);
-			path = MyVocabularyNotebookTests;
+			path = MyPhraseBookTests;
 			sourceTree = "<group>";
 		};
 		66F2AB1C1F8B88B50064AE29 /* Extensions */ = {
@@ -182,9 +182,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6671D4531F555E6100BE86BE /* MyVocabularyNotebook */ = {
+		6671D4531F555E6100BE86BE /* MyPhraseBook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6671D4711F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyVocabularyNotebook" */;
+			buildConfigurationList = 6671D4711F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyPhraseBook" */;
 			buildPhases = (
 				6671D4501F555E6100BE86BE /* Sources */,
 				6671D4511F555E6100BE86BE /* Frameworks */,
@@ -194,14 +194,14 @@
 			);
 			dependencies = (
 			);
-			name = MyVocabularyNotebook;
+			name = MyPhraseBook;
 			productName = MyVocabularyNotebook;
-			productReference = 6671D4541F555E6100BE86BE /* MyVocabularyNotebook.app */;
+			productReference = 6671D4541F555E6100BE86BE /* MyPhraseBook.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6671D4671F555E6200BE86BE /* MyVocabularyNotebookTests */ = {
+		6671D4671F555E6200BE86BE /* MyPhraseBookTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6671D4741F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyVocabularyNotebookTests" */;
+			buildConfigurationList = 6671D4741F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyPhraseBookTests" */;
 			buildPhases = (
 				6671D4641F555E6200BE86BE /* Sources */,
 				6671D4651F555E6200BE86BE /* Frameworks */,
@@ -212,9 +212,9 @@
 			dependencies = (
 				6671D46A1F555E6200BE86BE /* PBXTargetDependency */,
 			);
-			name = MyVocabularyNotebookTests;
+			name = MyPhraseBookTests;
 			productName = MyVocabularyNotebookTests;
-			productReference = 6671D4681F555E6200BE86BE /* MyVocabularyNotebookTests.xctest */;
+			productReference = 6671D4681F555E6200BE86BE /* MyPhraseBookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -241,7 +241,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6671D44F1F555E6100BE86BE /* Build configuration list for PBXProject "MyVocabularyNotebook" */;
+			buildConfigurationList = 6671D44F1F555E6100BE86BE /* Build configuration list for PBXProject "MyPhraseBook" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -254,8 +254,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6671D4531F555E6100BE86BE /* MyVocabularyNotebook */,
-				6671D4671F555E6200BE86BE /* MyVocabularyNotebookTests */,
+				6671D4531F555E6100BE86BE /* MyPhraseBook */,
+				6671D4671F555E6200BE86BE /* MyPhraseBookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -319,7 +319,7 @@
 /* Begin PBXTargetDependency section */
 		6671D46A1F555E6200BE86BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6671D4531F555E6100BE86BE /* MyVocabularyNotebook */;
+			target = 6671D4531F555E6100BE86BE /* MyPhraseBook */;
 			targetProxy = 6671D4691F555E6200BE86BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -469,9 +469,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GE78767PWY;
-				INFOPLIST_FILE = MyVocabularyNotebook/Info.plist;
+				INFOPLIST_FILE = MyPhraseBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyVocabularyNotebook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyPhraseBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -483,9 +483,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GE78767PWY;
-				INFOPLIST_FILE = MyVocabularyNotebook/Info.plist;
+				INFOPLIST_FILE = MyPhraseBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyVocabularyNotebook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamkis.MyPhraseBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -503,7 +503,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyVocabularyNotebook.app/MyVocabularyNotebook";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyPhraseBook.app/MyPhraseBook";
 			};
 			name = Debug;
 		};
@@ -518,14 +518,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyVocabularyNotebook.app/MyVocabularyNotebook";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyPhraseBook.app/MyPhraseBook";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6671D44F1F555E6100BE86BE /* Build configuration list for PBXProject "MyVocabularyNotebook" */ = {
+		6671D44F1F555E6100BE86BE /* Build configuration list for PBXProject "MyPhraseBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6671D46F1F555E6200BE86BE /* Debug */,
@@ -534,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6671D4711F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyVocabularyNotebook" */ = {
+		6671D4711F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyPhraseBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6671D4721F555E6200BE86BE /* Debug */,
@@ -543,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6671D4741F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyVocabularyNotebookTests" */ = {
+		6671D4741F555E6200BE86BE /* Build configuration list for PBXNativeTarget "MyPhraseBookTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6671D4751F555E6200BE86BE /* Debug */,
