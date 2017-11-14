@@ -50,7 +50,7 @@ class PhraseBook: NSObject, NSCoding, NSCopying{
     }
     
     public func getArchiveUrl() -> URL{
-        return PersistenceHelper.PhraseBooksDirectory.appendingPathComponent(getPhraseBookID())
+        return PersistenceHelper.PhraseBookListDirectory.appendingPathComponent(getPhraseBookID())
     }
     
     public func getDisplayName() -> String{

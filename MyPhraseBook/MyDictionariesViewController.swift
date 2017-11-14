@@ -17,7 +17,7 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myDictionaries = PersistenceHelper.getAllPhraseBooks()
+        myDictionaries = PersistenceHelper.getPhraseBookList()
         myDictionariesTableView.delegate = self
         myDictionariesTableView.dataSource = self
     }

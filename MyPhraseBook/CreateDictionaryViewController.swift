@@ -79,7 +79,7 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
             return true
         }
 
-        let myDictionaries = PersistenceHelper.getAllPhraseBooks()
+        let myDictionaries = PersistenceHelper.getPhraseBookList()
         for myDictionary in myDictionaries{
             if( myDictionary.sourceLanguageCode == selectedSourceLanguage.id && myDictionary.targetLanguageCode == selectedTargetLanguage.id ){
                 showDictionaryAlreadyExistsAlert()

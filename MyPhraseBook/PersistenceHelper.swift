@@ -13,9 +13,9 @@ class PersistenceHelper: NSObject {
     static let SELECTED_PHRASEBOOK_KEY = "SELECTED_PHRASEBOOK_KEY"
     
     // Root document directory - currently unused
-    static let PhraseBooksDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    // PhraseBooks sirectory
-//    static let PhraseBooksDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("PhraseBooks")
+    static let PhraseBookListDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    // PhraseBookList sirectory
+//    static let PhraseBookListDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("PhraseBookList")
     
     
     // MARK: User Defaults
@@ -53,7 +53,7 @@ class PersistenceHelper: NSObject {
     }
     
     open class func getArchiveUrl(phraseBookId: String!) -> URL {
-        return PhraseBooksDirectory.appendingPathComponent(phraseBookId)
+        return PhraseBookListDirectory.appendingPathComponent(phraseBookId)
     }
     
     
@@ -66,20 +66,20 @@ class PersistenceHelper: NSObject {
         return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(phraseBookId: phraseBookId).path) as? PhraseBook
     }
     
-    open class func getAllPhraseBooks() -> [PhraseBook]{
-        var phraseBooks = [PhraseBook]()
+    open class func getPhraseBookList() -> [PhraseBook]{
+        var phraseBookList = [PhraseBook]()
         do {
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: PhraseBooksDirectory, includingPropertiesForKeys: nil, options: [])
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: PhraseBookListDirectory, includingPropertiesForKeys: nil, options: [])
             for url in directoryContents{
                 let phraseBook: PhraseBook? = PersistenceHelper.loadPhraseBook(url: url)
                 if( phraseBook != nil ){
-                    phraseBooks.append(phraseBook!)
+                    phraseBookList.append(phraseBook!)
                 }
             }
         } catch let error as NSError {
             Utils.print(error.localizedDescription)
         }
-        return phraseBooks
+        return phraseBookList
     }
     
     open class func printAllFilesInDirectory(){
