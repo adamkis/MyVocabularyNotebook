@@ -12,12 +12,12 @@ class MyDictionariesViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: Properties
     @IBOutlet weak var myDictionariesTableView: UITableView!
-    var myDictionaries: [MyDictionary] = [MyDictionary]()
-    var selectedDictionary: MyDictionary!
+    var myDictionaries: [PhraseBook] = [PhraseBook]()
+    var selectedDictionary: PhraseBook!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myDictionaries = PersistenceHelper.getAllDictionaries()
+        myDictionaries = PersistenceHelper.getAllPhraseBooks()
         myDictionariesTableView.delegate = self
         myDictionariesTableView.dataSource = self
     }

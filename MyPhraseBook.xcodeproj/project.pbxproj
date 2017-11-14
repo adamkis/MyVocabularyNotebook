@@ -13,7 +13,7 @@
 		661C07381F6E7D7400D04CBD /* MyDictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C07371F6E7D7400D04CBD /* MyDictionaryTableViewCell.swift */; };
 		664848BD1F682ABB00F5BD7D /* CreateDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664848BC1F682ABB00F5BD7D /* CreateDictionaryViewController.swift */; };
 		665ED69F1F6D2FC6001DAE94 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */; };
-		666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666EE0241F641ED400F8CE8D /* MyDictionary.swift */; };
+		666EE0251F641ED400F8CE8D /* PhraseBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666EE0241F641ED400F8CE8D /* PhraseBook.swift */; };
 		6671D4581F555E6100BE86BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4571F555E6100BE86BE /* AppDelegate.swift */; };
 		6671D45D1F555E6100BE86BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6671D45B1F555E6100BE86BE /* Main.storyboard */; };
 		6671D45F1F555E6100BE86BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6671D45E1F555E6100BE86BE /* Assets.xcassets */; };
@@ -48,7 +48,7 @@
 		661C07371F6E7D7400D04CBD /* MyDictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		664848BC1F682ABB00F5BD7D /* CreateDictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDictionaryViewController.swift; sourceTree = "<group>"; };
 		665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
-		666EE0241F641ED400F8CE8D /* MyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDictionary.swift; sourceTree = "<group>"; };
+		666EE0241F641ED400F8CE8D /* PhraseBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhraseBook.swift; sourceTree = "<group>"; };
 		6671D4541F555E6100BE86BE /* MyPhraseBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPhraseBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6671D4571F555E6100BE86BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6671D45C1F555E6100BE86BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				6671D47F1F5983D800BE86BE /* Translation.swift */,
-				666EE0241F641ED400F8CE8D /* MyDictionary.swift */,
+				666EE0241F641ED400F8CE8D /* PhraseBook.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 				664848BD1F682ABB00F5BD7D /* CreateDictionaryViewController.swift in Sources */,
 				66F2AB1E1F8B895F0064AE29 /* UIColor+CustomColor.swift in Sources */,
 				6671D47E1F580B3000BE86BE /* TranslationTableViewController.swift in Sources */,
-				666EE0251F641ED400F8CE8D /* MyDictionary.swift in Sources */,
+				666EE0251F641ED400F8CE8D /* PhraseBook.swift in Sources */,
 				6671D4841F5FD91B00BE86BE /* TableViewHelper.swift in Sources */,
 				661A96141F73B5020044DE9B /* CloudManager.swift in Sources */,
 				661C07341F6D7BF500D04CBD /* Utils.swift in Sources */,

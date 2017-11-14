@@ -18,7 +18,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var targetLanguageName: UILabel!
     
     var translation: Translation?
-    var myDictionary: MyDictionary?
+    var myDictionary: PhraseBook?
     
     override func viewDidLoad() {
         super.viewDidLoad()

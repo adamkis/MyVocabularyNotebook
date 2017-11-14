@@ -10,7 +10,7 @@ import UIKit
 
 class PersistenceHelper: NSObject {
 
-    static let SELECTED_DICTIONARY_KEY = "SELECTED_DICTIONARY_KEY"
+    static let SELECTED_PHRASEBOOK_KEY = "SELECTED_PHRASEBOOK_KEY"
     
     // Root document directory - currently unused
     static let PhraseBooksDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -20,17 +20,17 @@ class PersistenceHelper: NSObject {
     
     // MARK: User Defaults
     
-    open class func saveSelectedDictionaryId(myDictionary: MyDictionary){
+    open class func saveSelectedPhraseBookId(phraseBook: PhraseBook){
         let userDefaults = UserDefaults.standard
-        userDefaults.setValue(myDictionary.getDictionaryID(), forKey: SELECTED_DICTIONARY_KEY)
+        userDefaults.setValue(phraseBook.getPhraseBookID(), forKey: SELECTED_PHRASEBOOK_KEY)
         userDefaults.synchronize()
-        Utils.print("Saved dictionary: Source lang: \(myDictionary.sourceLanguageName), Target Lang: \(myDictionary.targetLanguageName), Dict object: \(myDictionary)")
+        Utils.print("Saved PhraseBook: Source lang: \(phraseBook.sourceLanguageName), Target Lang: \(phraseBook.targetLanguageName), Dict object: \(phraseBook)")
     }
     
     
-    open class func loadSelectedDictionaryId() -> String?{
+    open class func loadSelectedPhraseBookId() -> String?{
         let userDefaults = UserDefaults.standard
-        return userDefaults.value(forKey: SELECTED_DICTIONARY_KEY) as? String
+        return userDefaults.value(forKey: SELECTED_PHRASEBOOK_KEY) as? String
     }
     
     open class func printAllUserDefaults(){
@@ -43,8 +43,8 @@ class PersistenceHelper: NSObject {
     
     // MARK: Storing in files - NSKeyedArchiver
     
-    open class func saveDictionary(selectedDictionary: MyDictionary) {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(selectedDictionary, toFile: selectedDictionary.getArchiveUrl().path)
+    open class func savePhraseBook(phraseBook: PhraseBook) {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(phraseBook, toFile: phraseBook.getArchiveUrl().path)
         if isSuccessfulSave {
             Utils.log("Translations successfully saved.")
         } else {
@@ -52,34 +52,34 @@ class PersistenceHelper: NSObject {
         }
     }
     
-    open class func getArchiveUrl(dictionaryId: String!) -> URL {
-        return PhraseBooksDirectory.appendingPathComponent(dictionaryId)
+    open class func getArchiveUrl(phraseBookId: String!) -> URL {
+        return PhraseBooksDirectory.appendingPathComponent(phraseBookId)
     }
     
     
-    open class func loadDictionary(url: URL) -> MyDictionary?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: url.path) as? MyDictionary
+    open class func loadPhraseBook(url: URL) -> PhraseBook?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: url.path) as? PhraseBook
     }
     
     
-    open class func loadDictionary(dictionaryId: String) -> MyDictionary?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(dictionaryId: dictionaryId).path) as? MyDictionary
+    open class func loadPhraseBook(phraseBookId: String) -> PhraseBook?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: getArchiveUrl(phraseBookId: phraseBookId).path) as? PhraseBook
     }
     
-    open class func getAllDictionaries() -> [MyDictionary]{
-        var myDictionaries = [MyDictionary]()
+    open class func getAllPhraseBooks() -> [PhraseBook]{
+        var phraseBooks = [PhraseBook]()
         do {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: PhraseBooksDirectory, includingPropertiesForKeys: nil, options: [])
             for url in directoryContents{
-                let myDictionary: MyDictionary? = PersistenceHelper.loadDictionary(url: url)
-                if( myDictionary != nil ){
-                    myDictionaries.append(myDictionary!)
+                let phraseBook: PhraseBook? = PersistenceHelper.loadPhraseBook(url: url)
+                if( phraseBook != nil ){
+                    phraseBooks.append(phraseBook!)
                 }
             }
         } catch let error as NSError {
             Utils.print(error.localizedDescription)
         }
-        return myDictionaries
+        return phraseBooks
     }
     
     open class func printAllFilesInDirectory(){

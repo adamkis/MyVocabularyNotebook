@@ -12,7 +12,7 @@ import UIKit
 
 class TestOutPageViewController: UIPageViewController {
     
-    var selectedDictionary: MyDictionary!
+    var selectedDictionary: PhraseBook!
     
     var pageControl: UIPageControl? = nil
     
@@ -27,11 +27,11 @@ class TestOutPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let savedDictionaryId = PersistenceHelper.loadSelectedDictionaryId() else{
+        guard let savedDictionaryId = PersistenceHelper.loadSelectedPhraseBookId() else{
             self.performSegue(withIdentifier: "CreateDictionary", sender:self)
             return
         }
-        selectedDictionary = PersistenceHelper.loadDictionary(dictionaryId: savedDictionaryId)
+        selectedDictionary = PersistenceHelper.loadPhraseBook(phraseBookId: savedDictionaryId)
         selectedDictionary.translations = selectedDictionary.translations.shuffled.choose(10)
         selectedDictionary.randomizeForTestOut()
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyDictionary: NSObject, NSCoding, NSCopying{
+class PhraseBook: NSObject, NSCoding, NSCopying{
 
     // MARK: Properties
     var sourceLanguageCode: String
@@ -45,12 +45,12 @@ class MyDictionary: NSObject, NSCoding, NSCopying{
         }
     }
     
-    public func getDictionaryID() -> String{
+    public func getPhraseBookID() -> String{
         return self.sourceLanguageCode + "::" + self.targetLanguageCode
     }
     
     public func getArchiveUrl() -> URL{
-        return PersistenceHelper.PhraseBooksDirectory.appendingPathComponent(getDictionaryID())
+        return PersistenceHelper.PhraseBooksDirectory.appendingPathComponent(getPhraseBookID())
     }
     
     public func getDisplayName() -> String{
@@ -59,7 +59,7 @@ class MyDictionary: NSObject, NSCoding, NSCopying{
     
     public func getShareString() -> String {
         var output: String = ""
-        output = output + "[[[ " + getDisplayName() + " ]]]" + "\n[[[ " + getDictionaryID() + " ]]]" + "\n" + "--------------------------------------" + "\n"
+        output = output + "[[[ " + getDisplayName() + " ]]]" + "\n[[[ " + getPhraseBookID() + " ]]]" + "\n" + "--------------------------------------" + "\n"
         var lineNumber = 1
         for translation in translations{
             output = output + String(lineNumber) + ": " + translation.sourceTranslation + " ~~~ " + translation.targetTranslation + "\n"
@@ -114,7 +114,7 @@ class MyDictionary: NSObject, NSCoding, NSCopying{
         return type(of:self).init(self)
     }
     
-    required init(_ dictionary: MyDictionary) {
+    required init(_ dictionary: PhraseBook) {
         sourceLanguageCode = dictionary.sourceLanguageCode
         targetLanguageCode = dictionary.targetLanguageCode
         sourceLanguageName = dictionary.sourceLanguageName

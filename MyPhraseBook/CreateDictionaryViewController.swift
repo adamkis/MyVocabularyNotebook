@@ -22,7 +22,7 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
     var selectedSourceLanguage: (id: String, name: String)!
     var selectedTargetLanguage: (id: String, name: String)!
     
-    var createdDictionary: MyDictionary!
+    var createdDictionary: PhraseBook!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,7 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
             return true
         }
 
-        let myDictionaries = PersistenceHelper.getAllDictionaries()
+        let myDictionaries = PersistenceHelper.getAllPhraseBooks()
         for myDictionary in myDictionaries{
             if( myDictionary.sourceLanguageCode == selectedSourceLanguage.id && myDictionary.targetLanguageCode == selectedTargetLanguage.id ){
                 showDictionaryAlreadyExistsAlert()
@@ -87,7 +87,7 @@ class CreateDictionaryViewController: UIViewController, UIPickerViewDataSource, 
             }
         }
 
-        createdDictionary = MyDictionary(sourceLanguageCode: selectedSourceLanguage.id, targetLanguageCode: selectedTargetLanguage.id, sourceLanguageName: selectedSourceLanguage.name, targetLanguageName: selectedTargetLanguage.name, translations: nil)
+        createdDictionary = PhraseBook(sourceLanguageCode: selectedSourceLanguage.id, targetLanguageCode: selectedTargetLanguage.id, sourceLanguageName: selectedSourceLanguage.name, targetLanguageName: selectedTargetLanguage.name, translations: nil)
         return true
     }
     

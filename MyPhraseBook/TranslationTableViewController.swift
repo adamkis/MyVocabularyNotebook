@@ -11,8 +11,8 @@ import UIKit
 class TranslationTableViewController: UITableViewController, UISearchResultsUpdating {
 
     // MARK: Properties
-    var selectedDictionary: MyDictionary!
-    var filteredDictionary: MyDictionary!
+    var selectedDictionary: PhraseBook!
+    var filteredDictionary: PhraseBook!
     var emptyLabel: UILabel?
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -27,11 +27,11 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        guard let savedDictionaryId = PersistenceHelper.loadSelectedDictionaryId() else{
+        guard let savedDictionaryId = PersistenceHelper.loadSelectedPhraseBookId() else{
             self.performSegue(withIdentifier: "CreateDictionary", sender:self)
             return
         }
-        selectedDictionary = PersistenceHelper.loadDictionary(dictionaryId: savedDictionaryId)
+        selectedDictionary = PersistenceHelper.loadPhraseBook(phraseBookId: savedDictionaryId)
         if (selectedDictionary.translations.count < 1){
             showEmptyMessage()
         }
@@ -39,7 +39,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         self.title = selectedDictionary.getDisplayName()
         
         // Setting up search
-        filteredDictionary = MyDictionary(selectedDictionary)
+        filteredDictionary = PhraseBook(selectedDictionary)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = UIColor.customTurquoiseDark
@@ -131,7 +131,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         if editingStyle == .delete {
             // Delete the row from the data source
             selectedDictionary.translations.remove(at: indexPath.row)
-            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+            PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -143,7 +143,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         let itemToMove:Translation = selectedDictionary.translations[fromIndexPath.row]
         selectedDictionary.translations.remove(at: fromIndexPath.row)
         selectedDictionary.translations.insert(itemToMove, at: to.row)
-        PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+        PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
     }
     
     // Override to support conditional rearranging of the table view.
@@ -167,10 +167,10 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         present(testOutNotPossibleAlert, animated: true, completion: nil)
     }
 
-    func showSelectedDictionary(myDictionary: MyDictionary){
-        PersistenceHelper.saveSelectedDictionaryId(myDictionary: myDictionary)
+    func showSelectedDictionary(myDictionary: PhraseBook){
+        PersistenceHelper.saveSelectedPhraseBookId(phraseBook: myDictionary)
         selectedDictionary = myDictionary
-        PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+        PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
         self.title = selectedDictionary.getDisplayName()
         self.tableView.reloadData()
         if (selectedDictionary.translations.count < 1){
@@ -178,7 +178,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
         }
     }
     
-    func shareDictionary(myDictionary: MyDictionary){
+    func shareDictionary(myDictionary: PhraseBook){
         // get the extraction of the dictionary
         let dictionaryExtractString = myDictionary.getShareString()
         // set up activity view controller
@@ -218,7 +218,7 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             // Save the dictionary.
-            PersistenceHelper.saveDictionary(selectedDictionary: selectedDictionary)
+            PersistenceHelper.savePhraseBook(phraseBook: selectedDictionary)
         }
         
         if let sourceViewController = sender.source as? CreateDictionaryViewController, let createdDictionary = sourceViewController.createdDictionary {
