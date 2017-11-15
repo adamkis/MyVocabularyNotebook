@@ -1,5 +1,5 @@
 //
-//  MyDictionary.swift
+//  PhraseBook.swift
 //  MyPhraseBook
 //
 //  Created by Adam on 2017. 09. 09..
@@ -114,13 +114,13 @@ class PhraseBook: NSObject, NSCoding, NSCopying{
         return type(of:self).init(self)
     }
     
-    required init(_ dictionary: PhraseBook) {
-        sourceLanguageCode = dictionary.sourceLanguageCode
-        targetLanguageCode = dictionary.targetLanguageCode
-        sourceLanguageName = dictionary.sourceLanguageName
-        targetLanguageName = dictionary.targetLanguageName
+    required init(_ phraseBook: PhraseBook) {
+        sourceLanguageCode = phraseBook.sourceLanguageCode
+        targetLanguageCode = phraseBook.targetLanguageCode
+        sourceLanguageName = phraseBook.sourceLanguageName
+        targetLanguageName = phraseBook.targetLanguageName
         translations = [Translation]()
-        for translation in dictionary.translations {
+        for translation in phraseBook.translations {
             translations.append(Translation(translation))
         }
     }

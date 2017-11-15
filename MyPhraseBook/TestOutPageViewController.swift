@@ -12,7 +12,7 @@ import UIKit
 
 class TestOutPageViewController: UIPageViewController {
     
-    var selectedDictionary: PhraseBook!
+    var selectedPhraseBook: PhraseBook!
     
     var pageControl: UIPageControl? = nil
     
@@ -27,13 +27,13 @@ class TestOutPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let savedDictionaryId = PersistenceHelper.loadSelectedPhraseBookId() else{
-            self.performSegue(withIdentifier: "CreateDictionary", sender:self)
+        guard let savedPhraseBookId = PersistenceHelper.loadSelectedPhraseBookId() else{
+            self.performSegue(withIdentifier: "CreatePhraseBook", sender:self)
             return
         }
-        selectedDictionary = PersistenceHelper.loadPhraseBook(phraseBookId: savedDictionaryId)
-        selectedDictionary.translations = selectedDictionary.translations.shuffled.choose(10)
-        selectedDictionary.randomizeForTestOut()
+        selectedPhraseBook = PersistenceHelper.loadPhraseBook(phraseBookId: savedPhraseBookId)
+        selectedPhraseBook.translations = selectedPhraseBook.translations.shuffled.choose(10)
+        selectedPhraseBook.randomizeForTestOut()
         
         reloadData()
         setViewControllers([initialViewController], direction: .forward, animated: false, completion: nil)
@@ -83,7 +83,7 @@ extension TestOutPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        if let viewController = viewController as? TestOutCardViewController, let pageIndex = viewController.pageIndex, pageIndex < selectedDictionary.translations.count - 1 {
+        if let viewController = viewController as? TestOutCardViewController, let pageIndex = viewController.pageIndex, pageIndex < selectedPhraseBook.translations.count - 1 {
             return viewControllerAtIndex(pageIndex + 1)
         }
 
@@ -91,7 +91,7 @@ extension TestOutPageViewController: UIPageViewControllerDataSource {
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return selectedDictionary.translations.count
+        return selectedPhraseBook.translations.count
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
@@ -112,7 +112,7 @@ extension TestOutPageViewController: ViewControllerProvider {
         if let cardViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestOutCardViewController") as? TestOutCardViewController {
 
             cardViewController.pageIndex = index
-            cardViewController.translation = selectedDictionary.translations[index]
+            cardViewController.translation = selectedPhraseBook.translations[index]
 
             return cardViewController
         }

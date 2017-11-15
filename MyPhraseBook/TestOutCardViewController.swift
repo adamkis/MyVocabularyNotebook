@@ -86,7 +86,7 @@ class TestOutCardViewController: UIViewController {
         itWasRightButton.addGestureRecognizer(itWasRightGestureRecogniser)
         
         // Handle last page
-        if(pageIndex! == (parentPVC?.selectedDictionary.translations.count)!-1){
+        if(pageIndex! == (parentPVC?.selectedPhraseBook.translations.count)!-1){
             nextButton.setTitle("Finish", for: .normal)
             let finishTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(finish))
             nextButton.addGestureRecognizer(finishTapRecogniser)
@@ -111,12 +111,12 @@ class TestOutCardViewController: UIViewController {
     @objc func finish() {
         
         var goodGuessCount = 0
-        for translation in (parentPVC?.selectedDictionary.translations)!{
+        for translation in (parentPVC?.selectedPhraseBook.translations)!{
             if translation.wasGuessRight() {
                 goodGuessCount += 1
             }
         }
-        let refreshAlert = UIAlertController(title: "Results: \(goodGuessCount)/\(parentPVC?.selectedDictionary.translations.count ?? 0)", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: "Results: \(goodGuessCount)/\(parentPVC?.selectedPhraseBook.translations.count ?? 0)", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             self.performSegue(withIdentifier: "finishTestOut", sender: self)
         }))
@@ -147,7 +147,7 @@ class TestOutCardViewController: UIViewController {
     @objc func flip() {
         
         setGuess(guess: targetTranslation.text)
-        parentPVC?.selectedDictionary.translations[pageIndex!].guess = targetTranslation.text!
+        parentPVC?.selectedPhraseBook.translations[pageIndex!].guess = targetTranslation.text!
         parentPVC?.reloadData()
         setIsCorrectIndication()
         
