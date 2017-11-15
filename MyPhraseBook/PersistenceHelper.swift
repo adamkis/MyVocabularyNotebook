@@ -91,7 +91,7 @@ class PersistenceHelper: NSObject {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
             Utils.print("Printing all files in Document Directory")
             Utils.print(directoryContents)
-            Utils.print("Printing all files in Document Directory - end")
+            Utils.print("Printing all files in Document Directory - end\n---------\n------\n------")
             
         } catch let error as NSError {
             Utils.print(error.localizedDescription)
