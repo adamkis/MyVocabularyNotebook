@@ -66,6 +66,7 @@
 		6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		66A74DD21F96649500B062D1 /* TestOutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOutPageViewController.swift; sourceTree = "<group>"; };
 		66A74DD41F96662100B062D1 /* TestOutCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOutCardViewController.swift; sourceTree = "<group>"; };
+		66BEB98B1FBC381800AD33E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		66F2AB221F8BA0940064AE29 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		66F2AB241F8BA0FB0064AE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -330,6 +331,7 @@
 			children = (
 				6671D45C1F555E6100BE86BE /* Base */,
 				66F2AB261F8BAAD90064AE29 /* hu */,
+				66BEB98B1FBC381800AD33E4 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

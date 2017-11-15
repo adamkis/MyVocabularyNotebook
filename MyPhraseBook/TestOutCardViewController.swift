@@ -87,12 +87,14 @@ class TestOutCardViewController: UIViewController {
         
         // Handle last page
         if(pageIndex! == (parentPVC?.selectedPhraseBook.translations.count)!-1){
-            nextButton.setTitle("Finish", for: .normal)
+            let finishText = NSLocalizedString("Finish", comment: "Show this at the end of test out")
+            nextButton.setTitle(finishText, for: .normal)
             let finishTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(finish))
             nextButton.addGestureRecognizer(finishTapRecogniser)
         }
         else{
-            nextButton.setTitle("Next", for: .normal)
+            let nextText = NSLocalizedString("Next", comment: "Show this at test out to show next")
+            nextButton.setTitle(nextText, for: .normal)
             let nextTapRecogniser = UITapGestureRecognizer(target: self, action: #selector(nextCard))
             nextButton.addGestureRecognizer(nextTapRecogniser)
         }

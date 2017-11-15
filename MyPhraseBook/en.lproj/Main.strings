@@ -1,0 +1,75 @@
+////////////////////////////////////////////////////////////
+// JUST FOR STORYBOARD EDITING: Better visualisation
+////////////////////////////////////////////////////////////
+
+/* Class = "UILabel"; text = "Source language (Lorem) - Target language (Ipsum)"; ObjectID = "0wc-9G-eqa"; */
+"0wc-9G-eqa.text" = "Source language (Lorem) - Target language (Ipsum)";
+
+/* Class = "UILabel"; text = "Source language (Lorem)"; ObjectID = "5Cx-zB-4mE"; */
+"5Cx-zB-4mE.text" = "Source language (Lorem)";
+
+/* Class = "UILabel"; text = "Target language (Ipsum)"; ObjectID = "Ohr-bP-Izd"; */
+"Ohr-bP-Izd.text" = "Target language (Ipsum)";
+
+/* Class = "UILabel"; text = "X"; ObjectID = "RbT-Ws-XMU"; */
+"RbT-Ws-XMU.text" = "X";
+
+/* Class = "UILabel"; text = "Lorem Ipsum"; ObjectID = "Rfc-PS-kAo"; */
+"Rfc-PS-kAo.text" = "Lorem Ipsum";
+
+/* Class = "UILabel"; text = "Translation to ask (Lorem)"; ObjectID = "Ybj-ID-gbr"; */
+"Ybj-ID-gbr.text" = "Translation to ask (Lorem)";
+
+/* Class = "UILabel"; text = "Translation to ask (Lorem)"; ObjectID = "dLR-yr-4XJ"; */
+"dLR-yr-4XJ.text" = "Translation to ask (Lorem)";
+
+/* Class = "UILabel"; text = "The guess (Ipsum)"; ObjectID = "kP1-Ik-BgV"; */
+"kP1-Ik-BgV.text" = "The guess (Ipsum)";
+
+/* Class = "UILabel"; text = "Correct Answer (Lorem)"; ObjectID = "lOY-06-Obf"; */
+"lOY-06-Obf.text" = "Correct Answer (Lorem)";
+
+/* Class = "UILabel"; text = "Lorem Ipsum"; ObjectID = "lSP-i1-543"; */
+"lSP-i1-543.text" = "Lorem Ipsum";
+
+////////////////////////////////////////////////////////////
+// Translations in use
+////////////////////////////////////////////////////////////
+
+
+/* Class = "UILabel"; text = "I would like to save phrases"; ObjectID = "K1L-eh-aPS"; */
+"K1L-eh-aPS.text" = "I would like to save phrases";
+
+/* Class = "UILabel"; text = "and this language:"; ObjectID = "KKi-Mj-niR"; */
+"KKi-Mj-niR.text" = "and this language:";
+
+/* Class = "UILabel"; text = "between this language:"; ObjectID = "Ont-Rn-qCC"; */
+"Ont-Rn-qCC.text" = "between this language:";
+
+/* Class = "UIBarButtonItem"; title = "Share"; ObjectID = "R2f-AW-OEC"; */
+"R2f-AW-OEC.title" = "Share";
+
+/* Class = "UINavigationItem"; title = "My Phrases"; ObjectID = "UdL-IW-5KJ"; */
+"UdL-IW-5KJ.title" = "My Phrases";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "WOn-rD-BdF"; */
+"WOn-rD-BdF.normalTitle" = "Save";
+
+/* Class = "UINavigationItem"; title = "Phrase"; ObjectID = "v83-Vh-W43"; */
+"v83-Vh-W43.title" = "Phrase";
+
+/* Class = "UIBarButtonItem"; title = "PhraseBooks"; ObjectID = "zdM-Pv-jDo"; */
+"zdM-Pv-jDo.title" = "PhraseBooks";
+
+/* Class = "UIButton"; normalTitle = "It was right"; ObjectID = "ZKL-jz-DJP"; */
+"ZKL-jz-DJP.normalTitle" = "It was right";
+
+/* Class = "UIBarButtonItem"; title = "Test Out"; ObjectID = "eLW-JX-Mdn"; */
+"eLW-JX-Mdn.title" = "Test Out";
+
+/* Class = "UIButton"; normalTitle = "Show"; ObjectID = "sMX-t0-wnl"; */
+"sMX-t0-wnl.normalTitle" = "Show";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "4Q1-I3-Zdi"; */
+"4Q1-I3-Zdi.normalTitle" = "Next";
+
