@@ -20,10 +20,6 @@ class TranslationTableViewController: UITableViewController, UISearchResultsUpda
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Testing printing things
-        PersistenceHelper.printAllUserDefaults()
-        PersistenceHelper.printAllFilesInDirectory()
-        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         

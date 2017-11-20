@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ROGoogleTranslate
 
 class TranslationViewController: UIViewController, UITextViewDelegate {
 
@@ -50,6 +51,23 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         
         sourceLanguageName.text = phraseBook?.sourceLanguageName
         targetLanguageName.text = phraseBook?.targetLanguageName
+        
+        
+        // GOOGLE translate integration testing
+        let params = ROGoogleTranslateParams(source: "en",
+                                             target: "de",
+                                             text:   "Here you can add your sentence you want to be translated")
+        
+        //        let translator = ROGoogleTranslate(with: "API Key here")
+        let translator = ROGoogleTranslate()
+        translator.apiKey = "API_KEY"
+        
+        print("Translation started")
+        translator.translate(params: params) { (result) in
+            print("Translation: \(result)")
+        }
+        print("Translation ended")
+        
         
     }
 
