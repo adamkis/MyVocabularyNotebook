@@ -26,6 +26,7 @@
 		6671D4841F5FD91B00BE86BE /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */; };
 		66A74DD31F96649500B062D1 /* TestOutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A74DD21F96649500B062D1 /* TestOutPageViewController.swift */; };
 		66A74DD51F96662100B062D1 /* TestOutCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A74DD41F96662100B062D1 /* TestOutCardViewController.swift */; };
+		66B3EA091FC33156007C9BA0 /* SecretKeysHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B3EA081FC33156007C9BA0 /* SecretKeysHelper.swift */; };
 		66F2AB1E1F8B895F0064AE29 /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */; };
 		66F2AB211F8BA0940064AE29 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66F2AB231F8BA0940064AE29 /* Localizable.strings */; };
 		66FCB8081F9FB39C00BEE2E5 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FCB8071F9FB39C00BEE2E5 /* Array+Random.swift */; };
@@ -72,6 +73,7 @@
 		6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		66A74DD21F96649500B062D1 /* TestOutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOutPageViewController.swift; sourceTree = "<group>"; };
 		66A74DD41F96662100B062D1 /* TestOutCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOutCardViewController.swift; sourceTree = "<group>"; };
+		66B3EA081FC33156007C9BA0 /* SecretKeysHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeysHelper.swift; sourceTree = "<group>"; };
 		66BEB98B1FBC381800AD33E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		66F2AB1D1F8B895F0064AE29 /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		66F2AB221F8BA0940064AE29 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		666EE0231F641B4400F8CE8D /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				66B3EA071FC33116007C9BA0 /* SecretKeys */,
 				66F2AB1C1F8B88B50064AE29 /* Extensions */,
 				6671D4831F5FD91B00BE86BE /* TableViewHelper.swift */,
 				665ED69E1F6D2FC6001DAE94 /* PersistenceHelper.swift */,
@@ -190,6 +193,14 @@
 				6671D46E1F555E6200BE86BE /* Info.plist */,
 			);
 			path = MyPhraseBookTests;
+			sourceTree = "<group>";
+		};
+		66B3EA071FC33116007C9BA0 /* SecretKeys */ = {
+			isa = PBXGroup;
+			children = (
+				66B3EA081FC33156007C9BA0 /* SecretKeysHelper.swift */,
+			);
+			name = SecretKeys;
 			sourceTree = "<group>";
 		};
 		66F2AB1C1F8B88B50064AE29 /* Extensions */ = {
@@ -440,6 +451,7 @@
 				661C07361F6E786000D04CBD /* PhraseBookListViewController.swift in Sources */,
 				66A74DD51F96662100B062D1 /* TestOutCardViewController.swift in Sources */,
 				6671D4581F555E6100BE86BE /* AppDelegate.swift in Sources */,
+				66B3EA091FC33156007C9BA0 /* SecretKeysHelper.swift in Sources */,
 				661C07381F6E7D7400D04CBD /* PhraseBookTableViewCell.swift in Sources */,
 				6671D4801F5983D800BE86BE /* Translation.swift in Sources */,
 				6671D4821F5AB10600BE86BE /* TranslationViewController.swift in Sources */,

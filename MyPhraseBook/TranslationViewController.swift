@@ -60,7 +60,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         
         //        let translator = ROGoogleTranslate(with: "API Key here")
         let translator = ROGoogleTranslate()
-        translator.apiKey = "API_KEY"
+        translator.apiKey = SecretKeysHelper.GOOGLE_API_KEY
         
         print("Translation started")
         translator.translate(params: params) { (result) in
