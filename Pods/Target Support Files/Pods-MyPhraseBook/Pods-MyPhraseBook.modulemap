@@ -1,0 +1,6 @@
+framework module Pods_MyPhraseBook {
+  umbrella header "Pods-MyPhraseBook-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ROGoogleTranslate
 
 class TranslationTableViewController: UITableViewController, UISearchResultsUpdating {
 
