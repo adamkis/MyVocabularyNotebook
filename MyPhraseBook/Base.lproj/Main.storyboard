@@ -239,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JKO-DE-u4Q">
-                                <rect key="frame" x="20" y="71.999999999999986" width="374" height="242.66666666666663"/>
+                                <rect key="frame" x="20" y="72" width="374" height="298.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source language (Lorem)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cx-zB-4mE">
                                         <rect key="frame" x="0.0" y="0.0" width="193.33333333333334" height="20.333333333333332"/>
@@ -256,14 +256,35 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAs-Th-H44">
+                                        <rect key="frame" x="0.0" y="106.33333333333334" width="374" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwM-g1-LjQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="🔀"/>
+                                                <connections>
+                                                    <action selector="translateButtonTouchUpInside:" destination="IKm-wj-TiD" eventType="touchUpInside" id="cvM-Q3-rZ3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9v-k8-XVe">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="🔃"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bwM-g1-LjQ" firstAttribute="width" secondItem="J9v-k8-XVe" secondAttribute="width" id="CxM-X6-ee2"/>
+                                        </constraints>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target language (Ipsum)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohr-bP-Izd">
-                                        <rect key="frame" x="0.0" y="106.33333333333334" width="186.66666666666666" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="162.33333333333334" width="186.66666666666666" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V2i-nb-9dh">
-                                        <rect key="frame" x="0.0" y="134.66666666666666" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="190.66666666666669" width="374" height="70"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="SGc-0f-Puj"/>
@@ -272,7 +293,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOn-rD-BdF">
-                                        <rect key="frame" x="0.0" y="212.66666666666669" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="268.66666666666669" width="374" height="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <segue destination="mz2-mJ-bao" kind="unwind" unwindAction="unwindToTranslationListWithSender:" id="bJJ-9t-KHP"/>
@@ -280,6 +301,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zAs-Th-H44" secondAttribute="trailing" id="9E0-Yi-wAf"/>
                                     <constraint firstAttribute="trailing" secondItem="CIb-Mc-Q3L" secondAttribute="trailing" id="Ibr-kp-ZJd"/>
                                     <constraint firstAttribute="trailing" secondItem="V2i-nb-9dh" secondAttribute="trailing" id="PaE-bO-vkP"/>
                                     <constraint firstItem="WOn-rD-BdF" firstAttribute="centerX" secondItem="JKO-DE-u4Q" secondAttribute="centerX" id="WEL-4A-aEc"/>
@@ -312,6 +334,7 @@
                         <outlet property="sourceTranslationView" destination="CIb-Mc-Q3L" id="QZy-wQ-as8"/>
                         <outlet property="targetLanguageName" destination="Ohr-bP-Izd" id="abo-MX-Q4s"/>
                         <outlet property="targetTranslationView" destination="V2i-nb-9dh" id="p5l-8r-0c1"/>
+                        <outlet property="translateButton" destination="bwM-g1-LjQ" id="H3A-Td-Dab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0x3-z5-WJS" userLabel="First Responder" sceneMemberID="firstResponder"/>

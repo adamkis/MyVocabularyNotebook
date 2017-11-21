@@ -17,9 +17,11 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var sourceLanguageName: UILabel!
     @IBOutlet weak var targetLanguageName: UILabel!
+    @IBOutlet weak var translateButton: UIButton!
     
     var translation: Translation?
     var phraseBook: PhraseBook?
+    var translator: ROGoogleTranslate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,24 +54,30 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         sourceLanguageName.text = phraseBook?.sourceLanguageName
         targetLanguageName.text = phraseBook?.targetLanguageName
         
-        
-        // GOOGLE translate integration testing
-        let params = ROGoogleTranslateParams(source: "en",
-                                             target: "de",
-                                             text:   "Here you can add your sentence you want to be translated")
-        
-        //        let translator = ROGoogleTranslate(with: "API Key here")
-        let translator = ROGoogleTranslate()
-        translator.apiKey = SecretKeysHelper.GOOGLE_API_KEY
-        
-        print("Translation started")
-        translator.translate(params: params) { (result) in
-            print("Translation: \(result)")
-        }
-        print("Translation ended")
-        
+        // Google translate setup
+        translator = ROGoogleTranslate()
+        translator?.apiKey = SecretKeysHelper.GOOGLE_API_KEY
         
     }
+    
+    // MARK: Private methods
+    
+    @IBAction func translateButtonTouchUpInside(_ sender: Any) {
+        if( sourceTranslationView.text == nil || sourceTranslationView.text.count < 1 ){
+            return
+        }
+        let translateParams = ROGoogleTranslateParams(source: (phraseBook?.sourceLanguageCode)!,
+                                             target: (phraseBook?.targetLanguageCode)!,
+                                             text:   sourceTranslationView.text)
+        
+        translator?.translate(params: translateParams) { (result) in
+            DispatchQueue.main.async {
+                self.targetTranslationView.text = result
+            }
+        }
+        
+    }
+    
 
     // MARK: - Navigation
     
