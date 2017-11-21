@@ -18,10 +18,11 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var sourceLanguageName: UILabel!
     @IBOutlet weak var targetLanguageName: UILabel!
     @IBOutlet weak var translateButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var translation: Translation?
     var phraseBook: PhraseBook?
-    var translator: ROGoogleTranslate?
+    var translator: ROGoogleTranslate = ROGoogleTranslate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,30 +56,39 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         targetLanguageName.text = phraseBook?.targetLanguageName
         
         // Google translate setup
-        translator = ROGoogleTranslate()
-        translator?.apiKey = SecretKeysHelper.GOOGLE_API_KEY
+        translator.apiKey = SecretKeysHelper.GOOGLE_API_KEY
+        activityIndicator.alpha = 0
         
     }
     
     // MARK: Private methods
     
     @IBAction func translateButtonTouchUpInside(_ sender: Any) {
+        
+        // check if empty
         if( sourceTranslationView.text == nil || sourceTranslationView.text.count < 1 ){
             return
         }
+        
+        // show activity indicator
+        activityIndicator.alpha = 1
+        activityIndicator.startAnimating()
+        
+        // do translation
         let translateParams = ROGoogleTranslateParams(source: (phraseBook?.sourceLanguageCode)!,
                                              target: (phraseBook?.targetLanguageCode)!,
                                              text:   sourceTranslationView.text)
         
-        translator?.translate(params: translateParams) { (result) in
+        translator.translate(params: translateParams) { (result) in
             DispatchQueue.main.async {
                 self.targetTranslationView.text = result
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.alpha = 0
             }
         }
         
     }
     
-
     // MARK: - Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {

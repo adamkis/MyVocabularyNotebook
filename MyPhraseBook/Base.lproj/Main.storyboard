@@ -260,15 +260,18 @@
                                         <rect key="frame" x="0.0" y="106.33333333333334" width="374" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwM-g1-LjQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="🔀"/>
                                                 <connections>
                                                     <action selector="translateButtonTouchUpInside:" destination="IKm-wj-TiD" eventType="touchUpInside" id="cvM-Q3-rZ3"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MdG-jP-c8C">
+                                                <rect key="frame" x="177" y="0.0" width="20" height="48"/>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9v-k8-XVe">
-                                                <rect key="frame" x="187" y="0.0" width="187" height="48"/>
+                                                <rect key="frame" x="197" y="0.0" width="177" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="🔃"/>
                                             </button>
@@ -328,6 +331,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="MdG-jP-c8C" id="qIt-zn-UKt"/>
                         <outlet property="saveButton" destination="WOn-rD-BdF" id="WKa-Oe-mJp"/>
                         <outlet property="saveButtonNav" destination="OLE-dj-IcS" id="tmO-vl-nZ6"/>
                         <outlet property="sourceLanguageName" destination="5Cx-zB-4mE" id="GgO-cv-rQP"/>
