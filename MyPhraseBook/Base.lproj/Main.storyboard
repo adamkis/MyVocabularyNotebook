@@ -274,6 +274,9 @@
                                                 <rect key="frame" x="197" y="0.0" width="177" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="🔃"/>
+                                                <connections>
+                                                    <action selector="changeTextsButtonTouchUpInside:" destination="IKm-wj-TiD" eventType="touchUpInside" id="DGY-kH-HjV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

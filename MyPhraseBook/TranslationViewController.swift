@@ -89,6 +89,12 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    @IBAction func changeTextsButtonTouchUpInside(_ sender: Any) {
+        let sourceTranslationText = sourceTranslationView.text
+        sourceTranslationView.text = targetTranslationView.text
+        targetTranslationView.text = sourceTranslationText
+    }
+    
     // MARK: - Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
