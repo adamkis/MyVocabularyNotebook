@@ -79,11 +79,11 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
                                              target: (phraseBook?.targetLanguageCode)!,
                                              text:   sourceTranslationView.text)
         
-        translator.translate(params: translateParams) { (result) in
+        translator.translate(params: translateParams) { [weak self] (result) in
             DispatchQueue.main.async {
-                self.targetTranslationView.text = result
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.alpha = 0
+                self?.targetTranslationView.text = result
+                self?.activityIndicator.stopAnimating()
+                self?.activityIndicator.alpha = 0
             }
         }
         
