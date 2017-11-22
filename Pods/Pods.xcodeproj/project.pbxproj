@@ -33,11 +33,11 @@
 /* Begin PBXFileReference section */
 		0D3D23DE2F8C0A865D3B36D4D6D55E24 /* Pods-MyPhraseBook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyPhraseBook-dummy.m"; sourceTree = "<group>"; };
 		10E20629F790C0560B98DF2F59E6E0F0 /* Pods-MyPhraseBook-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyPhraseBook-frameworks.sh"; sourceTree = "<group>"; };
-		15F78BA757A8AB50F1F25C73EFDC84B3 /* Pods_MyPhraseBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyPhraseBook.framework; path = "Pods-MyPhraseBook.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15F78BA757A8AB50F1F25C73EFDC84B3 /* Pods_MyPhraseBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhraseBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E24EA43CC84EC788C8A8113195104FE /* Pods-MyPhraseBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyPhraseBook.debug.xcconfig"; sourceTree = "<group>"; };
 		1FB4B288660FE5FB78D0A87C51C3C829 /* ROGoogleTranslate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ROGoogleTranslate.swift; path = Source/ROGoogleTranslate.swift; sourceTree = "<group>"; };
-		27E96B2F2C49E68A570C135CFB032082 /* Pods-MyPhraseBookTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MyPhraseBookTests.modulemap"; sourceTree = "<group>"; };
-		348D080A7252E0ED5C0E940713E5A856 /* Pods-MyPhraseBook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MyPhraseBook.modulemap"; sourceTree = "<group>"; };
+		27E96B2F2C49E68A570C135CFB032082 /* Pods-MyPhraseBookTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyPhraseBookTests.modulemap"; sourceTree = "<group>"; };
+		348D080A7252E0ED5C0E940713E5A856 /* Pods-MyPhraseBook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyPhraseBook.modulemap"; sourceTree = "<group>"; };
 		38A5DFB82F7904A2B450B2CA70909781 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		444C4C66AD33EAF6198EA5C3BA0CBA2A /* ROGoogleTranslate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ROGoogleTranslate-umbrella.h"; sourceTree = "<group>"; };
 		562DC7828E331F10C794B7871BF053BE /* Pods-MyPhraseBook-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyPhraseBook-resources.sh"; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		86734D2130A82794843376E9BBB0F7DF /* Pods-MyPhraseBook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyPhraseBook-umbrella.h"; sourceTree = "<group>"; };
 		8A586ACD6E3A935E9A95A9330BB2FAA2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FA90D5A8E9292789444FA96263ED764 /* ROGoogleTranslate-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ROGoogleTranslate-prefix.pch"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96580EA22AC47395C5A507EC482E5898 /* Pods-MyPhraseBook-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyPhraseBook-acknowledgements.plist"; sourceTree = "<group>"; };
 		97D7E984AA2ED06FC886024282B47207 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9D5407B5465CB6328841D4C67308026E /* Pods-MyPhraseBook-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyPhraseBook-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -59,10 +59,10 @@
 		D93A7ED359264508CFE0AA5A1BF78137 /* Pods-MyPhraseBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyPhraseBookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D941D8DE195325E4BF990370107ED558 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE28644CCBEF8CAA4E2A94238FBF705E /* Pods-MyPhraseBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyPhraseBook.release.xcconfig"; sourceTree = "<group>"; };
-		E1ED2B173991E04D3F842A80627A6D71 /* ROGoogleTranslate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ROGoogleTranslate.modulemap; sourceTree = "<group>"; };
+		E1ED2B173991E04D3F842A80627A6D71 /* ROGoogleTranslate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ROGoogleTranslate.modulemap; sourceTree = "<group>"; };
 		E26DBC0CC4C46EB6E0354C2BDE9645E8 /* Pods-MyPhraseBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyPhraseBookTests.release.xcconfig"; sourceTree = "<group>"; };
-		E90DD585672F035B6B5092AA989631D8 /* ROGoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ROGoogleTranslate.framework; path = ROGoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB02C18CD1751232AB52180948435C34 /* Pods_MyPhraseBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyPhraseBookTests.framework; path = "Pods-MyPhraseBookTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90DD585672F035B6B5092AA989631D8 /* ROGoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ROGoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB02C18CD1751232AB52180948435C34 /* Pods_MyPhraseBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPhraseBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AF9EC704AAD470CAC8FE0D05A5430B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -127,7 +127,6 @@
 				1FB4B288660FE5FB78D0A87C51C3C829 /* ROGoogleTranslate.swift */,
 				F16F99D6EB0C07D1ADF4F2B04535DCC8 /* Support Files */,
 			);
-			name = ROGoogleTranslate;
 			path = ROGoogleTranslate;
 			sourceTree = "<group>";
 		};
@@ -299,7 +298,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -409,6 +408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
