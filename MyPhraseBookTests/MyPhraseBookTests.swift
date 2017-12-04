@@ -48,5 +48,15 @@ class MyPhraseBookTests: XCTestCase {
         XCTAssertEqual(sameWordsDistance, 1)
     }
     
+    func testGuessRight(){
+        let wasGuessRight = Utils.wasGuessRight(aStr: "Parachute", bStr: "Parachutdd")
+        XCTAssertEqual(wasGuessRight, true)
+    }
+    
+    func testGuessWrong(){
+        let wasGuessRight = Utils.wasGuessRight(aStr: "Cat", bStr: "freqfqrfreq")
+        XCTAssertEqual(wasGuessRight, false)
+    }
+    
     
 }
