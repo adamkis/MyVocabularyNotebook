@@ -21,16 +21,32 @@ class MyPhraseBookTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLevenshteinSameWord(){
+        let sameWordsDistance = Utils.levenshtein(aStr: "Cat", bStr: "Cat")
+        XCTAssertEqual(sameWordsDistance, 0)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testLevenshteinAllCharactersDifferent3Characters(){
+        let sameWordsDistance = Utils.levenshtein(aStr: "Cat", bStr: "Dog")
+        XCTAssertEqual(sameWordsDistance, 3)
     }
+    
+    func testLevenshteinAllCharactersDifferent4Characters(){
+        let sameWordsDistance = Utils.levenshtein(aStr: "Door", bStr: "cat")
+        XCTAssertEqual(sameWordsDistance, 4)
+    }
+    
+    func testLevenshteinRatioSameWord(){
+        let sameWordsDistance = Utils.levenshteinRatio(aStr: "Cat", bStr: "Cat")
+        XCTAssertEqual(sameWordsDistance, 0)
+    }
+    
+    
+    func testLevenshteinRatioAllCharactersDifferent(){
+        let sameWordsDistance = Utils.levenshteinRatio(aStr: "Cat", bStr: "Dog")
+        XCTAssertEqual(sameWordsDistance, 1)
+    }
+    
     
 }
