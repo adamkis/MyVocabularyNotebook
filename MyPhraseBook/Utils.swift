@@ -78,7 +78,7 @@ class Utils: NSObject {
     }
     
     open class func wasGuessRight(aStr: String, bStr: String) -> Bool {
-        return levenshteinRatio(aStr: aStr, bStr: bStr) < 0.5
+        return levenshteinRatio(aStr: aStr, bStr: bStr) < PersistenceHelper.loadGuessRightQuotient()
     }
     
     open class func pickRandomChar(inputString: String) -> Character {

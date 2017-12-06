@@ -11,6 +11,8 @@ import UIKit
 class PersistenceHelper: NSObject {
 
     static let SELECTED_PHRASEBOOK_KEY = "SELECTED_PHRASEBOOK_KEY"
+    static let GUESS_RIGHT_QUOTIENT_KEY = "GUESS_RIGHT_QUOTIENT_KEY"
+    static let guessRightCuotientChangeRate: Double = 0.01
     
     // Root document directory - currently unused
     static let PhraseBookListDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -19,6 +21,32 @@ class PersistenceHelper: NSObject {
     
     
     // MARK: User Defaults
+    
+    open class func saveGuessRightQuotient(quotient: Double){
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(quotient, forKey: GUESS_RIGHT_QUOTIENT_KEY)
+        userDefaults.synchronize()
+        Utils.print("Saved quotient: \(quotient)")
+    }
+    
+    
+    open class func loadGuessRightQuotient() -> Double{
+        let userDefaults = UserDefaults.standard
+        guard let loadedQuotient =  userDefaults.value(forKey: GUESS_RIGHT_QUOTIENT_KEY) as? Double else{
+            return 0.5
+        }
+        return loadedQuotient
+    }
+    
+    open class func increaseGuessRightQuotient(){
+        let loadedQuotient = loadGuessRightQuotient()
+        saveGuessRightQuotient(quotient: (loadedQuotient + guessRightCuotientChangeRate))
+    }
+    
+    open class func decreaseGuessRightQuotient(){
+        let loadedQuotient = loadGuessRightQuotient()
+        saveGuessRightQuotient(quotient: (loadedQuotient - guessRightCuotientChangeRate))
+    }
     
     open class func saveSelectedPhraseBookId(phraseBook: PhraseBook){
         let userDefaults = UserDefaults.standard

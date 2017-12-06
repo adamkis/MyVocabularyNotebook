@@ -104,6 +104,8 @@ class TestOutCardViewController: UIViewController {
     @objc func itWasRight() {
         translation?.guess = toGuess
         setIsCorrectIndication()
+        PersistenceHelper.increaseGuessRightQuotient()
+        Utils.print(PersistenceHelper.loadGuessRightQuotient())
     }
     
     @objc func nextCard() {
